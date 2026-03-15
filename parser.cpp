@@ -117,7 +117,7 @@ void readControl(params &params, string line){
     string value;
     getline(ss, value, ',');
     trimer(value);
-    
+
     while (!value.empty() && !isalnum(value.front())){value.erase(0,1);}
     while (!value.empty() && !isalnum(value.back())){value.pop_back();}
 
@@ -150,7 +150,6 @@ params parse(string file){
     map<string, int> m;
 
     while (getline(filestream, line)){
-        //cout << line << endl;
         if (line == "#Submissions"){
             getline(filestream, line);
             m = readLayout(line);
@@ -168,26 +167,20 @@ params parse(string file){
             reading = 4;
         }
         else if (!line.empty() && !(line[0] == '#')){
-            //cout << "Reading" << endl;
             switch (reading){
                 case 1:
-                    cout << "Read submission" << endl;
                     submissions.push_back(readSubmission(line, m));
                     break;
                 case 2:
-                    cout << "Read reviewer" << endl;
                     reviewers.push_back(readReviewer(line, m));
                     break;
                 case 3:
-                    cout << "Read parameter" << endl;
                     readParameter(params, line);
                     break;
                 case 4:
-                    cout << "Read control" << endl;
                     readControl(params, line);
                     break;
                 default:
-                    cout << "Read nothing :(" << endl;
                     break;
             }
         }
