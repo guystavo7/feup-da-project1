@@ -17,7 +17,7 @@ void assignmentFailureTest1() {
     unsigned int maxReviewsPerReviewer=3;
 
 
-    std::map<int, article>articleData={{1,{1,1}},{2,{2}},{3,{3,3,1}}};
+    std::map<int, submission>submissionData={{1,{1,1}},{2,{2,2}},{3,{3,3,1}}};
     std::map<int,reviewer> reviewerData={{4,{4,1}},{5,{5,1,2}},{6,{6,2}},{7,{7,2}},{8,{8,3}}};
 
     std::map<int,std::vector<int>>ligações{{1,{4,5}},{2,{5,6,7}},{3,{8,5,4}}};//ligações entre articles com vários reviewers (só com ids)
@@ -87,23 +87,23 @@ void assignmentFailureTest1() {
     bool assignmentSuccess=false;
 
 
-    std::vector<submission> submissions;
-    std::vector<failedSubmission> failedSubmissions;
+    std::vector<assignment> submissions;
+    std::vector<failedAssignment> failedSubmissions;
     bool allAssigned=false;
-    readGraphSubmissions(&graph,source,sink,articleData,reviewerData,submissions,failedSubmissions,allAssigned);
+    readGraphAssignments(&graph,source,sink,submissionData,reviewerData,submissions,failedSubmissions,allAssigned);
 
     if (failedSubmissions.empty())
     printf("allAssigned=%d\n",allAssigned);
 
     for (auto& fs:failedSubmissions) {
 
-        printf("article=%d with domain=%d failed missing %d submissions \n",fs.a->id,fs.a->primaryDomain,fs.missingSubmissions);
+        printf("article=%d with domain=%d failed missing %d assignments \n",fs.a->id,fs.a->primary,fs.missingSubmissions);
     }
 
     char buffer[1024];
     getcwd(buffer,1024);
     std::string path=std::string(buffer);
-    writeFailedSubmissions(path+"/output.txt",failedSubmissions);
+    writeFailedAssignments(path+"/output.txt",failedSubmissions);
 
 
 
@@ -116,7 +116,7 @@ void assigmentSuccessTest1() {
     unsigned int maxReviewsPerReviewer=3;
 
 
-    std::map<int, article>articleData={{1,{1,1}},{2,{2}},{3,{3,3,1}}};
+    std::map<int, submission>submissionData={{1,{1,1}},{2,{2,2}},{3,{3,3,1}}};
     std::map<int,reviewer> reviewerData={{4,{4,1}},{5,{5,1,2}},{6,{6,2}},{7,{7,2}},{8,{8,3}}};
 
     std::map<int,std::vector<int>>ligações{{1,{4,5}},{2,{5,6,7}},{3,{8,5,4}}};//ligações entre articles com vários reviewers (só com ids)
@@ -181,26 +181,26 @@ void assigmentSuccessTest1() {
     bool assignmentSuccess=false;
 
 
-    std::vector<submission> submissions;
-    std::vector<failedSubmission> failedSubmissions;
+    std::vector<assignment> assignments;
+    std::vector<failedAssignment> failedAssignments;
     bool allAssigned=false;
-    readGraphSubmissions(&graph,source,sink,articleData,reviewerData,submissions,failedSubmissions,allAssigned);
+    readGraphAssignments(&graph,source,sink,submissionData,reviewerData,assignments,failedAssignments,allAssigned);
 
-    if (failedSubmissions.empty())
+    if (failedAssignments.empty())
     printf("allAssigned=%d\n",allAssigned);
 
 
 
-    for (auto& s:submissions) {
+    for (auto& s:assignments) {
 
-        printf("article=%d with reviewer=%d  |  on the matching domain: %d  \n",s.a->id,s.rw->id,s.a->primaryDomain);
+        printf("article=%d with reviewer=%d  |  on the matching domain: %d  \n",s.a->id,s.rw->id,s.a->primary);
     }
 
 
     char buffer[1024];
     getcwd(buffer,1024);
      std::string path=std::string(buffer);
-    writeSubmissions(path+"/output.txt",submissions);
+    writeAssignments(path+"/output.txt",assignments);
 
 }
 #define RUNTEST 1
@@ -209,6 +209,11 @@ void assigmentSuccessTest1() {
 int main(){
 
 
-    assignmentFailureTest1();
+
+    assigmentSuccessTest1();
+
     return 0;
 }
+
+#endif
+

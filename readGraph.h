@@ -6,8 +6,11 @@
 #define DA_PROJECT_1_READGRAPH_H
 #include "DataStructs.h"
 
-void writeFailedSubmissions(const std::string& outputFilepath,const std::vector<failedSubmission>& failedSubmissions);
 
-void writeSubmissions(const std::string& outputFilepath,const std::vector<submission>& submissions);
+
+
+void writeAssignments(const std::string& outputFilepath,const std::vector<assignment>& assignments);
+
+void writeFailedAssignments(const std::string& outputFilepath,const std::vector<failedAssignment>& failedAssignments);
 
 #endif //DA_PROJECT_1_READGRAPH_H

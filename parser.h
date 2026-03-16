@@ -9,18 +9,18 @@ using namespace std;
 
 struct submission{
     int id;
-    string title;
-    string name;
-    string email;
+    string title="";
+    string name="";
+    string email="";
     int primary;
     int secondary = -1;
 };
 
 struct reviewer{
     int id;
-    string name;
-    string email;
-    int primary;
+    string name="";
+    string email="";
+    int primary="";
     int secondary = -1;
 };
 

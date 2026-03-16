@@ -12,7 +12,7 @@
 
 
 
-void writeSubmissions(const std::string& outputFilepath,const std::vector<submission>& submissions) {
+void writeAssignments(const std::string& outputFilepath,const std::vector<assignment>& assignments) {
     FILE* file=fopen(outputFilepath.data(),"w");
     if (file==NULL) {
         std::cerr << "Could not open file \"" << outputFilepath << "\"" << std::endl;
@@ -20,25 +20,25 @@ void writeSubmissions(const std::string& outputFilepath,const std::vector<submis
     printf("%s\n", outputFilepath.data());
 
     fprintf(file,"#SubmissionId,ReviewerId,Match\n");
-    for (auto& s:submissions) {
+    for (auto& s:assignments) {
 
-        fprintf(file,"%d, %d, %d\n",s.a->id,s.rw->id,s.a->primaryDomain);
+        fprintf(file,"%d, %d, %d\n",s.a->id,s.rw->id,s.a->primary);
     }
 
     fprintf(file,"#ReviewerId,SubmissionId,Match\n");
 
-    for (auto& s:submissions) {
+    for (auto& s:assignments) {
 
-        fprintf(file,"%d, %d, %d\n",s.rw->id,s.a->id,s.a->primaryDomain);
+        fprintf(file,"%d, %d, %d\n",s.rw->id,s.a->id,s.rw->primary);
     }
 
 
-    fprintf(file,"#Total: %lu\n",submissions.size());
+    fprintf(file,"#Total: %lu\n",assignments.size());
 
     fclose(file);
 }
 
-void writeFailedSubmissions(const std::string& outputFilepath,const std::vector<failedSubmission>& failedSubmissions) {
+void writeFailedAssignments(const std::string& outputFilepath,const std::vector<failedAssignment>& failedAssignments) {
     FILE* file=fopen(outputFilepath.data(),"w");
     if (file==NULL) {
         std::cerr << "Could not open file \"" << outputFilepath << "\"" << std::endl;
@@ -46,9 +46,9 @@ void writeFailedSubmissions(const std::string& outputFilepath,const std::vector<
     printf("%s\n", outputFilepath.data());
 
     fprintf(file,"#SubmissionId,Domain,MissingReviews\n");
-    for (auto& fs:failedSubmissions) {
+    for (auto& fs:failedAssignments) {
 
-        fprintf(file,"%d, %d, %d\n",fs.a->id,fs.a->primaryDomain,fs.missingSubmissions);
+        fprintf(file,"%d, %d, %d\n",fs.a->id,fs.a->primary,fs.missingSubmissions);
     }
 
     fclose(file);
