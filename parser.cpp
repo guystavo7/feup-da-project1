@@ -78,7 +78,7 @@ reviewer readReviewer(string line, map<string, int> order){
     res.name = fields[order["Name"]];
     res.email = fields[order["E-mail"]];
     res.primary = stoi(fields[order["Primary"]]);
-    res.secondary = order["Secondary"] < fields.size() ? stoi(fields[order["Secondary"]]) : -1;
+    res.secondary = order["Secondary"] < fields.size() ? stoi(fields[order["Secondary"]]) : -2;
 
     return res;
 }

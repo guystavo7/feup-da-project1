@@ -1,7 +1,7 @@
-#include "parser.h"
+#include "../parser.h"
 
 int main(){
-    params params = parse("input1.csv");
+    params params = parse("dataset13.csv");
 
     cout << "Submissions: " << params.submissions.size() << "\n";
     for (submission sub : params.submissions){

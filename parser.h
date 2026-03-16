@@ -21,7 +21,7 @@ struct reviewer{
     string name;
     string email;
     int primary;
-    int secondary = -1;
+    int secondary = -2;
 };
 
 struct params{
