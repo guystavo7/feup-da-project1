@@ -91,7 +91,11 @@ void edmondsKarp(Graph<T> *g, int source, int target) {
     // Find source and target vertices in the graph
 
 
-    //por flows a 0
+    for(auto v : g->getVertexSet()) {
+        for(auto e: v->getAdj()){
+            e->setFlow(0);
+        }
+    }
     Vertex<T>* s = g->findVertex(source);
     Vertex<T>* t = g->findVertex(target);
     while(findAugmentingPath(g,s,t)){
