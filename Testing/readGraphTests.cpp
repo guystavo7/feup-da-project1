@@ -1,12 +1,12 @@
 //
 #include <fcntl.h>
 
-#include "graph.h"
+#include "../graph.h"
 #include <limits>
 #include <map>
 #include <unistd.h>
-#include "DataStructs.h"
-#include "readGraph.h"
+#include "../DataStructs.h"
+#include "../readGraph.h"
 //
 // Created by gustavobastos on 13/03/26.
 //
@@ -212,4 +212,3 @@ int main(){
     assignmentFailureTest1();
     return 0;
 }
-#endif
