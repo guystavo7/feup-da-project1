@@ -21,14 +21,18 @@ Graph<int> create(params info){
         for(reviewer rev : info.reviewers){
             bool match=false;
 
-            if(info.GenerateAssignments==1 || info.GenerateAssignments==0){
-                match=(sub.primary==rev.primary);
+            if(info.GenerateAssignments==1){
+                match=(sub.primary==rev.primary && (info.PrimaryReviewerExpertise==1 && info.PrimarySubmissionDomain==1));
             }
             else if(info.GenerateAssignments== 2){
-                match=sub.primary == rev.primary || sub.secondary == rev.primary;
+                match=(sub.primary == rev.primary && (info.PrimaryReviewerExpertise==1 && info.PrimarySubmissionDomain==1))
+                || (sub.secondary == rev.primary && (info.PrimaryReviewerExpertise==1 && info.SecondarySubmissionDomain==1));
             }
             else if(info.GenerateAssignments == 3){
-                match= sub.primary== rev.primary || sub.primary== rev.secondary || sub.secondary== rev.primary || sub.secondary== rev.secondary;
+                match= (sub.primary== rev.primary && (info.PrimaryReviewerExpertise==1 && info.PrimarySubmissionDomain==1)) 
+                || (sub.primary== rev.secondary && (info.SecondaryReviewerExpertise==1 && info.PrimaryReviewerExpertise==1)) 
+                || (sub.secondary== rev.primary && (info.PrimaryReviewerExpertise==1 && info.SecondarySubmissionDomain==1)) 
+                || (sub.secondary== rev.secondary && (info.SecondaryReviewerExpertise==1 && info.SecondarySubmissionDomain==1));
             }
 
             if(match){
