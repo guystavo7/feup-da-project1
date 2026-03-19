@@ -18,10 +18,17 @@ struct submission{
 
 struct reviewer{
     int id;
+//old parser
+ //   string name;
+ //   string email;
+ //   int primary;
+ //   int secondary = -2;
+  
     string name="";
     string email="";
-    int primary="";
-    int secondary = -1;
+    int primary;
+    int secondary = -2;
+  
 };
 
 struct params{

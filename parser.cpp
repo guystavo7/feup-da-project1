@@ -46,7 +46,7 @@ submission readSubmission(string line, map<string, int> order){
 
     while (getline(ifs, word, ',')){
         trimer(word);
-        fields.push_back(word);
+        if (!word.empty()) fields.push_back(word);
     }
 
 
@@ -71,14 +71,14 @@ reviewer readReviewer(string line, map<string, int> order){
 
     while (getline(ifs, word, ',')){
         trimer(word);
-        fields.push_back(word);
+        if (!word.empty()) fields.push_back(word);
     }
 
     res.id = stoi(fields[order["Id"]]);
     res.name = fields[order["Name"]];
     res.email = fields[order["E-mail"]];
     res.primary = stoi(fields[order["Primary"]]);
-    res.secondary = order["Secondary"] < fields.size() ? stoi(fields[order["Secondary"]]) : -1;
+    res.secondary = order["Secondary"] < fields.size() ? stoi(fields[order["Secondary"]]) : -2;
 
     return res;
 }
