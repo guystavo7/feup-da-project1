@@ -203,7 +203,7 @@ void assigmentSuccessTest1() {
     writeAssignments(path+"/output.txt",assignments);
 
 }
-#define RUNTEST 1
+#define RUNTEST 0
 
 #if RUNTEST
 int main(){

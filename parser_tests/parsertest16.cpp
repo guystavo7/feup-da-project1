@@ -3,8 +3,10 @@
 using namespace std;
 
 int main(){
-    params params = parse("dataset14.csv");
+    string path =get_project_cwd("DA_Project_1")+ "/parser_tests/Inputs/dataset14.csv";
 
+
+    params params = parse(path);
     bool passedalltests = true;
 
     vector<string> exp = {
