@@ -1,4 +1,4 @@
-#include "parser.h"
+#include "../parser.h"
 
 int main(){
     params params = parse("input1.csv");

@@ -6,6 +6,25 @@
 #define DA_PROJECT_1_DATASTRUCTS_H
 
 
+struct submission{
+    int id;
+    int primary;
+    int secondary = -1;
+    std::string title="";
+    std::string name="";
+    std::string email="";
+
+};
+
+struct reviewer{
+    int id;
+    int primary;
+    int secondary = -2;
+    std::string name="";
+    std::string email="";
+
+};
+/*
 struct article {
     int id;
     int primaryDomain;
@@ -19,22 +38,22 @@ struct reviewer {
     int secondaryDomain=-1;
     //  std::string name="";
 
-};
+};*/
 
-struct submission {
-    const article* a;
+struct assignment {
+    const submission* a;
     const reviewer* rw;
 };
 
-struct failedSubmission {
-    const article* a;
+struct failedAssignment {
+    const submission* a;
     unsigned int missingSubmissions;
 };
 
 
 
 template<class T>
-void readGraphSubmissions(Graph<T> *g, Vertex<T> *s, Vertex<T> *t,const std::map<int, article>& articleData,const std::map<int,reviewer>& reviewerData, std::vector<submission>& submissions,std::vector<failedSubmission>& failedSubmissions, bool & allAssigned) {
+void readGraphAssignments(Graph<T> *g, Vertex<T> *s, Vertex<T> *t,const std::map<int, submission>& submissionData,const std::map<int,reviewer>& reviewerData, std::vector<assignment>& assignments,std::vector<failedAssignment>& failedAssignments, bool & allAssigned) {
 
     allAssigned = true;
 
@@ -49,7 +68,7 @@ void readGraphSubmissions(Graph<T> *g, Vertex<T> *s, Vertex<T> *t,const std::map
             for (auto& reviewerEdge:articleNode->getAdj()) {
                 Vertex<T>* reviewerNode=reviewerEdge->getDest();
                 if (reviewerEdge->getFlow()==1) {
-                    submissions.push_back({&articleData.at(articleNode->getInfo()),&reviewerData.at(reviewerNode->getInfo())});
+                    assignments.push_back({&submissionData.at(articleNode->getInfo()),&reviewerData.at(reviewerNode->getInfo())});
                 }
             }
         }
@@ -59,7 +78,7 @@ void readGraphSubmissions(Graph<T> *g, Vertex<T> *s, Vertex<T> *t,const std::map
             Vertex<T>* articleNode=articleEdge->getDest();
 
             if (articleEdge->getWeight()!=articleEdge->getFlow()) {
-                failedSubmissions.push_back({&articleData.at(articleNode->getInfo()),(unsigned int)(articleEdge->getWeight()-articleEdge->getFlow())});
+                failedAssignments.push_back({&submissionData.at(articleNode->getInfo()),(unsigned int)(articleEdge->getWeight()-articleEdge->getFlow())});
             }
 
         }
