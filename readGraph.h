@@ -5,18 +5,19 @@
 #ifndef DA_PROJECT_1_READGRAPH_H
 #define DA_PROJECT_1_READGRAPH_H
 #include "DataStructs.h"
+#include "algorithm"
 #include "graph.h"
 #include "map"
 
 
 
-void writeAssignments(const std::string& outputFilepath,const std::vector<assignment>& assignments);
+void writeAssignments(const std::string& outputFilepath, std::vector<assignment>& assignments);
 
-void writeFailedAssignments(const std::string& outputFilepath,const std::vector<failedAssignment>& failedAssignments);
+void writeFailedAssignments(const std::string& outputFilepath, std::vector<failedAssignment>& failedAssignments);
 
 
 template<class T>
-void readGraphAssignments(Graph<T> *g, Vertex<T> *s, Vertex<T> *t,const std::map<int, submission>& submissionData,const std::map<int,reviewer>& reviewerData, std::vector<assignment>& assignments,std::vector<failedAssignment>& failedAssignments, bool & allAssigned) {
+void readGraphAssignments(Graph<T> *g, Vertex<T> *s, Vertex<T> *t,const std::map<int_node, submission>& submissionData,const std::map<int_node,reviewer>& reviewerData, std::vector<assignment>& assignments,std::vector<failedAssignment>& failedAssignments, bool & allAssigned) {
 
     allAssigned = true;
 
@@ -25,7 +26,7 @@ void readGraphAssignments(Graph<T> *g, Vertex<T> *s, Vertex<T> *t,const std::map
             allAssigned = false;
         }
     }
-    if (allAssigned) {
+    if (allAssigned || true) {
         for (auto& articleEdge:s->getAdj()) {
             Vertex<T>* articleNode=articleEdge->getDest();
             for (auto& reviewerEdge:articleNode->getAdj()) {
@@ -36,7 +37,7 @@ void readGraphAssignments(Graph<T> *g, Vertex<T> *s, Vertex<T> *t,const std::map
             }
         }
     }
-    else {
+    if (true){
         for (auto& articleEdge:s->getAdj()) {
             Vertex<T>* articleNode=articleEdge->getDest();
 

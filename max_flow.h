@@ -23,6 +23,8 @@ void testAndVisit(std::queue< Vertex<T>*> &q, Edge<T> *e, Vertex<T> *w, double r
         w->setVisited(true);
         w->setPath(e);
         q.push(w);
+        w->setDist(w->getDist()+1);
+       // q.decreaseKey(w);
     }
 }
 
@@ -34,11 +36,12 @@ bool findAugmentingPath(Graph<T> *g, Vertex<T> *s, Vertex<T> *t) {
         v->setVisited(false);
     }
 
-    std::queue<Vertex<T> *> q;
+    std::queue< Vertex<T>*> q;
     q.push(s);
     while(!q.empty()){
         Vertex<T> *v=q.front();
         q.pop();
+
         for(Edge<T> *e : v->getAdj()){
             if(e->getFlow()<e->getWeight() && !e->getDest()->isVisited()) {
                 e->getDest()->setVisited(true);
@@ -101,9 +104,13 @@ void augmentFlowAlongPath(Vertex<T> *s, Vertex<T> *t, double f) {
 
 // Main function implementing the Edmonds-Karp algorithm
 template <class T>
-void edmondsKarp(Graph<T> *g, int source, int target) {
+void edmondsKarp(Graph<T> *g, T source, T target) {
     // Find source and target vertices in the graph
 
+
+    for(auto v : g->getVertexSet()) {
+        v->setDist(0);
+    }
 
     for(auto v : g->getVertexSet()) {
         for(auto e: v->getAdj()){

@@ -9,6 +9,7 @@
 
 #include <vector>
 
+
 struct submission{
     int id;
     int primary;
@@ -27,6 +28,15 @@ struct reviewer{
     std::string email="";
 
 };
+
+
+struct int_node {
+    int integer;
+    bool is_sub=false;
+};
+
+bool operator< (const int_node& i1,const int_node& i2) ;
+bool operator== (const int_node& i1,const int_node& i2);
 /*
 struct article {
     int id;
