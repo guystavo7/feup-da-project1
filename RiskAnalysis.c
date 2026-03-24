@@ -27,25 +27,28 @@ bool check(Graph<T>* g, int source, int target){
 }
 
 template <class T>
-vector<reviewer> Analyze(Graph<T>* g, int type, int source, int target){
+vector<reviewer> Analyze(Graph<T>* g, int type, vector<Vertex<T>*> reviewers, int source, int target){
     vector<reviewer> v;
 
     if (type == 0){
         edmondsKarp(g, sourse, target);
         return v;
-    }
-
-    vector<Vertex<T>*> reviewerNodes;
-    //get all reviewer nodes from graph.h
-
-    for (Vertex<T>* reviewerNode : reviewerNodes){
-        //disable reviewerNode
-        edmondsKarp(g, source, target);
-        if (!check(g, source, target)){
-            v.push_back(reviewerNode);
+    } else if (type == 1){
+        for (Vertex<T>* reviewerNode : reviewers){
+            reviewerNode->setProcessing(false);
         }
-        //enable reviewerNode
+
+        for (Vertex<T>* reviewerNode : reviewers){
+            reviewerNode->setProcessing(true);
+            edmondsKarp(g, source, target);
+            if (!check(g, source, target)){
+                v.push_back(reviewerNode);
+            }
+            reviewerNode->setProcessing(false);
+        }
+
+        return v;
     }
 
-    return v;
+    
 }
