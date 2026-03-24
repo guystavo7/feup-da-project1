@@ -1,4 +1,4 @@
 #include "graph.h"
 #include "parser.h"
 
-Graph<int> create(params info);
+Graph<int_node> create(params info);

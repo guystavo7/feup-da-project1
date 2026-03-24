@@ -1,19 +1,19 @@
 #include "create_graph.h"
 
-Graph<int> create(params info){
-    Graph<int> newGraph;
+Graph<int_node> create(params info){
+    Graph<int_node> newGraph;
 
-    newGraph.addVertex(-1); //source
-    newGraph.addVertex(-2); //target
+    newGraph.addVertex({-1,false}); //source
+    newGraph.addVertex({-2,false}); //target
     //create all submission vertices and connect them with source
     for(submission sub : info.submissions){
-        newGraph.addVertex(sub.id);
-        newGraph.addEdge(-1,sub.id,info.MinReviewsPerSubmission);
+        newGraph.addVertex({sub.id,true});
+        newGraph.addEdge({-1},{sub.id,true},info.MinReviewsPerSubmission);
     }
     //create all reviewer vertices and connect them with target
     for(reviewer rev : info.reviewers){
-        newGraph.addVertex(rev.id);
-        newGraph.addEdge(rev.id,-2,info.MaxReviewsPerReviewer);
+        newGraph.addVertex({rev.id,false});
+        newGraph.addEdge({rev.id,false},{-2},info.MaxReviewsPerReviewer);
     }
 
     //create the edges connecting submissions and reviewers according to GenerateAssignments
@@ -36,7 +36,7 @@ Graph<int> create(params info){
             }
 
             if(match){
-                newGraph.addEdge(sub.id, rev.id, 1);
+                newGraph.addEdge({sub.id,true}, {rev.id,false}, 1);
             }
         }
     }

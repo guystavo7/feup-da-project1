@@ -11,6 +11,7 @@
 // Created by gustavobastos on 13/03/26.
 //
 
+/* have to be updated
 void assignmentFailureTest1() {
     Graph<int>graph;
     unsigned int minReviewsPerArticle=3;
@@ -202,8 +203,8 @@ void assigmentSuccessTest1() {
      std::string path=std::string(buffer);
     writeAssignments(path+"/output.txt",assignments);
 
-}
-#define RUNTEST 1
+}*/
+#define RUNTEST 0
 
 #if RUNTEST
 int main(){

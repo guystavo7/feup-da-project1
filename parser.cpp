@@ -1,5 +1,8 @@
 #include "parser.h"
 
+#include <cstring>
+#include <unistd.h>
+
 using namespace std;
 
 
@@ -132,11 +135,11 @@ void readControl(params &params, string line){
     }
 }
 
-params parse(string file){
+params parse(string path){
+
+   // printf("%s\n",buffer);
 
 
-    string path = "Inputs/";
-    path = path + file;
 
     vector<submission> submissions;
     vector<reviewer> reviewers;
@@ -148,6 +151,9 @@ params parse(string file){
 
     int reading = -1; //1: reading submissions; 2: reading reviewers; 3: reading parameters; 4:  reading control
     map<string, int> m;
+    if (!filestream.is_open()) {
+        std::perror("Erro ao abrir o ficheiro");
+    }
 
     while (getline(filestream, line)){
         if (line == "#Submissions"){
@@ -190,4 +196,25 @@ params parse(string file){
     params.reviewers = reviewers;
 
     return params;
+}
+
+string get_project_cwd(const string &project_name) {
+
+    string res;
+
+    char buffer[1024];
+
+    getcwd(buffer,1024);
+
+    res=string(buffer);
+
+
+    int index=res.rfind(project_name); //found project_name in res (cwd);
+
+    if (index != string::npos) {
+        res=res.substr(0,index+project_name.size());
+    }
+
+    return res;
+
 }

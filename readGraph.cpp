@@ -12,7 +12,7 @@
 
 
 
-void writeAssignments(const std::string& outputFilepath,const std::vector<assignment>& assignments) {
+void writeAssignments(const std::string& outputFilepath, std::vector<assignment>& assignments) {
     FILE* file=fopen(outputFilepath.data(),"w");
     if (file==NULL) {
         std::cerr << "Could not open file \"" << outputFilepath << "\"" << std::endl;
@@ -20,11 +20,18 @@ void writeAssignments(const std::string& outputFilepath,const std::vector<assign
     printf("%s\n", outputFilepath.data());
 
     fprintf(file,"#SubmissionId,ReviewerId,Match\n");
-    for (auto& s:assignments) {
 
-        fprintf(file,"%d, %d, %d\n",s.a->id,s.rw->id,s.a->primary);
+    std::sort(assignments.begin(),assignments.end(),[](const assignment& i1, const assignment& i2) {
+        return (i1.a->id)<(i2.a->id);
+    });
+    for (auto& s:assignments) {
+        //int match=(s.a->primary==s.rw->primary)?s.a->primary:s.a->secondary;
+        fprintf(file,"%d, %d, %d\n",s.a->id,s.rw->id,s.rw->primary);
     }
 
+    std::sort(assignments.begin(),assignments.end(),[](const assignment& i1, const assignment& i2) {
+        return (i1.rw->id)<(i2.rw->id);
+    });
     fprintf(file,"#ReviewerId,SubmissionId,Match\n");
 
     for (auto& s:assignments) {
@@ -38,8 +45,8 @@ void writeAssignments(const std::string& outputFilepath,const std::vector<assign
     fclose(file);
 }
 
-void writeFailedAssignments(const std::string& outputFilepath,const std::vector<failedAssignment>& failedAssignments) {
-    FILE* file=fopen(outputFilepath.data(),"w");
+void writeFailedAssignments(const std::string& outputFilepath, std::vector<failedAssignment>& failedAssignments) {
+    FILE* file=fopen(outputFilepath.data(),"a");
     if (file==NULL) {
         std::cerr << "Could not open file \"" << outputFilepath << "\"" << std::endl;
     }
