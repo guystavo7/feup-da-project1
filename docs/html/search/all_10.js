@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['secondary_0',['secondary',['../structsubmission.html#a3c9ebaf6bc00b4f48da36b396a6969db',1,'submission::secondary'],['../structreviewer.html#a789f3d44c297f7fd9a8e0ab8ef0305a3',1,'reviewer::secondary']]],
+  ['secondaryreviewerexpertise_1',['SecondaryReviewerExpertise',['../structparams.html#a39770bcf39df427d31ecc29c951bb8b8',1,'params']]],
+  ['secondarysubmissiondomain_2',['SecondarySubmissionDomain',['../structparams.html#a26754d3b7b3a9162da9b506e0f7543d8',1,'params']]],
+  ['selected_3',['selected',['../classEdge.html#a5242549271b59544ad1189fb532b5bbe',1,'Edge']]],
+  ['setdist_4',['setDist',['../classVertex.html#a060fbea0c3738cc3e09d84ad8c431b34',1,'Vertex']]],
+  ['setflow_5',['setFlow',['../classEdge.html#a1819116e2c156733a14bbd94cc27908e',1,'Edge']]],
+  ['setindegree_6',['setIndegree',['../classVertex.html#af9c4caaac19bdaae5a88a7a671639b59',1,'Vertex']]],
+  ['setinfo_7',['setInfo',['../classVertex.html#a31cd60c26640f8072a928ba70eb2f95e',1,'Vertex']]],
+  ['setlow_8',['setLow',['../classVertex.html#a62acec2c4fcbec56e995974b91444ec9',1,'Vertex']]],
+  ['setnum_9',['setNum',['../classVertex.html#ab3f9026ba6cbd11243ab484a856c6581',1,'Vertex']]],
+  ['setpath_10',['setPath',['../classVertex.html#a5ebf4b550ec94b89a8f80df1a53cc97d',1,'Vertex']]],
+  ['setprocessing_11',['setProcessing',['../classVertex.html#a5ccb6f7215c915afdbcbdb81ad70a408',1,'Vertex']]],
+  ['setreverse_12',['setReverse',['../classEdge.html#afe8f8429025756c63f38e8c6fde7382c',1,'Edge']]],
+  ['setselected_13',['setSelected',['../classEdge.html#a87c8402c5edd6729a2c934e2a0cce6fe',1,'Edge']]],
+  ['setvisited_14',['setVisited',['../classVertex.html#a95a3f3c55f2ba371fae51d3fe0e76c23',1,'Vertex']]],
+  ['submission_15',['submission',['../structsubmission.html',1,'']]],
+  ['submissions_16',['submissions',['../structparams.html#a20b16b33c59d290c7479319132af242d',1,'params']]]
+];

@@ -1,0 +1,21 @@
+\doxysection{max\+\_\+flow.\+h}
+\hypertarget{max__flow_8h_source}{}\label{max__flow_8h_source}\mbox{\hyperlink{max__flow_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{graph_8h}{graph.h}}"{}}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00004\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{max__flow_8h_acb329d42a9a476d072878ef35a6a343c}{testAndVisit}}(std::queue<\ \mbox{\hyperlink{classEdge}{Vertex<T>}}*>\ \&\mbox{\hyperlink{classEdge}{q}},\ \mbox{\hyperlink{classEdge}{Edge<T>}}\ *\mbox{\hyperlink{classEdge}{e}},\ \mbox{\hyperlink{classEdge}{Vertex<T>}}\ *\mbox{\hyperlink{classEdge}{w}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classEdge}{residual}});}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00007\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{max__flow_8h_a7ef59ca73ad539b2405ee93bb9e1b8de}{findAugmentingPath}}(\mbox{\hyperlink{classEdge}{Graph<T>}}\ *\mbox{\hyperlink{classEdge}{g}},\ \mbox{\hyperlink{classEdge}{Vertex<T>}}\ *\mbox{\hyperlink{classEdge}{s}},\ \mbox{\hyperlink{classEdge}{Vertex<T>}}\ *\mbox{\hyperlink{classEdge}{t}});}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00010\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{max__flow_8h_ab38647bac4738e296aba7b1bc4744835}{findMinResidualAlongPath}}(\mbox{\hyperlink{classEdge}{Vertex<T>}}\ *\mbox{\hyperlink{classEdge}{s}},\ \mbox{\hyperlink{classEdge}{Vertex<T>}}\ *\mbox{\hyperlink{classEdge}{t}});}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00013\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{max__flow_8h_a9813dc412187df7cc322afea1283c22c}{augmentFlowAlongPath}}(\mbox{\hyperlink{classEdge}{Vertex<T>}}\ *\mbox{\hyperlink{classEdge}{s}},\ \mbox{\hyperlink{classEdge}{Vertex<T>}}\ *\mbox{\hyperlink{classEdge}{t}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classEdge}{f}});}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00016\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{max__flow_8h_af6e3fec873d9fb347b8f2dc968eab91d}{edmondsKarp}}(\mbox{\hyperlink{classEdge}{Graph<T>}}\ *\mbox{\hyperlink{classEdge}{g}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classEdge}{source}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classEdge}{target}});}
+
+\end{DoxyCode}
