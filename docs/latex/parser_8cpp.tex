@@ -1,0 +1,67 @@
+\doxysection{parser.\+cpp File Reference}
+\hypertarget{parser_8cpp}{}\label{parser_8cpp}\index{parser.cpp@{parser.cpp}}
+{\ttfamily \#include "{}parser.\+h"{}}\newline
+Include dependency graph for parser.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEdge}{void}} \mbox{\hyperlink{parser_8cpp_a1411c2f7763ae5c3885fa42316a6c931}{trimer}} (\mbox{\hyperlink{classEdge}{string}} \&\mbox{\hyperlink{classEdge}{word}})
+\item 
+\mbox{\hyperlink{classEdge}{map}}$<$ \mbox{\hyperlink{classEdge}{string}}, \mbox{\hyperlink{classEdge}{int}} $>$ \mbox{\hyperlink{parser_8cpp_a0a9a73763d3deb8c6392bb287e891f07}{read\+Layout}} (\mbox{\hyperlink{classEdge}{string}} \mbox{\hyperlink{classEdge}{line}})
+\item 
+\mbox{\hyperlink{structsubmission}{submission}} \mbox{\hyperlink{parser_8cpp_addbc45ed5d630a40b09de35162a814f9}{read\+Submission}} (\mbox{\hyperlink{classEdge}{string}} \mbox{\hyperlink{classEdge}{line}}, \mbox{\hyperlink{classEdge}{map}}$<$ \mbox{\hyperlink{classEdge}{string}}, \mbox{\hyperlink{classEdge}{int}} $>$ \mbox{\hyperlink{classEdge}{order}})
+\item 
+\mbox{\hyperlink{structreviewer}{reviewer}} \mbox{\hyperlink{parser_8cpp_a5b124ade46e4424043e7f15ca563f0e3}{read\+Reviewer}} (\mbox{\hyperlink{classEdge}{string}} \mbox{\hyperlink{classEdge}{line}}, \mbox{\hyperlink{classEdge}{map}}$<$ \mbox{\hyperlink{classEdge}{string}}, \mbox{\hyperlink{classEdge}{int}} $>$ \mbox{\hyperlink{classEdge}{order}})
+\item 
+\mbox{\hyperlink{classEdge}{void}} \mbox{\hyperlink{parser_8cpp_a16a5b88e9b8213004dc6696d0a6edc0f}{read\+Parameter}} (\mbox{\hyperlink{structparams}{params}} \&\mbox{\hyperlink{structparams}{params}}, \mbox{\hyperlink{classEdge}{string}} \mbox{\hyperlink{classEdge}{line}})
+\item 
+\mbox{\hyperlink{classEdge}{void}} \mbox{\hyperlink{parser_8cpp_a4e9d636f1c8ffbe5955b4c818aa54657}{read\+Control}} (\mbox{\hyperlink{structparams}{params}} \&\mbox{\hyperlink{structparams}{params}}, \mbox{\hyperlink{classEdge}{string}} \mbox{\hyperlink{classEdge}{line}})
+\item 
+\mbox{\hyperlink{structparams}{params}} \mbox{\hyperlink{parser_8cpp_a90768359d3e6be42acd6866e7e8d58ac}{parse}} (\mbox{\hyperlink{classEdge}{string}} \mbox{\hyperlink{classEdge}{file}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{parser_8cpp_a90768359d3e6be42acd6866e7e8d58ac}\label{parser_8cpp_a90768359d3e6be42acd6866e7e8d58ac} 
+\index{parser.cpp@{parser.cpp}!parse@{parse}}
+\index{parse@{parse}!parser.cpp@{parser.cpp}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structparams}{params}} parse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{string}}}]{file }\end{DoxyParamCaption})}
+
+\Hypertarget{parser_8cpp_a4e9d636f1c8ffbe5955b4c818aa54657}\label{parser_8cpp_a4e9d636f1c8ffbe5955b4c818aa54657} 
+\index{parser.cpp@{parser.cpp}!readControl@{readControl}}
+\index{readControl@{readControl}!parser.cpp@{parser.cpp}}
+\doxysubsubsection{\texorpdfstring{readControl()}{readControl()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{void}} read\+Control (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structparams}{params}} \&}]{params,  }\item[{\mbox{\hyperlink{classEdge}{string}}}]{line }\end{DoxyParamCaption})}
+
+\Hypertarget{parser_8cpp_a0a9a73763d3deb8c6392bb287e891f07}\label{parser_8cpp_a0a9a73763d3deb8c6392bb287e891f07} 
+\index{parser.cpp@{parser.cpp}!readLayout@{readLayout}}
+\index{readLayout@{readLayout}!parser.cpp@{parser.cpp}}
+\doxysubsubsection{\texorpdfstring{readLayout()}{readLayout()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{map}}$<$ \mbox{\hyperlink{classEdge}{string}}, \mbox{\hyperlink{classEdge}{int}} $>$ read\+Layout (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{string}}}]{line }\end{DoxyParamCaption})}
+
+\Hypertarget{parser_8cpp_a16a5b88e9b8213004dc6696d0a6edc0f}\label{parser_8cpp_a16a5b88e9b8213004dc6696d0a6edc0f} 
+\index{parser.cpp@{parser.cpp}!readParameter@{readParameter}}
+\index{readParameter@{readParameter}!parser.cpp@{parser.cpp}}
+\doxysubsubsection{\texorpdfstring{readParameter()}{readParameter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{void}} read\+Parameter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structparams}{params}} \&}]{params,  }\item[{\mbox{\hyperlink{classEdge}{string}}}]{line }\end{DoxyParamCaption})}
+
+\Hypertarget{parser_8cpp_a5b124ade46e4424043e7f15ca563f0e3}\label{parser_8cpp_a5b124ade46e4424043e7f15ca563f0e3} 
+\index{parser.cpp@{parser.cpp}!readReviewer@{readReviewer}}
+\index{readReviewer@{readReviewer}!parser.cpp@{parser.cpp}}
+\doxysubsubsection{\texorpdfstring{readReviewer()}{readReviewer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structreviewer}{reviewer}} read\+Reviewer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{string}}}]{line,  }\item[{\mbox{\hyperlink{classEdge}{map}}$<$ \mbox{\hyperlink{classEdge}{string}}, \mbox{\hyperlink{classEdge}{int}} $>$}]{order }\end{DoxyParamCaption})}
+
+\Hypertarget{parser_8cpp_addbc45ed5d630a40b09de35162a814f9}\label{parser_8cpp_addbc45ed5d630a40b09de35162a814f9} 
+\index{parser.cpp@{parser.cpp}!readSubmission@{readSubmission}}
+\index{readSubmission@{readSubmission}!parser.cpp@{parser.cpp}}
+\doxysubsubsection{\texorpdfstring{readSubmission()}{readSubmission()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsubmission}{submission}} read\+Submission (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{string}}}]{line,  }\item[{\mbox{\hyperlink{classEdge}{map}}$<$ \mbox{\hyperlink{classEdge}{string}}, \mbox{\hyperlink{classEdge}{int}} $>$}]{order }\end{DoxyParamCaption})}
+
+\Hypertarget{parser_8cpp_a1411c2f7763ae5c3885fa42316a6c931}\label{parser_8cpp_a1411c2f7763ae5c3885fa42316a6c931} 
+\index{parser.cpp@{parser.cpp}!trimer@{trimer}}
+\index{trimer@{trimer}!parser.cpp@{parser.cpp}}
+\doxysubsubsection{\texorpdfstring{trimer()}{trimer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{void}} trimer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{string}} \&}]{word }\end{DoxyParamCaption})}
+
