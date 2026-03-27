@@ -1,6 +1,6 @@
 #include "max_flow.h"
 
-/*
+
 // Function to test the given vertex 'w' and visit it if conditions are met
 template <class T>
 void testAndVisit(std::queue< Vertex<T>*> &q, Edge<T> *e, Vertex<T> *w, double residual) {
@@ -27,13 +27,15 @@ bool findAugmentingPath(Graph<T> *g, Vertex<T> *s, Vertex<T> *t) {
         Vertex<T> *v=q.front();
         q.pop();
         for(Edge<T> *e : v->getAdj()){
-            if(e->getFlow()<e->getWeight() && !e->getDest()->isVisited()) {
+            if (e->getDest()->isProcessing()) continue; //
+            if(e->getFlow()<e->getWeight() && !e->getDest()->isVisited() && !e->getDest()->isProcessing()) {
                 e->getDest()->setVisited(true);
                 e->getDest()->setPath(e);
                 q.push(e->getDest());
             }
         }
         for(Edge<T> *e:v->getIncoming()){
+            if (e->getOrig()->isProcessing()) continue; //
             testAndVisit(q,e,e->getOrig(),e->getFlow());
         }
     }
@@ -103,4 +105,4 @@ void edmondsKarp(Graph<T> *g, int source, int target) {
         double value=findMinResidualAlongPath(s,t);
         augmentFlowAlongPath(s,t,value);
     }
-}*/
+}
