@@ -10,7 +10,7 @@ digraph "MutablePriorityQueue.h"
   Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node3 [id="Node000003",label="Testing/readGraphTests.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$readGraphTests_8cpp.html",tooltip=" "];
   Node2 -> Node4 [id="edge3_Node000002_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node4 [id="Node000004",label="create_graph.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$create__graph_8h.html",tooltip=" "];
+  Node4 [id="Node000004",label="create_graph.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$create__graph_8h.html",tooltip="Builds the graph for the reviewer assignment problem."];
   Node4 -> Node5 [id="edge4_Node000004_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node5 [id="Node000005",label="create_graph.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$create__graph_8cpp.html",tooltip=" "];
   Node2 -> Node6 [id="edge5_Node000002_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
@@ -19,4 +19,8 @@ digraph "MutablePriorityQueue.h"
   Node7 [id="Node000007",label="max_flow.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$max__flow_8cpp.html",tooltip=" "];
   Node2 -> Node8 [id="edge7_Node000002_Node000008",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node8 [id="Node000008",label="readGraph.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$readGraph_8cpp.html",tooltip=" "];
+  Node2 -> Node9 [id="edge8_Node000002_Node000009",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node9 [id="Node000009",label="readGraph.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$readGraph_8h.html",tooltip=" "];
+  Node9 -> Node3 [id="edge9_Node000009_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node9 -> Node8 [id="edge10_Node000009_Node000008",dir="back",color="steelblue1",style="solid",tooltip=" "];
 }

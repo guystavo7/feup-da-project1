@@ -74,6 +74,9 @@ $(function() {
   <div class="headertitle"><div class="title">create_graph.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Builds the graph for the reviewer assignment problem.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="graph_8h_source.html">graph.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="parser_8h_source.html">parser.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -91,18 +94,22 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8a1cd60efde4b2cfc827ca1ba39e7498" id="r_a8a1cd60efde4b2cfc827ca1ba39e7498"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGraph.html">Graph</a>&lt; <a class="el" href="classEdge.html">int</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="create__graph_8h.html#a8a1cd60efde4b2cfc827ca1ba39e7498">create</a> (<a class="el" href="structparams.html">params</a> info)</td></tr>
-<tr class="separator:a8a1cd60efde4b2cfc827ca1ba39e7498"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe93ef2dae0a031a8c101f4a27ce4760" id="r_abe93ef2dae0a031a8c101f4a27ce4760"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGraph.html">Graph</a>&lt; <a class="el" href="structint__node.html">int_node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="create__graph_8h.html#abe93ef2dae0a031a8c101f4a27ce4760">create</a> (<a class="el" href="structparams.html">params</a> info)</td></tr>
+<tr class="memdesc:abe93ef2dae0a031a8c101f4a27ce4760"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a graph for the assignment problem.  <br /></td></tr>
+<tr class="separator:abe93ef2dae0a031a8c101f4a27ce4760"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a8a1cd60efde4b2cfc827ca1ba39e7498" name="a8a1cd60efde4b2cfc827ca1ba39e7498"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a1cd60efde4b2cfc827ca1ba39e7498">&#9670;&#160;</a></span>create()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Builds the graph for the reviewer assignment problem. </p>
+<p>This module is responsible for transforming the parsed input data into a graph representation suitable for max-flow algorithms. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="abe93ef2dae0a031a8c101f4a27ce4760" name="abe93ef2dae0a031a8c101f4a27ce4760"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe93ef2dae0a031a8c101f4a27ce4760">&#9670;&#160;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classGraph.html">Graph</a>&lt; <a class="el" href="classEdge.html">int</a> &gt; create </td>
+          <td class="memname"><a class="el" href="classGraph.html">Graph</a>&lt; <a class="el" href="structint__node.html">int_node</a> &gt; create </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structparams.html">params</a>&#160;</td>
           <td class="paramname"><em>info</em></td><td>)</td>
@@ -110,6 +117,43 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs a graph for the assignment problem. </p>
+<p>The resulting graph follows this structure:</p><ul>
+<li>Source node (id = -1)</li>
+<li>Sink node (id = -2)</li>
+<li>Submission nodes (is_sub = true)</li>
+<li>Reviewer nodes (is_sub = false)</li>
+</ul>
+<p>Edges:</p><ul>
+<li>Source -&gt; Submission (capacity = MinReviewsPerSubmission)</li>
+<li>Reviewer -&gt; Sink (capacity = MaxReviewsPerReviewer)</li>
+<li>Submission -&gt; Reviewer (capacity = 1 if domains match)</li>
+</ul>
+<p>Matching rules depend on the GenerateAssignments parameter:</p><ul>
+<li>1: Only primary domain/expertise</li>
+<li>2: Primary + secondary submissions vs primary reviewers</li>
+<li>3: Full matching (primary + secondary both sides)</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">info</td><td>Struct containing submissions, reviewers, and parameters. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Graph&lt;int_node&gt; <a class="el" href="classGraph.html">Graph</a> ready for max-flow utilization.</dd></dl>
+<p>@complexity O(S*R), where S=number of submissions and R=number of reviewers.</p>
+<p>Constructs a graph for the assignment problem.</p>
+<p>This function creates a bipartite graph between submissions and reviewers, connecting it to a source and sink to enable max-flow utilization.</p>
+<p>The matching between submissions and reviewers is determined according to the GenerateAssignments parameter and domain compatibility.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">info</td><td>Input data. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Graph&lt;int_node&gt; Constructed graph.</dd></dl>
+<p>@complexity O(S*R) </p>
 
 </div>
 </div>

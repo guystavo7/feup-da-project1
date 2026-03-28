@@ -1,11 +1,17 @@
 \doxysection{parser.\+h File Reference}
 \hypertarget{parser_8h}{}\label{parser_8h}\index{parser.h@{parser.h}}
+
+
+Handles parsing of input files into local data structures.  
+
+
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$fstream$>$}\newline
 {\ttfamily \#include $<$sstream$>$}\newline
 {\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
 {\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include "{}Data\+Structs.\+h"{}}\newline
 Include dependency graph for parser.\+h\+:
 % FIG 0
 This graph shows which files directly or indirectly include this file\+:
@@ -13,23 +19,101 @@ This graph shows which files directly or indirectly include this file\+:
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{structsubmission}{submission}}
-\item 
-struct \mbox{\hyperlink{structreviewer}{reviewer}}
-\item 
 struct \mbox{\hyperlink{structparams}{params}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Stores all parsed input data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{structparams}{params}} \mbox{\hyperlink{parser_8h_a90768359d3e6be42acd6866e7e8d58ac}{parse}} (\mbox{\hyperlink{classEdge}{string}} \mbox{\hyperlink{classEdge}{file}})
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Parses a CSV input file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEdge}{string}} \mbox{\hyperlink{parser_8h_a33f12f1a581a6f8137b061891e573ea0}{get\+\_\+project\+\_\+cwd}} (\mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{classEdge}{string}} \&\mbox{\hyperlink{classEdge}{project\+\_\+name}})
+\begin{DoxyCompactList}\small\item\em Gets the root directory of the project. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Handles parsing of input files into local data structures. 
+
+This module reads structured input files describing submissions, reviewers, parameters, and control options, and converts them into our project\textquotesingle{}s data structures. 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{parser_8h_a90768359d3e6be42acd6866e7e8d58ac}\label{parser_8h_a90768359d3e6be42acd6866e7e8d58ac} 
+\Hypertarget{parser_8h_a33f12f1a581a6f8137b061891e573ea0}\label{parser_8h_a33f12f1a581a6f8137b061891e573ea0} 
+\index{parser.h@{parser.h}!get\_project\_cwd@{get\_project\_cwd}}
+\index{get\_project\_cwd@{get\_project\_cwd}!parser.h@{parser.h}}
+\doxysubsubsection{\texorpdfstring{get\_project\_cwd()}{get\_project\_cwd()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{string}} get\+\_\+project\+\_\+cwd (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{classEdge}{string}} \&}]{project\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Gets the root directory of the project. 
+
+Uses the current working directory and extracts the path up to the specified project folder name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em project\+\_\+name} & Name of the project folder \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Absolute path to the project root directory
+\end{DoxyReturn}
+@complexity O(n), where n is the length of the current path string
+
+Gets the root directory of the project.
+
+Searches for the project name in the current path and trims the path accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em project\+\_\+name} & Name of the project folder \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Path to project root
+\end{DoxyReturn}
+@complexity O(n), where n is the length of the path \Hypertarget{parser_8h_a90768359d3e6be42acd6866e7e8d58ac}\label{parser_8h_a90768359d3e6be42acd6866e7e8d58ac} 
 \index{parser.h@{parser.h}!parse@{parse}}
 \index{parse@{parse}!parser.h@{parser.h}}
 \doxysubsubsection{\texorpdfstring{parse()}{parse()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structparams}{params}} parse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{string}}}]{file }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structparams}{params}} parse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{string}}}]{path }\end{DoxyParamCaption})}
 
+
+
+Parses a CSV input file. 
+
+Extracts submissions, reviewers, and parameters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & Path to input file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+params Struct containing all parsed data
+\end{DoxyReturn}
+@complexity O(n), where n is number of lines in the file
+
+Parses a CSV input file.
+
+The file is processed line by line and divided into sections\+:
+\begin{DoxyItemize}
+\item \#\+Submissions
+\item \#\+Reviewers
+\item \#\+Parameters
+\item \#\+Control
+\end{DoxyItemize}
+
+Depending on the current section, the appropriate parsing function is used.
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path to the input file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+params Struct containing all parsed data
+\end{DoxyReturn}
+@complexity O(n), where n is the number of lines in the file
+
+\begin{DoxyNote}{Note}
+Assumes the input file follows the expected format. 
+\end{DoxyNote}

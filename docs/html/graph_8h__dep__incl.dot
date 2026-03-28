@@ -8,7 +8,7 @@ digraph "graph.h"
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node2 [id="Node000002",label="Testing/readGraphTests.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$readGraphTests_8cpp.html",tooltip=" "];
   Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="create_graph.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$create__graph_8h.html",tooltip=" "];
+  Node3 [id="Node000003",label="create_graph.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$create__graph_8h.html",tooltip="Builds the graph for the reviewer assignment problem."];
   Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node4 [id="Node000004",label="create_graph.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$create__graph_8cpp.html",tooltip=" "];
   Node1 -> Node5 [id="edge4_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
@@ -17,4 +17,8 @@ digraph "graph.h"
   Node6 [id="Node000006",label="max_flow.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$max__flow_8cpp.html",tooltip=" "];
   Node1 -> Node7 [id="edge6_Node000001_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node7 [id="Node000007",label="readGraph.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$readGraph_8cpp.html",tooltip=" "];
+  Node1 -> Node8 [id="edge7_Node000001_Node000008",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="readGraph.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$readGraph_8h.html",tooltip=" "];
+  Node8 -> Node2 [id="edge8_Node000008_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node8 -> Node7 [id="edge9_Node000008_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
 }

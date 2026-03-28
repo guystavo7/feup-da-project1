@@ -1,67 +1,212 @@
 \doxysection{parser.\+cpp File Reference}
 \hypertarget{parser_8cpp}{}\label{parser_8cpp}\index{parser.cpp@{parser.cpp}}
+
+
+Implementation of CSV parsing utilities.  
+
+
 {\ttfamily \#include "{}parser.\+h"{}}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
 Include dependency graph for parser.\+cpp\+:
 % FIG 0
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classEdge}{void}} \mbox{\hyperlink{parser_8cpp_a1411c2f7763ae5c3885fa42316a6c931}{trimer}} (\mbox{\hyperlink{classEdge}{string}} \&\mbox{\hyperlink{classEdge}{word}})
-\item 
+\begin{DoxyCompactList}\small\item\em Removes leading spaces from a string. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classEdge}{map}}$<$ \mbox{\hyperlink{classEdge}{string}}, \mbox{\hyperlink{classEdge}{int}} $>$ \mbox{\hyperlink{parser_8cpp_a0a9a73763d3deb8c6392bb287e891f07}{read\+Layout}} (\mbox{\hyperlink{classEdge}{string}} \mbox{\hyperlink{classEdge}{line}})
-\item 
+\begin{DoxyCompactList}\small\item\em Reads a header line and maps column names to indices. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structsubmission}{submission}} \mbox{\hyperlink{parser_8cpp_addbc45ed5d630a40b09de35162a814f9}{read\+Submission}} (\mbox{\hyperlink{classEdge}{string}} \mbox{\hyperlink{classEdge}{line}}, \mbox{\hyperlink{classEdge}{map}}$<$ \mbox{\hyperlink{classEdge}{string}}, \mbox{\hyperlink{classEdge}{int}} $>$ \mbox{\hyperlink{classEdge}{order}})
-\item 
+\begin{DoxyCompactList}\small\item\em Parses a submission from a CSV line. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structreviewer}{reviewer}} \mbox{\hyperlink{parser_8cpp_a5b124ade46e4424043e7f15ca563f0e3}{read\+Reviewer}} (\mbox{\hyperlink{classEdge}{string}} \mbox{\hyperlink{classEdge}{line}}, \mbox{\hyperlink{classEdge}{map}}$<$ \mbox{\hyperlink{classEdge}{string}}, \mbox{\hyperlink{classEdge}{int}} $>$ \mbox{\hyperlink{classEdge}{order}})
-\item 
+\begin{DoxyCompactList}\small\item\em Parses a reviewer from a CSV line. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classEdge}{void}} \mbox{\hyperlink{parser_8cpp_a16a5b88e9b8213004dc6696d0a6edc0f}{read\+Parameter}} (\mbox{\hyperlink{structparams}{params}} \&\mbox{\hyperlink{structparams}{params}}, \mbox{\hyperlink{classEdge}{string}} \mbox{\hyperlink{classEdge}{line}})
-\item 
+\begin{DoxyCompactList}\small\item\em Parses a parameter line and updates the params struct. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classEdge}{void}} \mbox{\hyperlink{parser_8cpp_a4e9d636f1c8ffbe5955b4c818aa54657}{read\+Control}} (\mbox{\hyperlink{structparams}{params}} \&\mbox{\hyperlink{structparams}{params}}, \mbox{\hyperlink{classEdge}{string}} \mbox{\hyperlink{classEdge}{line}})
-\item 
-\mbox{\hyperlink{structparams}{params}} \mbox{\hyperlink{parser_8cpp_a90768359d3e6be42acd6866e7e8d58ac}{parse}} (\mbox{\hyperlink{classEdge}{string}} \mbox{\hyperlink{classEdge}{file}})
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Parses control parameters from a CSV line. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structparams}{params}} \mbox{\hyperlink{parser_8cpp_ad493261bda25e93a6ce750e6e8e09152}{parse}} (\mbox{\hyperlink{classEdge}{string}} path)
+\begin{DoxyCompactList}\small\item\em Parses the input CSV file and builds the params structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEdge}{string}} \mbox{\hyperlink{parser_8cpp_a33f12f1a581a6f8137b061891e573ea0}{get\+\_\+project\+\_\+cwd}} (\mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{classEdge}{string}} \&\mbox{\hyperlink{classEdge}{project\+\_\+name}})
+\begin{DoxyCompactList}\small\item\em Retrieves the project root directory from the current working directory. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Implementation of CSV parsing utilities. 
+
+Contains helper functions to parse submissions, reviewers, parameters, and control sections from input files. 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{parser_8cpp_a90768359d3e6be42acd6866e7e8d58ac}\label{parser_8cpp_a90768359d3e6be42acd6866e7e8d58ac} 
+\Hypertarget{parser_8cpp_a33f12f1a581a6f8137b061891e573ea0}\label{parser_8cpp_a33f12f1a581a6f8137b061891e573ea0} 
+\index{parser.cpp@{parser.cpp}!get\_project\_cwd@{get\_project\_cwd}}
+\index{get\_project\_cwd@{get\_project\_cwd}!parser.cpp@{parser.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_project\_cwd()}{get\_project\_cwd()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{string}} get\+\_\+project\+\_\+cwd (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{classEdge}{string}} \&}]{project\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Retrieves the project root directory from the current working directory. 
+
+Gets the root directory of the project.
+
+Searches for the project name in the current path and trims the path accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em project\+\_\+name} & Name of the project folder \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Path to project root
+\end{DoxyReturn}
+@complexity O(n), where n is the length of the path \Hypertarget{parser_8cpp_ad493261bda25e93a6ce750e6e8e09152}\label{parser_8cpp_ad493261bda25e93a6ce750e6e8e09152} 
 \index{parser.cpp@{parser.cpp}!parse@{parse}}
 \index{parse@{parse}!parser.cpp@{parser.cpp}}
 \doxysubsubsection{\texorpdfstring{parse()}{parse()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structparams}{params}} parse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{string}}}]{file }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structparams}{params}} parse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{string}}}]{path }\end{DoxyParamCaption})}
 
+
+
+Parses the input CSV file and builds the params structure. 
+
+Parses a CSV input file.
+
+The file is processed line by line and divided into sections\+:
+\begin{DoxyItemize}
+\item \#\+Submissions
+\item \#\+Reviewers
+\item \#\+Parameters
+\item \#\+Control
+\end{DoxyItemize}
+
+Depending on the current section, the appropriate parsing function is used.
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path to the input file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+params Struct containing all parsed data
+\end{DoxyReturn}
+@complexity O(n), where n is the number of lines in the file
+
+\begin{DoxyNote}{Note}
+Assumes the input file follows the expected format. 
+\end{DoxyNote}
 \Hypertarget{parser_8cpp_a4e9d636f1c8ffbe5955b4c818aa54657}\label{parser_8cpp_a4e9d636f1c8ffbe5955b4c818aa54657} 
 \index{parser.cpp@{parser.cpp}!readControl@{readControl}}
 \index{readControl@{readControl}!parser.cpp@{parser.cpp}}
 \doxysubsubsection{\texorpdfstring{readControl()}{readControl()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{void}} read\+Control (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structparams}{params}} \&}]{params,  }\item[{\mbox{\hyperlink{classEdge}{string}}}]{line }\end{DoxyParamCaption})}
 
-\Hypertarget{parser_8cpp_a0a9a73763d3deb8c6392bb287e891f07}\label{parser_8cpp_a0a9a73763d3deb8c6392bb287e891f07} 
+
+
+Parses control parameters from a CSV line. 
+
+Handles assignment generation, risk analysis, and output file name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em params} & Reference to params structure \\
+\hline
+{\em line} & CSV line containing control data\\
+\hline
+\end{DoxyParams}
+@complexity O(1) \Hypertarget{parser_8cpp_a0a9a73763d3deb8c6392bb287e891f07}\label{parser_8cpp_a0a9a73763d3deb8c6392bb287e891f07} 
 \index{parser.cpp@{parser.cpp}!readLayout@{readLayout}}
 \index{readLayout@{readLayout}!parser.cpp@{parser.cpp}}
 \doxysubsubsection{\texorpdfstring{readLayout()}{readLayout()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{map}}$<$ \mbox{\hyperlink{classEdge}{string}}, \mbox{\hyperlink{classEdge}{int}} $>$ read\+Layout (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{string}}}]{line }\end{DoxyParamCaption})}
 
-\Hypertarget{parser_8cpp_a16a5b88e9b8213004dc6696d0a6edc0f}\label{parser_8cpp_a16a5b88e9b8213004dc6696d0a6edc0f} 
+
+
+Reads a header line and maps column names to indices. 
+
+Removes the leading \textquotesingle{}\#\textquotesingle{} and splits the line by \textquotesingle{},\textquotesingle{} to create a mapping between column names and their positions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & Header line \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+map$<$string,int$>$ Mapping of field names to column indices
+\end{DoxyReturn}
+@complexity O(k), where k is the number of columns \Hypertarget{parser_8cpp_a16a5b88e9b8213004dc6696d0a6edc0f}\label{parser_8cpp_a16a5b88e9b8213004dc6696d0a6edc0f} 
 \index{parser.cpp@{parser.cpp}!readParameter@{readParameter}}
 \index{readParameter@{readParameter}!parser.cpp@{parser.cpp}}
 \doxysubsubsection{\texorpdfstring{readParameter()}{readParameter()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{void}} read\+Parameter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structparams}{params}} \&}]{params,  }\item[{\mbox{\hyperlink{classEdge}{string}}}]{line }\end{DoxyParamCaption})}
 
-\Hypertarget{parser_8cpp_a5b124ade46e4424043e7f15ca563f0e3}\label{parser_8cpp_a5b124ade46e4424043e7f15ca563f0e3} 
+
+
+Parses a parameter line and updates the params struct. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em params} & Reference to params structure \\
+\hline
+{\em line} & CSV line containing parameter name and value\\
+\hline
+\end{DoxyParams}
+@complexity O(1) \Hypertarget{parser_8cpp_a5b124ade46e4424043e7f15ca563f0e3}\label{parser_8cpp_a5b124ade46e4424043e7f15ca563f0e3} 
 \index{parser.cpp@{parser.cpp}!readReviewer@{readReviewer}}
 \index{readReviewer@{readReviewer}!parser.cpp@{parser.cpp}}
 \doxysubsubsection{\texorpdfstring{readReviewer()}{readReviewer()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structreviewer}{reviewer}} read\+Reviewer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{string}}}]{line,  }\item[{\mbox{\hyperlink{classEdge}{map}}$<$ \mbox{\hyperlink{classEdge}{string}}, \mbox{\hyperlink{classEdge}{int}} $>$}]{order }\end{DoxyParamCaption})}
 
-\Hypertarget{parser_8cpp_addbc45ed5d630a40b09de35162a814f9}\label{parser_8cpp_addbc45ed5d630a40b09de35162a814f9} 
+
+
+Parses a reviewer from a CSV line. 
+
+Extracts reviewer fields based on the column mapping.
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & CSV line representing a reviewer \\
+\hline
+{\em order} & Mapping of column names to indices \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+reviewer Parsed reviewer structure
+\end{DoxyReturn}
+@complexity O(k) \Hypertarget{parser_8cpp_addbc45ed5d630a40b09de35162a814f9}\label{parser_8cpp_addbc45ed5d630a40b09de35162a814f9} 
 \index{parser.cpp@{parser.cpp}!readSubmission@{readSubmission}}
 \index{readSubmission@{readSubmission}!parser.cpp@{parser.cpp}}
 \doxysubsubsection{\texorpdfstring{readSubmission()}{readSubmission()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structsubmission}{submission}} read\+Submission (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{string}}}]{line,  }\item[{\mbox{\hyperlink{classEdge}{map}}$<$ \mbox{\hyperlink{classEdge}{string}}, \mbox{\hyperlink{classEdge}{int}} $>$}]{order }\end{DoxyParamCaption})}
 
-\Hypertarget{parser_8cpp_a1411c2f7763ae5c3885fa42316a6c931}\label{parser_8cpp_a1411c2f7763ae5c3885fa42316a6c931} 
+
+
+Parses a submission from a CSV line. 
+
+Extracts submission fields based on the column mapping.
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & CSV line representing a submission \\
+\hline
+{\em order} & Mapping of column names to indices \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+submission Parsed submission structure
+\end{DoxyReturn}
+@complexity O(k), where k is the number of fields \Hypertarget{parser_8cpp_a1411c2f7763ae5c3885fa42316a6c931}\label{parser_8cpp_a1411c2f7763ae5c3885fa42316a6c931} 
 \index{parser.cpp@{parser.cpp}!trimer@{trimer}}
 \index{trimer@{trimer}!parser.cpp@{parser.cpp}}
 \doxysubsubsection{\texorpdfstring{trimer()}{trimer()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{void}} trimer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{string}} \&}]{word }\end{DoxyParamCaption})}
 
+
+
+Removes leading spaces from a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em word} & String to trim\\
+\hline
+\end{DoxyParams}
+@complexity O(n), where n is the length of the string 

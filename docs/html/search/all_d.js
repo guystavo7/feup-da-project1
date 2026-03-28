@@ -2,7 +2,7 @@ var searchData=
 [
   ['params_0',['params',['../structparams.html',1,'']]],
   ['parent_1',['parent',['../MutablePriorityQueue_8h.html#a915a9564b15f2c25e828da2e9a05769c',1,'MutablePriorityQueue.h']]],
-  ['parse_2',['parse',['../parser_8h.html#a90768359d3e6be42acd6866e7e8d58ac',1,'parse(string file):&#160;parser.cpp'],['../parser_8cpp.html#a90768359d3e6be42acd6866e7e8d58ac',1,'parse(string file):&#160;parser.cpp']]],
+  ['parse_2',['parse',['../parser_8h.html#a90768359d3e6be42acd6866e7e8d58ac',1,'parse(string file):&#160;parser.cpp'],['../parser_8cpp.html#ad493261bda25e93a6ce750e6e8e09152',1,'parse(string path):&#160;parser.cpp']]],
   ['parser_2ecpp_3',['parser.cpp',['../parser_8cpp.html',1,'']]],
   ['parser_2eh_4',['parser.h',['../parser_8h.html',1,'']]],
   ['parsertest1_2ecpp_5',['parsertest1.cpp',['../Testing_2parsertest1_8cpp.html',1,'(Global Namespace)'],['../parser__tests_2parsertest1_8cpp.html',1,'(Global Namespace)']]],
