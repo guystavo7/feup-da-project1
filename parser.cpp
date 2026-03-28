@@ -52,12 +52,15 @@ submission readSubmission(params &params, string line, map<string, int> order){
         if (!word.empty()) fields.push_back(word);
     }
 
-    try{
-        res.id = stoi(fields[order["Id"]]);
-    } catch (...){
+    if (order.find("Id") != order.end()){
+        try{
+            res.id = stoi(fields[order["Id"]]);
+        } catch (...){
+            params.valid = false;
+        }
+    } else{
         params.valid = false;
     }
-
     if (order.find("Title") != order.end()) {
         res.title = fields[order["Title"]];
     } else{
@@ -109,12 +112,15 @@ reviewer readReviewer(params &params, string line, map<string, int> order){
         if (!word.empty()) fields.push_back(word);
     }
 
-    try{
-        res.id = stoi(fields[order["Id"]]);
-    } catch (...){
+    if (order.find("Id") != order.end()){
+        try{
+            res.id = stoi(fields[order["Id"]]);
+        } catch (...){
+            params.valid = false;
+        }
+    } else{
         params.valid = false;
     }
-
     if (order.find("Name") != order.end()) {
         res.name = fields[order["Name"]];
     } else{
