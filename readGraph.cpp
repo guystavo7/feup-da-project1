@@ -42,7 +42,12 @@ void writeAssignments(const std::string& outputFilepath, std::vector<assignment>
 
     fprintf(file,"#Total: %lu\n",assignments.size());
 
+    fflush(file);
     fclose(file);
+
+    FILE* file2=fopen(outputFilepath.data(),"r");
+    fclose(file2);
+
 }
 
 void writeFailedAssignments(const std::string& outputFilepath, std::vector<failedAssignment>& failedAssignments) {
@@ -58,7 +63,13 @@ void writeFailedAssignments(const std::string& outputFilepath, std::vector<faile
         fprintf(file,"%d, %d, %d\n",fs.a->id,fs.a->primary,fs.missingSubmissions);
     }
 
+
+    fflush(file);
     fclose(file);
+
+    FILE* file2=fopen(outputFilepath.data(),"r");
+    fclose(file2);
+
 }
 
 

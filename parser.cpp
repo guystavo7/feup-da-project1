@@ -152,7 +152,8 @@ params parse(string path){
     int reading = -1; //1: reading submissions; 2: reading reviewers; 3: reading parameters; 4:  reading control
     map<string, int> m;
     if (!filestream.is_open()) {
-        std::perror("Erro ao abrir o ficheiro");
+        throw "Erro ao abrir o ficheiro";
+       // std::perror("Erro ao abrir o ficheiro");
     }
 
     while (getline(filestream, line)){
