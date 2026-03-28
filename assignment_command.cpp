@@ -24,15 +24,15 @@ int assignment_command(const params & info, string output_file) {
     edmondsKarp(&graph,{-1,false},{-2,false});
 
 
-    std::map<int_node,submission>submissionData;
-    std::map<int_node,reviewer>reviewerData;
+    std::map<int_node,const submission*>submissionData;
+    std::map<int_node,const reviewer*>reviewerData;
 
     for (auto &s:info.submissions) {
-        submissionData.insert({{s.id,true},s});
+        submissionData.insert({{s.id,true},&s});
     }
 
     for (auto &r:info.reviewers) {
-        reviewerData.insert({{r.id,false},r});
+        reviewerData.insert({{r.id,false},&r});
     }
 
     Vertex<int_node>*source=graph.findVertex({-1,false});

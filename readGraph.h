@@ -17,7 +17,7 @@ void writeFailedAssignments(const std::string& outputFilepath, std::vector<faile
 
 
 template<class T>
-void readGraphAssignments(Graph<T> *g, Vertex<T> *s, Vertex<T> *t,const std::map<int_node, submission>& submissionData,const std::map<int_node,reviewer>& reviewerData, std::vector<assignment>& assignments,std::vector<failedAssignment>& failedAssignments, bool & allAssigned) {
+void readGraphAssignments(Graph<T> *g, Vertex<T> *s, Vertex<T> *t,const std::map<int_node, const submission*>& submissionData,const std::map<int_node,const reviewer*>& reviewerData, std::vector<assignment>& assignments,std::vector<failedAssignment>& failedAssignments, bool & allAssigned) {
 
     allAssigned = true;
 
@@ -32,7 +32,7 @@ void readGraphAssignments(Graph<T> *g, Vertex<T> *s, Vertex<T> *t,const std::map
             for (auto& reviewerEdge:articleNode->getAdj()) {
                 Vertex<T>* reviewerNode=reviewerEdge->getDest();
                 if (reviewerEdge->getFlow()==1) {
-                    assignments.push_back({&submissionData.at(articleNode->getInfo()),&reviewerData.at(reviewerNode->getInfo())});
+                    assignments.push_back({submissionData.at(articleNode->getInfo()),reviewerData.at(reviewerNode->getInfo())});
                 }
             }
         }
@@ -42,7 +42,7 @@ void readGraphAssignments(Graph<T> *g, Vertex<T> *s, Vertex<T> *t,const std::map
             Vertex<T>* articleNode=articleEdge->getDest();
 
             if (articleEdge->getWeight()!=articleEdge->getFlow()) {
-                failedAssignments.push_back({&submissionData.at(articleNode->getInfo()),(unsigned int)(articleEdge->getWeight()-articleEdge->getFlow())});
+                failedAssignments.push_back({submissionData.at(articleNode->getInfo()),(unsigned int)(articleEdge->getWeight()-articleEdge->getFlow())});
             }
 
         }

@@ -45,8 +45,7 @@ void writeAssignments(const std::string& outputFilepath, std::vector<assignment>
     fflush(file);
     fclose(file);
 
-    FILE* file2=fopen(outputFilepath.data(),"r");
-    fclose(file2);
+
 
 }
 
@@ -67,8 +66,7 @@ void writeFailedAssignments(const std::string& outputFilepath, std::vector<faile
     fflush(file);
     fclose(file);
 
-    FILE* file2=fopen(outputFilepath.data(),"r");
-    fclose(file2);
+
 
 }
 
