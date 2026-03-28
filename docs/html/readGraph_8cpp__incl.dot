@@ -4,7 +4,7 @@ digraph "readGraph.cpp"
   bgcolor="transparent";
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
-  Node1 [id="Node000001",label="readGraph.cpp",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 [id="Node000001",label="readGraph.cpp",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Output functions for assignments and failed assignments."];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
   Node2 [id="Node000002",label="fcntl.h",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
   Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
@@ -33,7 +33,7 @@ digraph "readGraph.cpp"
   Node13 [id="Node000013",label="string",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
   Node12 -> Node5 [id="edge15_Node000012_Node000005",color="steelblue1",style="solid",tooltip=" "];
   Node1 -> Node14 [id="edge16_Node000001_Node000014",color="steelblue1",style="solid",tooltip=" "];
-  Node14 [id="Node000014",label="readGraph.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$readGraph_8h.html",tooltip=" "];
+  Node14 [id="Node000014",label="readGraph.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$readGraph_8h.html",tooltip="Extracts assignments from the flow graph and writes results to files."];
   Node14 -> Node12 [id="edge17_Node000014_Node000012",color="steelblue1",style="solid",tooltip=" "];
   Node14 -> Node8 [id="edge18_Node000014_Node000008",color="steelblue1",style="solid",tooltip=" "];
   Node14 -> Node3 [id="edge19_Node000014_Node000003",color="steelblue1",style="solid",tooltip=" "];

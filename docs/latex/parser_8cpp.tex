@@ -59,7 +59,7 @@ Searches for the project name in the current path and trims the path accordingly
 \begin{DoxyReturn}{Returns}
 string Path to project root
 \end{DoxyReturn}
-@complexity O(n), where n is the length of the path \Hypertarget{parser_8cpp_ad493261bda25e93a6ce750e6e8e09152}\label{parser_8cpp_ad493261bda25e93a6ce750e6e8e09152} 
+complexity O(n), where n is the length of the path \Hypertarget{parser_8cpp_ad493261bda25e93a6ce750e6e8e09152}\label{parser_8cpp_ad493261bda25e93a6ce750e6e8e09152} 
 \index{parser.cpp@{parser.cpp}!parse@{parse}}
 \index{parse@{parse}!parser.cpp@{parser.cpp}}
 \doxysubsubsection{\texorpdfstring{parse()}{parse()}}
@@ -89,7 +89,7 @@ Depending on the current section, the appropriate parsing function is used.
 \begin{DoxyReturn}{Returns}
 params Struct containing all parsed data
 \end{DoxyReturn}
-@complexity O(n), where n is the number of lines in the file
+complexity O(n), where n is the number of lines in the file
 
 \begin{DoxyNote}{Note}
 Assumes the input file follows the expected format. 
@@ -113,7 +113,7 @@ Handles assignment generation, risk analysis, and output file name.
 {\em line} & CSV line containing control data\\
 \hline
 \end{DoxyParams}
-@complexity O(1) \Hypertarget{parser_8cpp_a0a9a73763d3deb8c6392bb287e891f07}\label{parser_8cpp_a0a9a73763d3deb8c6392bb287e891f07} 
+complexity O(1) \Hypertarget{parser_8cpp_a0a9a73763d3deb8c6392bb287e891f07}\label{parser_8cpp_a0a9a73763d3deb8c6392bb287e891f07} 
 \index{parser.cpp@{parser.cpp}!readLayout@{readLayout}}
 \index{readLayout@{readLayout}!parser.cpp@{parser.cpp}}
 \doxysubsubsection{\texorpdfstring{readLayout()}{readLayout()}}
@@ -133,7 +133,7 @@ Removes the leading \textquotesingle{}\#\textquotesingle{} and splits the line b
 \begin{DoxyReturn}{Returns}
 map$<$string,int$>$ Mapping of field names to column indices
 \end{DoxyReturn}
-@complexity O(k), where k is the number of columns \Hypertarget{parser_8cpp_a16a5b88e9b8213004dc6696d0a6edc0f}\label{parser_8cpp_a16a5b88e9b8213004dc6696d0a6edc0f} 
+complexity O(k), where k is the number of columns \Hypertarget{parser_8cpp_a16a5b88e9b8213004dc6696d0a6edc0f}\label{parser_8cpp_a16a5b88e9b8213004dc6696d0a6edc0f} 
 \index{parser.cpp@{parser.cpp}!readParameter@{readParameter}}
 \index{readParameter@{readParameter}!parser.cpp@{parser.cpp}}
 \doxysubsubsection{\texorpdfstring{readParameter()}{readParameter()}}
@@ -150,7 +150,7 @@ Parses a parameter line and updates the params struct.
 {\em line} & CSV line containing parameter name and value\\
 \hline
 \end{DoxyParams}
-@complexity O(1) \Hypertarget{parser_8cpp_a5b124ade46e4424043e7f15ca563f0e3}\label{parser_8cpp_a5b124ade46e4424043e7f15ca563f0e3} 
+complexity O(1) \Hypertarget{parser_8cpp_a5b124ade46e4424043e7f15ca563f0e3}\label{parser_8cpp_a5b124ade46e4424043e7f15ca563f0e3} 
 \index{parser.cpp@{parser.cpp}!readReviewer@{readReviewer}}
 \index{readReviewer@{readReviewer}!parser.cpp@{parser.cpp}}
 \doxysubsubsection{\texorpdfstring{readReviewer()}{readReviewer()}}
@@ -172,7 +172,7 @@ Extracts reviewer fields based on the column mapping.
 \begin{DoxyReturn}{Returns}
 reviewer Parsed reviewer structure
 \end{DoxyReturn}
-@complexity O(k) \Hypertarget{parser_8cpp_addbc45ed5d630a40b09de35162a814f9}\label{parser_8cpp_addbc45ed5d630a40b09de35162a814f9} 
+complexity O(k) \Hypertarget{parser_8cpp_addbc45ed5d630a40b09de35162a814f9}\label{parser_8cpp_addbc45ed5d630a40b09de35162a814f9} 
 \index{parser.cpp@{parser.cpp}!readSubmission@{readSubmission}}
 \index{readSubmission@{readSubmission}!parser.cpp@{parser.cpp}}
 \doxysubsubsection{\texorpdfstring{readSubmission()}{readSubmission()}}
@@ -194,7 +194,7 @@ Extracts submission fields based on the column mapping.
 \begin{DoxyReturn}{Returns}
 submission Parsed submission structure
 \end{DoxyReturn}
-@complexity O(k), where k is the number of fields \Hypertarget{parser_8cpp_a1411c2f7763ae5c3885fa42316a6c931}\label{parser_8cpp_a1411c2f7763ae5c3885fa42316a6c931} 
+complexity O(k), where k is the number of fields \Hypertarget{parser_8cpp_a1411c2f7763ae5c3885fa42316a6c931}\label{parser_8cpp_a1411c2f7763ae5c3885fa42316a6c931} 
 \index{parser.cpp@{parser.cpp}!trimer@{trimer}}
 \index{trimer@{trimer}!parser.cpp@{parser.cpp}}
 \doxysubsubsection{\texorpdfstring{trimer()}{trimer()}}
@@ -209,4 +209,4 @@ Removes leading spaces from a string.
 {\em word} & String to trim\\
 \hline
 \end{DoxyParams}
-@complexity O(n), where n is the length of the string 
+complexity O(n), where n is the length of the string 

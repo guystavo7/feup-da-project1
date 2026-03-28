@@ -46,7 +46,7 @@ struct params{
  * @param file Path to input file
  * @return params Struct containing all parsed data
  *
- * @complexity O(n), where n is number of lines in the file
+ * complexity O(n), where n is number of lines in the file
  */
 params parse(string file);
 
@@ -59,7 +59,7 @@ params parse(string file);
  * @param project_name Name of the project folder
  * @return string Absolute path to the project root directory
  *
- * @complexity O(n), where n is the length of the current path string
+ * complexity O(n), where n is the length of the current path string
  */
 string get_project_cwd(const string &project_name);
 

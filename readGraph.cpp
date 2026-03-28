@@ -1,3 +1,7 @@
+/**
+ * @file readGraph.cpp
+ * @brief Output functions for assignments and failed assignments.
+ */
 #include <fcntl.h>
 
 #include "graph.h"
@@ -11,7 +15,9 @@
 //
 
 
-
+/**
+ * @brief Implementation of writeAssignments.
+ */
 void writeAssignments(const std::string& outputFilepath, std::vector<assignment>& assignments) {
     FILE* file=fopen(outputFilepath.data(),"w");
     if (file==NULL) {
@@ -45,6 +51,9 @@ void writeAssignments(const std::string& outputFilepath, std::vector<assignment>
     fclose(file);
 }
 
+/**
+ * @brief Implementation of writeFailedAssignments.
+ */
 void writeFailedAssignments(const std::string& outputFilepath, std::vector<failedAssignment>& failedAssignments) {
     FILE* file=fopen(outputFilepath.data(),"a");
     if (file==NULL) {

@@ -33,7 +33,7 @@
  * @param info Struct containing submissions, reviewers, and parameters.
  * @return Graph<int_node> Graph ready for max-flow utilization.
  *
- * @complexity O(S*R), where S=number of submissions and R=number of reviewers.
+ * complexity O(S*R), where S=number of submissions and R=number of reviewers.
  */
 
 Graph<int_node> create(params info);

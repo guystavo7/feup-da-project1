@@ -18,7 +18,7 @@ using namespace std;
  *
  * @param word String to trim
  *
- * @complexity O(n), where n is the length of the string
+ * complexity O(n), where n is the length of the string
  */
 void trimer(string &word){
     while (!word.empty() && word[0] == ' '){
@@ -36,7 +36,7 @@ void trimer(string &word){
  * @param line Header line
  * @return map<string,int> Mapping of field names to column indices
  *
- * @complexity O(k), where k is the number of columns
+ * complexity O(k), where k is the number of columns
  */
 map<string, int> readLayout(string line) {
     map<string, int> m;
@@ -70,7 +70,7 @@ map<string, int> readLayout(string line) {
  * @param order Mapping of column names to indices
  * @return submission Parsed submission structure
  *
- * @complexity O(k), where k is the number of fields
+ * complexity O(k), where k is the number of fields
  */
 submission readSubmission(string line, map<string, int> order){
 
@@ -106,7 +106,7 @@ submission readSubmission(string line, map<string, int> order){
  * @param order Mapping of column names to indices
  * @return reviewer Parsed reviewer structure
  *
- * @complexity O(k)
+ * complexity O(k)
  */
 reviewer readReviewer(string line, map<string, int> order){
 
@@ -137,7 +137,7 @@ reviewer readReviewer(string line, map<string, int> order){
  * @param params Reference to params structure
  * @param line CSV line containing parameter name and value
  *
- * @complexity O(1)
+ * complexity O(1)
  */
 void readParameter(params &params, string line){
 
@@ -170,7 +170,7 @@ void readParameter(params &params, string line){
  * @param params Reference to params structure
  * @param line CSV line containing control data
  *
- * @complexity O(1)
+ * complexity O(1)
  */
 void readControl(params &params, string line){
     
@@ -212,7 +212,7 @@ void readControl(params &params, string line){
  * @param path Path to the input file
  * @return params Struct containing all parsed data
  *
- * @complexity O(n), where n is the number of lines in the file
+ * complexity O(n), where n is the number of lines in the file
  *
  * @note Assumes the input file follows the expected format.
  */
@@ -287,7 +287,7 @@ params parse(string path){
  * @param project_name Name of the project folder
  * @return string Path to project root
  *
- * @complexity O(n), where n is the length of the path
+ * complexity O(n), where n is the length of the path
  */
 string get_project_cwd(const string &project_name) {
 

@@ -12,7 +12,7 @@ digraph "parser.h"
   Node1 -> Node4 [id="edge3_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node4 [id="Node000004",label="create_graph.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$create__graph_8h.html",tooltip="Builds the graph for the reviewer assignment problem."];
   Node4 -> Node5 [id="edge4_Node000004_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node5 [id="Node000005",label="create_graph.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$create__graph_8cpp.html",tooltip=" "];
+  Node5 [id="Node000005",label="create_graph.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$create__graph_8cpp.html",tooltip="Implementation of the graph builder functions."];
   Node1 -> Node6 [id="edge5_Node000001_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node6 [id="Node000006",label="parser.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$parser_8cpp.html",tooltip="Implementation of CSV parsing utilities."];
   Node1 -> Node7 [id="edge6_Node000001_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];

@@ -74,16 +74,14 @@ $(function() {
   <div class="headertitle"><div class="title">max_flow.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implementation of the Edmonds-Karp algorithm for maximum flow.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="graph_8h_source.html">graph.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for max_flow.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="max__flow_8h__incl.png" border="0" usemap="#amax__flow_8h" alt=""/></div>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="max__flow_8h__dep__incl.png" border="0" usemap="#amax__flow_8hdep" alt=""/></div>
 </div>
 </div>
 <p><a href="max__flow_8h_source.html">Go to the source code of this file.</a></p>
@@ -92,24 +90,37 @@ This graph shows which files directly or indirectly include this file:</div>
 Functions</h2></td></tr>
 <tr class="memitem:acb329d42a9a476d072878ef35a6a343c" id="r_acb329d42a9a476d072878ef35a6a343c"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="classEdge.html">class</a> <a class="el" href="classEdge.html">T</a> &gt; </td></tr>
 <tr class="memitem:acb329d42a9a476d072878ef35a6a343c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="max__flow_8h.html#acb329d42a9a476d072878ef35a6a343c">testAndVisit</a> (std::queue&lt; <a class="el" href="classVertex.html">Vertex</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; * &gt; &amp;<a class="el" href="classEdge.html">q</a>, <a class="el" href="classEdge.html">Edge</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *<a class="el" href="classEdge.html">e</a>, <a class="el" href="classVertex.html">Vertex</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *<a class="el" href="classEdge.html">w</a>, <a class="el" href="classEdge.html">double</a> <a class="el" href="classEdge.html">residual</a>)</td></tr>
+<tr class="memdesc:acb329d42a9a476d072878ef35a6a343c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Auxiliary function to explore vertices during BFS.  <br /></td></tr>
 <tr class="separator:acb329d42a9a476d072878ef35a6a343c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ef59ca73ad539b2405ee93bb9e1b8de" id="r_a7ef59ca73ad539b2405ee93bb9e1b8de"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="classEdge.html">class</a> <a class="el" href="classEdge.html">T</a> &gt; </td></tr>
 <tr class="memitem:a7ef59ca73ad539b2405ee93bb9e1b8de"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="max__flow_8h.html#a7ef59ca73ad539b2405ee93bb9e1b8de">findAugmentingPath</a> (<a class="el" href="classGraph.html">Graph</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *<a class="el" href="classEdge.html">g</a>, <a class="el" href="classVertex.html">Vertex</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *<a class="el" href="classEdge.html">s</a>, <a class="el" href="classVertex.html">Vertex</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *<a class="el" href="classEdge.html">t</a>)</td></tr>
+<tr class="memdesc:a7ef59ca73ad539b2405ee93bb9e1b8de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds an augmenting path using BFS.  <br /></td></tr>
 <tr class="separator:a7ef59ca73ad539b2405ee93bb9e1b8de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab38647bac4738e296aba7b1bc4744835" id="r_ab38647bac4738e296aba7b1bc4744835"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="classEdge.html">class</a> <a class="el" href="classEdge.html">T</a> &gt; </td></tr>
 <tr class="memitem:ab38647bac4738e296aba7b1bc4744835"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">double</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="max__flow_8h.html#ab38647bac4738e296aba7b1bc4744835">findMinResidualAlongPath</a> (<a class="el" href="classVertex.html">Vertex</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *<a class="el" href="classEdge.html">s</a>, <a class="el" href="classVertex.html">Vertex</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *<a class="el" href="classEdge.html">t</a>)</td></tr>
+<tr class="memdesc:ab38647bac4738e296aba7b1bc4744835"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the minimum residual capacity along an augmenting path.  <br /></td></tr>
 <tr class="separator:ab38647bac4738e296aba7b1bc4744835"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9813dc412187df7cc322afea1283c22c" id="r_a9813dc412187df7cc322afea1283c22c"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="classEdge.html">class</a> <a class="el" href="classEdge.html">T</a> &gt; </td></tr>
 <tr class="memitem:a9813dc412187df7cc322afea1283c22c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="max__flow_8h.html#a9813dc412187df7cc322afea1283c22c">augmentFlowAlongPath</a> (<a class="el" href="classVertex.html">Vertex</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *<a class="el" href="classEdge.html">s</a>, <a class="el" href="classVertex.html">Vertex</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *<a class="el" href="classEdge.html">t</a>, <a class="el" href="classEdge.html">double</a> <a class="el" href="classEdge.html">f</a>)</td></tr>
+<tr class="memdesc:a9813dc412187df7cc322afea1283c22c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Augments flow along an augmenting path.  <br /></td></tr>
 <tr class="separator:a9813dc412187df7cc322afea1283c22c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6e3fec873d9fb347b8f2dc968eab91d" id="r_af6e3fec873d9fb347b8f2dc968eab91d"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="classEdge.html">class</a> <a class="el" href="classEdge.html">T</a> &gt; </td></tr>
 <tr class="memitem:af6e3fec873d9fb347b8f2dc968eab91d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="max__flow_8h.html#af6e3fec873d9fb347b8f2dc968eab91d">edmondsKarp</a> (<a class="el" href="classGraph.html">Graph</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *<a class="el" href="classEdge.html">g</a>, <a class="el" href="classEdge.html">int</a> <a class="el" href="classEdge.html">source</a>, <a class="el" href="classEdge.html">int</a> <a class="el" href="classEdge.html">target</a>)</td></tr>
+<tr class="memdesc:af6e3fec873d9fb347b8f2dc968eab91d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the maximum flow using the Edmonds-Karp algorithm.  <br /></td></tr>
 <tr class="separator:af6e3fec873d9fb347b8f2dc968eab91d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a545b76fa760ad102592428e46b18808d" id="r_a545b76fa760ad102592428e46b18808d"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="classEdge.html">class</a> <a class="el" href="classEdge.html">T</a> &gt; </td></tr>
 <tr class="memitem:a545b76fa760ad102592428e46b18808d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="max__flow_8h.html#a545b76fa760ad102592428e46b18808d">edmondsKarp</a> (<a class="el" href="classGraph.html">Graph</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *<a class="el" href="classEdge.html">g</a>, <a class="el" href="classEdge.html">T</a> <a class="el" href="classEdge.html">source</a>, <a class="el" href="classEdge.html">T</a> <a class="el" href="classEdge.html">target</a>)</td></tr>
+<tr class="memdesc:a545b76fa760ad102592428e46b18808d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of Edmonds-Karp algorithm.  <br /></td></tr>
 <tr class="separator:a545b76fa760ad102592428e46b18808d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation of the Edmonds-Karp algorithm for maximum flow. </p>
+<p>This module provides functions to compute the maximum flow in a directed graph using the Edmonds-Karp algorithm.</p>
+<p>The graph is assumed to represent a flow network where:</p><ul>
+<li><a class="el" href="classEdge.html">Edge</a> weights represent capacities</li>
+<li><a class="el" href="classEdge.html">Edge</a> flows are updated during execution </li>
+</ul>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a9813dc412187df7cc322afea1283c22c" name="a9813dc412187df7cc322afea1283c22c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9813dc412187df7cc322afea1283c22c">&#9670;&#160;</a></span>augmentFlowAlongPath()</h2>
 
@@ -143,6 +154,19 @@ template&lt;<a class="el" href="classEdge.html">class</a> <a class="el" href="cl
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Augments flow along an augmenting path. </p>
+<p>Implementation of flow augmentation along the augmenting path.</p>
+<p>Updates the flow values along the path by adding the given flow value. Handles both forward and backward edges in the residual graph.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>Source vertex </td></tr>
+    <tr><td class="paramname">t</td><td>Target vertex </td></tr>
+    <tr><td class="paramname">f</td><td>Flow value to add</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>complexity O(V) </p>
 
 </div>
 </div>
@@ -180,6 +204,26 @@ template&lt;<a class="el" href="classEdge.html">class</a> <a class="el" href="cl
       </table>
 </div><div class="memdoc">
 
+<p>Computes the maximum flow using the Edmonds-Karp algorithm. </p>
+<p>Repeatedly finds augmenting paths using BFS and augments flow along those paths until no more augmenting paths exist.</p>
+<p>Algorithm steps:</p><ol type="1">
+<li>Initialize all flows to zero</li>
+<li>While an augmenting path exists:<ul>
+<li>Find the minimum residual capacity (bottleneck)</li>
+<li>Augment flow along the path</li>
+</ul>
+</li>
+</ol>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>Pointer to the graph </td></tr>
+    <tr><td class="paramname">source</td><td>Source node identifier </td></tr>
+    <tr><td class="paramname">target</td><td>Target node identifier</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>complexity O(V*E^2) </p>
+
 </div>
 </div>
 <a id="a545b76fa760ad102592428e46b18808d" name="a545b76fa760ad102592428e46b18808d"></a>
@@ -215,6 +259,8 @@ template&lt;<a class="el" href="classEdge.html">class</a> <a class="el" href="cl
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Implementation of Edmonds-Karp algorithm. </p>
 
 </div>
 </div>
@@ -252,6 +298,20 @@ template&lt;<a class="el" href="classEdge.html">class</a> <a class="el" href="cl
       </table>
 </div><div class="memdoc">
 
+<p>Finds an augmenting path using BFS. </p>
+<p>Implementation of augmenting path search.</p>
+<p>This function searches for a path from source to sink in the residual graph. It considers both forward edges (with remaining capacity) and backward edges (with existing flow).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>Pointer to the graph </td></tr>
+    <tr><td class="paramname">s</td><td>Source vertex </td></tr>
+    <tr><td class="paramname">t</td><td>Target vertex </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if an augmenting path is found, false otherwise</dd></dl>
+<p>complexity O(V+E) </p>
+
 </div>
 </div>
 <a id="ab38647bac4738e296aba7b1bc4744835" name="ab38647bac4738e296aba7b1bc4744835"></a>
@@ -281,6 +341,19 @@ template&lt;<a class="el" href="classEdge.html">class</a> <a class="el" href="cl
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Computes the minimum residual capacity along an augmenting path. </p>
+<p>Implementation of minimum residual capacity along the augmenting path search.</p>
+<p>Traverses the path from sink to source and determines the bottleneck capacity that limits the flow.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>Source vertex </td></tr>
+    <tr><td class="paramname">t</td><td>Target vertex </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Minimum residual capacity along the path</dd></dl>
+<p>complexity O(V) </p>
 
 </div>
 </div>
@@ -323,6 +396,20 @@ template&lt;<a class="el" href="classEdge.html">class</a> <a class="el" href="cl
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Auxiliary function to explore vertices during BFS. </p>
+<p>Implementation of the BFS test.</p>
+<p>Visits a vertex if it has not been visited and there is residual capacity. Updates the path and puts the vertex in the queue.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q</td><td>BFS queue </td></tr>
+    <tr><td class="paramname">e</td><td><a class="el" href="classEdge.html">Edge</a> being explored </td></tr>
+    <tr><td class="paramname">w</td><td>Destination vertex </td></tr>
+    <tr><td class="paramname">residual</td><td>Residual capacity of the edge</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>complexity O(1) </p>
 
 </div>
 </div>

@@ -1,3 +1,7 @@
+/**
+ * @file create_graph.cpp
+ * @brief Implementation of the graph builder functions
+ */
 #include "create_graph.h"
 
 /**
@@ -12,7 +16,7 @@
  * @param info Input data.
  * @return Graph<int_node> Constructed graph.
  *
- * @complexity O(S*R)
+ * complexity O(S*R)
  */
 
 Graph<int_node> create(params info){

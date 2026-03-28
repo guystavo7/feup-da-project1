@@ -16,7 +16,7 @@ digraph "DataStructs.h"
   Node3 -> Node6 [id="edge32_Node000003_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node6 [id="Node000006",label="create_graph.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$create__graph_8h.html",tooltip="Builds the graph for the reviewer assignment problem."];
   Node6 -> Node7 [id="edge33_Node000006_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node7 [id="Node000007",label="create_graph.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$create__graph_8cpp.html",tooltip=" "];
+  Node7 [id="Node000007",label="create_graph.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$create__graph_8cpp.html",tooltip="Implementation of the graph builder functions."];
   Node3 -> Node8 [id="edge34_Node000003_Node000008",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node8 [id="Node000008",label="parser.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$parser_8cpp.html",tooltip="Implementation of CSV parsing utilities."];
   Node3 -> Node9 [id="edge35_Node000003_Node000009",dir="back",color="steelblue1",style="solid",tooltip=" "];
@@ -52,9 +52,9 @@ digraph "DataStructs.h"
   Node3 -> Node24 [id="edge50_Node000003_Node000024",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node24 [id="Node000024",label="parser_tests/parsertest9.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$parsertest9_8cpp.html",tooltip=" "];
   Node1 -> Node25 [id="edge51_Node000001_Node000025",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node25 [id="Node000025",label="readGraph.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$readGraph_8cpp.html",tooltip=" "];
+  Node25 [id="Node000025",label="readGraph.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$readGraph_8cpp.html",tooltip="Output functions for assignments and failed assignments."];
   Node1 -> Node26 [id="edge52_Node000001_Node000026",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node26 [id="Node000026",label="readGraph.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$readGraph_8h.html",tooltip=" "];
+  Node26 [id="Node000026",label="readGraph.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$readGraph_8h.html",tooltip="Extracts assignments from the flow graph and writes results to files."];
   Node26 -> Node2 [id="edge53_Node000026_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node26 -> Node25 [id="edge54_Node000026_Node000025",dir="back",color="steelblue1",style="solid",tooltip=" "];
 }

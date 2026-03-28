@@ -1,26 +1,40 @@
 \doxysection{max\+\_\+flow.\+h File Reference}
 \hypertarget{max__flow_8h}{}\label{max__flow_8h}\index{max\_flow.h@{max\_flow.h}}
+
+
+Implementation of the Edmonds-\/\+Karp algorithm for maximum flow.  
+
+
 {\ttfamily \#include "{}graph.\+h"{}}\newline
 Include dependency graph for max\+\_\+flow.\+h\+:
 % FIG 0
-This graph shows which files directly or indirectly include this file\+:
-% FIG 1
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$\mbox{\hyperlink{classEdge}{class}} \mbox{\hyperlink{classEdge}{T}} $>$ }\\\mbox{\hyperlink{classEdge}{void}} \mbox{\hyperlink{max__flow_8h_acb329d42a9a476d072878ef35a6a343c}{test\+And\+Visit}} (std\+::queue$<$ \mbox{\hyperlink{classVertex}{Vertex}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&\mbox{\hyperlink{classEdge}{q}}, \mbox{\hyperlink{classEdge}{Edge}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classEdge}{e}}, \mbox{\hyperlink{classVertex}{Vertex}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classEdge}{w}}, \mbox{\hyperlink{classEdge}{double}} \mbox{\hyperlink{classEdge}{residual}})
-\item 
+\begin{DoxyCompactList}\small\item\em Auxiliary function to explore vertices during BFS. \end{DoxyCompactList}\item 
 {\footnotesize template$<$\mbox{\hyperlink{classEdge}{class}} \mbox{\hyperlink{classEdge}{T}} $>$ }\\\mbox{\hyperlink{classEdge}{bool}} \mbox{\hyperlink{max__flow_8h_a7ef59ca73ad539b2405ee93bb9e1b8de}{find\+Augmenting\+Path}} (\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classEdge}{g}}, \mbox{\hyperlink{classVertex}{Vertex}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classEdge}{s}}, \mbox{\hyperlink{classVertex}{Vertex}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classEdge}{t}})
-\item 
+\begin{DoxyCompactList}\small\item\em Finds an augmenting path using BFS. \end{DoxyCompactList}\item 
 {\footnotesize template$<$\mbox{\hyperlink{classEdge}{class}} \mbox{\hyperlink{classEdge}{T}} $>$ }\\\mbox{\hyperlink{classEdge}{double}} \mbox{\hyperlink{max__flow_8h_ab38647bac4738e296aba7b1bc4744835}{find\+Min\+Residual\+Along\+Path}} (\mbox{\hyperlink{classVertex}{Vertex}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classEdge}{s}}, \mbox{\hyperlink{classVertex}{Vertex}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classEdge}{t}})
-\item 
+\begin{DoxyCompactList}\small\item\em Computes the minimum residual capacity along an augmenting path. \end{DoxyCompactList}\item 
 {\footnotesize template$<$\mbox{\hyperlink{classEdge}{class}} \mbox{\hyperlink{classEdge}{T}} $>$ }\\\mbox{\hyperlink{classEdge}{void}} \mbox{\hyperlink{max__flow_8h_a9813dc412187df7cc322afea1283c22c}{augment\+Flow\+Along\+Path}} (\mbox{\hyperlink{classVertex}{Vertex}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classEdge}{s}}, \mbox{\hyperlink{classVertex}{Vertex}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classEdge}{t}}, \mbox{\hyperlink{classEdge}{double}} \mbox{\hyperlink{classEdge}{f}})
-\item 
+\begin{DoxyCompactList}\small\item\em Augments flow along an augmenting path. \end{DoxyCompactList}\item 
 {\footnotesize template$<$\mbox{\hyperlink{classEdge}{class}} \mbox{\hyperlink{classEdge}{T}} $>$ }\\\mbox{\hyperlink{classEdge}{void}} \mbox{\hyperlink{max__flow_8h_af6e3fec873d9fb347b8f2dc968eab91d}{edmonds\+Karp}} (\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classEdge}{g}}, \mbox{\hyperlink{classEdge}{int}} \mbox{\hyperlink{classEdge}{source}}, \mbox{\hyperlink{classEdge}{int}} \mbox{\hyperlink{classEdge}{target}})
-\item 
+\begin{DoxyCompactList}\small\item\em Computes the maximum flow using the Edmonds-\/\+Karp algorithm. \end{DoxyCompactList}\item 
 {\footnotesize template$<$\mbox{\hyperlink{classEdge}{class}} \mbox{\hyperlink{classEdge}{T}} $>$ }\\\mbox{\hyperlink{classEdge}{void}} \mbox{\hyperlink{max__flow_8h_a545b76fa760ad102592428e46b18808d}{edmonds\+Karp}} (\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classEdge}{g}}, \mbox{\hyperlink{classEdge}{T}} \mbox{\hyperlink{classEdge}{source}}, \mbox{\hyperlink{classEdge}{T}} \mbox{\hyperlink{classEdge}{target}})
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Implementation of Edmonds-\/\+Karp algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Implementation of the Edmonds-\/\+Karp algorithm for maximum flow. 
+
+This module provides functions to compute the maximum flow in a directed graph using the Edmonds-\/\+Karp algorithm.
+
+The graph is assumed to represent a flow network where\+:
+\begin{DoxyItemize}
+\item \doxylink{classEdge}{Edge} weights represent capacities
+\item \doxylink{classEdge}{Edge} flows are updated during execution 
+\end{DoxyItemize}
 
 \doxysubsection{Function Documentation}
 \Hypertarget{max__flow_8h_a9813dc412187df7cc322afea1283c22c}\label{max__flow_8h_a9813dc412187df7cc322afea1283c22c} 
@@ -30,19 +44,65 @@ This graph shows which files directly or indirectly include this file\+:
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{classEdge}{class}} \mbox{\hyperlink{classEdge}{T}} $>$ \\
 \mbox{\hyperlink{classEdge}{void}} augment\+Flow\+Along\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classVertex}{Vertex}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{s,  }\item[{\mbox{\hyperlink{classVertex}{Vertex}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{t,  }\item[{\mbox{\hyperlink{classEdge}{double}}}]{f }\end{DoxyParamCaption})}
 
-\Hypertarget{max__flow_8h_af6e3fec873d9fb347b8f2dc968eab91d}\label{max__flow_8h_af6e3fec873d9fb347b8f2dc968eab91d} 
+
+
+Augments flow along an augmenting path. 
+
+Implementation of flow augmentation along the augmenting path.
+
+Updates the flow values along the path by adding the given flow value. Handles both forward and backward edges in the residual graph.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Source vertex \\
+\hline
+{\em t} & Target vertex \\
+\hline
+{\em f} & Flow value to add\\
+\hline
+\end{DoxyParams}
+complexity O(\+V) \Hypertarget{max__flow_8h_af6e3fec873d9fb347b8f2dc968eab91d}\label{max__flow_8h_af6e3fec873d9fb347b8f2dc968eab91d} 
 \index{max\_flow.h@{max\_flow.h}!edmondsKarp@{edmondsKarp}}
 \index{edmondsKarp@{edmondsKarp}!max\_flow.h@{max\_flow.h}}
 \doxysubsubsection{\texorpdfstring{edmondsKarp()}{edmondsKarp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{classEdge}{class}} \mbox{\hyperlink{classEdge}{T}} $>$ \\
 \mbox{\hyperlink{classEdge}{void}} edmonds\+Karp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{g,  }\item[{\mbox{\hyperlink{classEdge}{int}}}]{source,  }\item[{\mbox{\hyperlink{classEdge}{int}}}]{target }\end{DoxyParamCaption})}
 
-\Hypertarget{max__flow_8h_a545b76fa760ad102592428e46b18808d}\label{max__flow_8h_a545b76fa760ad102592428e46b18808d} 
+
+
+Computes the maximum flow using the Edmonds-\/\+Karp algorithm. 
+
+Repeatedly finds augmenting paths using BFS and augments flow along those paths until no more augmenting paths exist.
+
+Algorithm steps\+:
+\begin{DoxyEnumerate}
+\item Initialize all flows to zero
+\item While an augmenting path exists\+:
+\begin{DoxyItemize}
+\item Find the minimum residual capacity (bottleneck)
+\item Augment flow along the path
+\end{DoxyItemize}
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph \\
+\hline
+{\em source} & Source node identifier \\
+\hline
+{\em target} & Target node identifier\\
+\hline
+\end{DoxyParams}
+complexity O(\+V\texorpdfstring{$\ast$}{*}\+E\texorpdfstring{$^\wedge$}{\string^}2) \Hypertarget{max__flow_8h_a545b76fa760ad102592428e46b18808d}\label{max__flow_8h_a545b76fa760ad102592428e46b18808d} 
 \index{max\_flow.h@{max\_flow.h}!edmondsKarp@{edmondsKarp}}
 \index{edmondsKarp@{edmondsKarp}!max\_flow.h@{max\_flow.h}}
 \doxysubsubsection{\texorpdfstring{edmondsKarp()}{edmondsKarp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{classEdge}{class}} \mbox{\hyperlink{classEdge}{T}} $>$ \\
 \mbox{\hyperlink{classEdge}{void}} edmonds\+Karp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{g,  }\item[{\mbox{\hyperlink{classEdge}{T}}}]{source,  }\item[{\mbox{\hyperlink{classEdge}{T}}}]{target }\end{DoxyParamCaption})}
+
+
+
+Implementation of Edmonds-\/\+Karp algorithm. 
 
 \Hypertarget{max__flow_8h_a7ef59ca73ad539b2405ee93bb9e1b8de}\label{max__flow_8h_a7ef59ca73ad539b2405ee93bb9e1b8de} 
 \index{max\_flow.h@{max\_flow.h}!findAugmentingPath@{findAugmentingPath}}
@@ -51,17 +111,75 @@ This graph shows which files directly or indirectly include this file\+:
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{classEdge}{class}} \mbox{\hyperlink{classEdge}{T}} $>$ \\
 \mbox{\hyperlink{classEdge}{bool}} find\+Augmenting\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{g,  }\item[{\mbox{\hyperlink{classVertex}{Vertex}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{s,  }\item[{\mbox{\hyperlink{classVertex}{Vertex}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{t }\end{DoxyParamCaption})}
 
-\Hypertarget{max__flow_8h_ab38647bac4738e296aba7b1bc4744835}\label{max__flow_8h_ab38647bac4738e296aba7b1bc4744835} 
+
+
+Finds an augmenting path using BFS. 
+
+Implementation of augmenting path search.
+
+This function searches for a path from source to sink in the residual graph. It considers both forward edges (with remaining capacity) and backward edges (with existing flow).
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph \\
+\hline
+{\em s} & Source vertex \\
+\hline
+{\em t} & Target vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if an augmenting path is found, false otherwise
+\end{DoxyReturn}
+complexity O(V+E) \Hypertarget{max__flow_8h_ab38647bac4738e296aba7b1bc4744835}\label{max__flow_8h_ab38647bac4738e296aba7b1bc4744835} 
 \index{max\_flow.h@{max\_flow.h}!findMinResidualAlongPath@{findMinResidualAlongPath}}
 \index{findMinResidualAlongPath@{findMinResidualAlongPath}!max\_flow.h@{max\_flow.h}}
 \doxysubsubsection{\texorpdfstring{findMinResidualAlongPath()}{findMinResidualAlongPath()}}
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{classEdge}{class}} \mbox{\hyperlink{classEdge}{T}} $>$ \\
 \mbox{\hyperlink{classEdge}{double}} find\+Min\+Residual\+Along\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classVertex}{Vertex}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{s,  }\item[{\mbox{\hyperlink{classVertex}{Vertex}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{t }\end{DoxyParamCaption})}
 
-\Hypertarget{max__flow_8h_acb329d42a9a476d072878ef35a6a343c}\label{max__flow_8h_acb329d42a9a476d072878ef35a6a343c} 
+
+
+Computes the minimum residual capacity along an augmenting path. 
+
+Implementation of minimum residual capacity along the augmenting path search.
+
+Traverses the path from sink to source and determines the bottleneck capacity that limits the flow.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Source vertex \\
+\hline
+{\em t} & Target vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Minimum residual capacity along the path
+\end{DoxyReturn}
+complexity O(\+V) \Hypertarget{max__flow_8h_acb329d42a9a476d072878ef35a6a343c}\label{max__flow_8h_acb329d42a9a476d072878ef35a6a343c} 
 \index{max\_flow.h@{max\_flow.h}!testAndVisit@{testAndVisit}}
 \index{testAndVisit@{testAndVisit}!max\_flow.h@{max\_flow.h}}
 \doxysubsubsection{\texorpdfstring{testAndVisit()}{testAndVisit()}}
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{classEdge}{class}} \mbox{\hyperlink{classEdge}{T}} $>$ \\
 \mbox{\hyperlink{classEdge}{void}} test\+And\+Visit (\begin{DoxyParamCaption}\item[{std\+::queue$<$ \mbox{\hyperlink{classVertex}{Vertex}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&}]{q,  }\item[{\mbox{\hyperlink{classEdge}{Edge}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{e,  }\item[{\mbox{\hyperlink{classVertex}{Vertex}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{w,  }\item[{\mbox{\hyperlink{classEdge}{double}}}]{residual }\end{DoxyParamCaption})}
 
+
+
+Auxiliary function to explore vertices during BFS. 
+
+Implementation of the BFS test.
+
+Visits a vertex if it has not been visited and there is residual capacity. Updates the path and puts the vertex in the queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & BFS queue \\
+\hline
+{\em e} & \doxylink{classEdge}{Edge} being explored \\
+\hline
+{\em w} & Destination vertex \\
+\hline
+{\em residual} & Residual capacity of the edge\\
+\hline
+\end{DoxyParams}
+complexity O(1) 
