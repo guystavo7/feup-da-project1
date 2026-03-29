@@ -9,6 +9,9 @@
  * - Edge weights represent capacities
  * - Edge flows are updated during execution
  */
+#ifndef MAX_FLOW_H
+#define MAX_FLOW_H
+
 #include "graph.h"
 
 /**
@@ -216,3 +219,4 @@ void edmondsKarp(Graph<T> *g, T source, T target) {
         augmentFlowAlongPath(s,t,value);
     }
 }
+#endif

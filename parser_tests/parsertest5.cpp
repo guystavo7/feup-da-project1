@@ -97,6 +97,8 @@ int main(){
     if (params.OutputFileName != exp[exp_i]) {cout << "Wrong OutputFileName: " << params.OutputFileName << endl; passedalltests = false;}
     exp_i++;
 
+    if (params.valid == false) {cout << "Wrong validity" << endl; passedalltests = false;}
+
     if (passedalltests){
         cout << "Test nº5 passed" << endl;
     }
