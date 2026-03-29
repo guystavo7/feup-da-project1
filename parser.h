@@ -52,6 +52,8 @@ struct params{
     int GenerateAssignments;
     int RiskAnalysis;
     string OutputFileName;
+
+    bool valid;
 };
 
 params parse(string file);
