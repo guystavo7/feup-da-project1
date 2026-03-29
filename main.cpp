@@ -45,6 +45,21 @@ void test() {
 
 int main(int argc, char *argv[]) {
 
+    if (argc>1) {
+
+        if ((string(argv[1])!="-b") or argc!=4) {
+            printf("Usage: ATR -b input.cvs output.cvs\n");
+        }
+        else {
+            try {
+                assignment_command(argv[2],argv[3]);
+            }
+            catch (...) {
+                printf("Error: input %s did not exist or parsing failed\n",argv[2]);
+            }
+        }
+        return 0;
+    }
     Menu menu;
     menu.run();
     ///home/gustavobastos/Pessoal/Faculdade/LEIC-FEUP/2 ano/2 semestre/DA/Projeto1/DA_Project_1/Project1SampleDatasets/Project1SampleDatasets/input/dataset9.csv
