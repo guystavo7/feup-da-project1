@@ -1,3 +1,6 @@
+#ifndef MAX_FLOW_H
+#define MAX_FLOW_H
+
 #include "graph.h"
 
 template <class T>
@@ -124,3 +127,4 @@ void edmondsKarp(Graph<T> *g, T source, T target) {
         augmentFlowAlongPath(s,t,value);
     }
 }
+#endif

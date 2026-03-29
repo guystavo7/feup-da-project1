@@ -17,7 +17,7 @@ void writeAssignments(const std::string& outputFilepath, std::vector<assignment>
     if (file==NULL) {
         std::cerr << "Could not open file \"" << outputFilepath << "\"" << std::endl;
     }
-    printf("%s\n", outputFilepath.data());
+
 
     fprintf(file,"#SubmissionId,ReviewerId,Match\n");
 
@@ -42,7 +42,11 @@ void writeAssignments(const std::string& outputFilepath, std::vector<assignment>
 
     fprintf(file,"#Total: %lu\n",assignments.size());
 
+    fflush(file);
     fclose(file);
+
+
+
 }
 
 void writeFailedAssignments(const std::string& outputFilepath, std::vector<failedAssignment>& failedAssignments) {
@@ -50,7 +54,7 @@ void writeFailedAssignments(const std::string& outputFilepath, std::vector<faile
     if (file==NULL) {
         std::cerr << "Could not open file \"" << outputFilepath << "\"" << std::endl;
     }
-    printf("%s\n", outputFilepath.data());
+
 
     fprintf(file,"#SubmissionId,Domain,MissingReviews\n");
     for (auto& fs:failedAssignments) {
@@ -58,7 +62,12 @@ void writeFailedAssignments(const std::string& outputFilepath, std::vector<faile
         fprintf(file,"%d, %d, %d\n",fs.a->id,fs.a->primary,fs.missingSubmissions);
     }
 
+
+    fflush(file);
     fclose(file);
+
+
+
 }
 
 
