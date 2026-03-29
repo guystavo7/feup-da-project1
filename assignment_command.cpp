@@ -50,6 +50,9 @@ int assignment_command(const params & info, string output_file) {
     if (!allAssigned) {
         writeFailedAssignments(output_file,failedAssignments);
     }
+    if (info.RiskAnalysis==1) {
+        risk_analisys(output_file,&graph,reviewerData,allAssigned);
+    }
 
 
     return  0;

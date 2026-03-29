@@ -12,6 +12,8 @@
 #include "parser.h"
 #include "utils.h"
 
+#include "Risk.h"
+
 
 //
 // Created by gustavobastos on 19/03/26.
