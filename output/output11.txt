@@ -13,3 +13,4 @@
 3, 3, 2
 4, 3, 2
 #Total: 6
+#Risk Analysis: 1

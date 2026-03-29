@@ -53,6 +53,7 @@ void Menu::print_c(const string &str) {
 
 void Menu::run() {
 
+    string line;
     int input;
     string error="\n";
     bool exit=false;
@@ -80,7 +81,19 @@ void Menu::run() {
         nl();
         print_c("Select one of the following options (write a number):");
         try {
-            scanf("%d",&input);
+            getline(std::cin,line);
+            if (line.size()<=1) {
+                input=atoi(line.c_str());
+                if (line!="0" and input==0) {
+
+                    error="Error: Please enter a valid input\n";
+                    input=7;
+                }
+            }
+            else {
+                error="Error: Please enter a valid input\n";
+                input=7;
+            }
         }
         catch (...) {
             error="Error: Please enter a valid input\n";
@@ -104,7 +117,7 @@ void Menu::run() {
                 current_parameters();
                 break;
             case 5:
-                assignment_command(cur_params,cur_params.OutputFileName);
+              //
                 list_of_assignments();
                 break;
             case 7:
@@ -148,6 +161,7 @@ void Menu::load_data() {
         try {
             if (input!="") {
                 cur_params=parse(input);
+                no_data=false;
             }
         }
         catch (...) {
@@ -202,8 +216,10 @@ void Menu::current_parameters() {
     };
 
     basic_view_page("Current Parameters", [&](){
-        for (const string& s :params) {
-            printf(("\t\t"+s+"\n\n").c_str());
+        if (!no_data) {
+            for (const string& s :params) {
+                printf(("\t\t"+s+"\n\n").c_str());
+            }
         }
     }
     );
@@ -217,12 +233,14 @@ void Menu::list_of_assignments() {
 
 
     basic_view_page("Assignments", [&](){
-
-        FILE * file=fopen(cur_params.OutputFileName.c_str(),"r");
-        char* line;
-        size_t size=0;
-        while (getline(&line,&size,file)!=-1) {
-            printf(line);
+        if (!no_data) {
+            assignment_command(cur_params,cur_params.OutputFileName);
+            FILE * file=fopen(cur_params.OutputFileName.c_str(),"r");
+            char* line;
+            size_t size=0;
+            while (getline(&line,&size,file)!=-1) {
+                printf(line);
+            }
         }
 
     }

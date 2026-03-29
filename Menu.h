@@ -23,6 +23,7 @@ class  Menu {
     int screen_width=100;
     string bar= repeat("-",screen_width-1)+"\n";
 
+    bool no_data=true;
     params cur_params;
 public:
 
@@ -52,8 +53,12 @@ void Menu::basic_view_page(const string& title,Func print_data) {
 
 
 
+    string line;
     int input;
     string error="\n";
+    if (no_data) {
+        error="No data available. Go to menu and Load Data (option: 1)";
+    }
     bool exit=false;
     while (!exit) {
         clear_terminal();
@@ -71,7 +76,19 @@ void Menu::basic_view_page(const string& title,Func print_data) {
 
 
         try {
-            cin>>input;
+            getline(std::cin,line);
+            if (line.size()<=1) {
+                input=atoi(line.c_str());
+                if (line!="0" and input==0) {
+
+                    error="Error: Please enter a valid input\n";
+                    input=7;
+                }
+            }
+            else {
+                error="Error: Please enter a valid input\n";
+                input=7;
+            }
         }
         catch (...) {
             error="Error: Please enter a valid input\n";
