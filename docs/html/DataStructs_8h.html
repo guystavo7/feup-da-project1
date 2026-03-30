@@ -75,7 +75,17 @@ $(function() {
   <div class="headertitle"><div class="title">DataStructs.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><div class="dynheader">
+
+<p>Defines core data structures used in the project.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for DataStructs.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="DataStructs_8h__incl.png" border="0" usemap="#aDataStructs_8h" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="DataStructs_8h__dep__incl.png" border="0" usemap="#aDataStructs_8hdep" alt=""/></div>
@@ -86,76 +96,50 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsubmission.html">submission</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a submission (paper).  <a href="structsubmission.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structreviewer.html">reviewer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a reviewer.  <a href="structreviewer.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structint__node.html">int_node</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Node type used in the graph.  <a href="structint__node.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structassignment.html">assignment</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a successful assignment.  <a href="structassignment.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfailedAssignment.html">failedAssignment</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a failed assignment (missing reviews).  <a href="structfailedAssignment.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab5da89d1c3dc42a446c326dd43adf215" id="r_ab5da89d1c3dc42a446c326dd43adf215"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="classEdge.html">class</a> <a class="el" href="classEdge.html">T</a> &gt; </td></tr>
-<tr class="memitem:ab5da89d1c3dc42a446c326dd43adf215"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="DataStructs_8h.html#ab5da89d1c3dc42a446c326dd43adf215">readGraphAssignments</a> (<a class="el" href="classGraph.html">Graph</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *<a class="el" href="classEdge.html">g</a>, <a class="el" href="classVertex.html">Vertex</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *<a class="el" href="classEdge.html">s</a>, <a class="el" href="classVertex.html">Vertex</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *<a class="el" href="classEdge.html">t</a>, <a class="el" href="classEdge.html">const</a> std::map&lt; <a class="el" href="classEdge.html">int</a>, <a class="el" href="structsubmission.html">submission</a> &gt; &amp;<a class="el" href="classEdge.html">submissionData</a>, <a class="el" href="classEdge.html">const</a> std::map&lt; <a class="el" href="classEdge.html">int</a>, <a class="el" href="structreviewer.html">reviewer</a> &gt; &amp;<a class="el" href="classEdge.html">reviewerData</a>, std::vector&lt; <a class="el" href="structassignment.html">assignment</a> &gt; &amp;<a class="el" href="classEdge.html">assignments</a>, std::vector&lt; <a class="el" href="structfailedAssignment.html">failedAssignment</a> &gt; &amp;<a class="el" href="classEdge.html">failedAssignments</a>, <a class="el" href="classEdge.html">bool</a> &amp;<a class="el" href="classEdge.html">allAssigned</a>)</td></tr>
-<tr class="separator:ab5da89d1c3dc42a446c326dd43adf215"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a204de6dd7f7e6dbe62276c1d0cfe9ed7" id="r_a204de6dd7f7e6dbe62276c1d0cfe9ed7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="DataStructs_8h.html#a204de6dd7f7e6dbe62276c1d0cfe9ed7">operator&lt;</a> (<a class="el" href="classEdge.html">const</a> <a class="el" href="structint__node.html">int_node</a> &amp;<a class="el" href="classEdge.html">i1</a>, <a class="el" href="classEdge.html">const</a> <a class="el" href="structint__node.html">int_node</a> &amp;<a class="el" href="classEdge.html">i2</a>)</td></tr>
+<tr class="memdesc:a204de6dd7f7e6dbe62276c1d0cfe9ed7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparison operator for <a class="el" href="structint__node.html" title="Node type used in the graph.">int_node</a>.  <br /></td></tr>
+<tr class="separator:a204de6dd7f7e6dbe62276c1d0cfe9ed7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1e40e98c966b3146b884f85ee30b10a" id="r_ad1e40e98c966b3146b884f85ee30b10a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="DataStructs_8h.html#ad1e40e98c966b3146b884f85ee30b10a">operator==</a> (<a class="el" href="classEdge.html">const</a> <a class="el" href="structint__node.html">int_node</a> &amp;<a class="el" href="classEdge.html">i1</a>, <a class="el" href="classEdge.html">const</a> <a class="el" href="structint__node.html">int_node</a> &amp;<a class="el" href="classEdge.html">i2</a>)</td></tr>
+<tr class="memdesc:ad1e40e98c966b3146b884f85ee30b10a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator for <a class="el" href="structint__node.html" title="Node type used in the graph.">int_node</a>.  <br /></td></tr>
+<tr class="separator:ad1e40e98c966b3146b884f85ee30b10a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="ab5da89d1c3dc42a446c326dd43adf215" name="ab5da89d1c3dc42a446c326dd43adf215"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5da89d1c3dc42a446c326dd43adf215">&#9670;&#160;</a></span>readGraphAssignments()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Defines core data structures used in the project. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a204de6dd7f7e6dbe62276c1d0cfe9ed7" name="a204de6dd7f7e6dbe62276c1d0cfe9ed7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a204de6dd7f7e6dbe62276c1d0cfe9ed7">&#9670;&#160;</a></span>operator&lt;()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="classEdge.html">class</a> <a class="el" href="classEdge.html">T</a> &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classEdge.html">void</a> readGraphAssignments </td>
+          <td class="memname"><a class="el" href="classEdge.html">bool</a> <a class="el" href="classEdge.html">operator</a>&lt; </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classGraph.html">Graph</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *&#160;</td>
-          <td class="paramname"><em>g</em>, </td>
+          <td class="paramtype"><a class="el" href="classEdge.html">const</a> <a class="el" href="structint__node.html">int_node</a> &amp;&#160;</td>
+          <td class="paramname"><em>i1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classVertex.html">Vertex</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *&#160;</td>
-          <td class="paramname"><em>s</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classVertex.html">Vertex</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *&#160;</td>
-          <td class="paramname"><em>t</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classEdge.html">const</a> std::map&lt; <a class="el" href="classEdge.html">int</a>, <a class="el" href="structsubmission.html">submission</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>submissionData</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classEdge.html">const</a> std::map&lt; <a class="el" href="classEdge.html">int</a>, <a class="el" href="structreviewer.html">reviewer</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>reviewerData</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="structassignment.html">assignment</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>assignments</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="structfailedAssignment.html">failedAssignment</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>failedAssignments</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classEdge.html">bool</a> &amp;&#160;</td>
-          <td class="paramname"><em>allAssigned</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="classEdge.html">const</a> <a class="el" href="structint__node.html">int_node</a> &amp;&#160;</td>
+          <td class="paramname"><em>i2</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -164,6 +148,38 @@ template&lt;<a class="el" href="classEdge.html">class</a> <a class="el" href="cl
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Comparison operator for <a class="el" href="structint__node.html" title="Node type used in the graph.">int_node</a>. </p>
+
+</div>
+</div>
+<a id="ad1e40e98c966b3146b884f85ee30b10a" name="ad1e40e98c966b3146b884f85ee30b10a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1e40e98c966b3146b884f85ee30b10a">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEdge.html">bool</a> <a class="el" href="classEdge.html">operator</a>== </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classEdge.html">const</a> <a class="el" href="structint__node.html">int_node</a> &amp;&#160;</td>
+          <td class="paramname"><em>i1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classEdge.html">const</a> <a class="el" href="structint__node.html">int_node</a> &amp;&#160;</td>
+          <td class="paramname"><em>i2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Equality operator for <a class="el" href="structint__node.html" title="Node type used in the graph.">int_node</a>. </p>
 
 </div>
 </div>

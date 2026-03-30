@@ -1,5 +1,10 @@
 \doxysection{create\+\_\+graph.\+h File Reference}
 \hypertarget{create__graph_8h}{}\label{create__graph_8h}\index{create\_graph.h@{create\_graph.h}}
+
+
+Builds the graph for the reviewer assignment problem.  
+
+
 {\ttfamily \#include "{}graph.\+h"{}}\newline
 {\ttfamily \#include "{}parser.\+h"{}}\newline
 Include dependency graph for create\+\_\+graph.\+h\+:
@@ -9,14 +14,70 @@ This graph shows which files directly or indirectly include this file\+:
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{classEdge}{int}} $>$ \mbox{\hyperlink{create__graph_8h_a8a1cd60efde4b2cfc827ca1ba39e7498}{create}} (\mbox{\hyperlink{structparams}{params}} info)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structint__node}{int\+\_\+node}} $>$ \mbox{\hyperlink{create__graph_8h_abe93ef2dae0a031a8c101f4a27ce4760}{create}} (\mbox{\hyperlink{structparams}{params}} info)
+\begin{DoxyCompactList}\small\item\em Constructs a graph for the assignment problem. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Builds the graph for the reviewer assignment problem. 
+
+This module is responsible for transforming the parsed input data into a graph representation suitable for max-\/flow algorithms. 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{create__graph_8h_a8a1cd60efde4b2cfc827ca1ba39e7498}\label{create__graph_8h_a8a1cd60efde4b2cfc827ca1ba39e7498} 
+\Hypertarget{create__graph_8h_abe93ef2dae0a031a8c101f4a27ce4760}\label{create__graph_8h_abe93ef2dae0a031a8c101f4a27ce4760} 
 \index{create\_graph.h@{create\_graph.h}!create@{create}}
 \index{create@{create}!create\_graph.h@{create\_graph.h}}
 \doxysubsubsection{\texorpdfstring{create()}{create()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{classEdge}{int}} $>$ create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structparams}{params}}}]{info }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structint__node}{int\+\_\+node}} $>$ create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structparams}{params}}}]{info }\end{DoxyParamCaption})}
 
+
+
+Constructs a graph for the assignment problem. 
+
+The resulting graph follows this structure\+:
+\begin{DoxyItemize}
+\item Source node (id = -\/1)
+\item Sink node (id = -\/2)
+\item Submission nodes (is\+\_\+sub = true)
+\item Reviewer nodes (is\+\_\+sub = false)
+\end{DoxyItemize}
+
+Edges\+:
+\begin{DoxyItemize}
+\item Source -\/\texorpdfstring{$>$}{>} Submission (capacity = Min\+Reviews\+Per\+Submission)
+\item Reviewer -\/\texorpdfstring{$>$}{>} Sink (capacity = Max\+Reviews\+Per\+Reviewer)
+\item Submission -\/\texorpdfstring{$>$}{>} Reviewer (capacity = 1 if domains match)
+\end{DoxyItemize}
+
+Matching rules depend on the Generate\+Assignments parameter\+:
+\begin{DoxyItemize}
+\item 1\+: Only primary domain/expertise
+\item 2\+: Primary + secondary submissions vs primary reviewers
+\item 3\+: Full matching (primary + secondary both sides)
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em info} & Struct containing submissions, reviewers, and parameters. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Graph$<$int\+\_\+node$>$ \doxylink{classGraph}{Graph} ready for max-\/flow utilization.
+\end{DoxyReturn}
+complexity O(\+S\texorpdfstring{$\ast$}{*}\+R), where S=number of submissions and R=number of reviewers.
+
+Constructs a graph for the assignment problem.
+
+This function creates a bipartite graph between submissions and reviewers, connecting it to a source and sink to enable max-\/flow utilization.
+
+The matching between submissions and reviewers is determined according to the Generate\+Assignments parameter and domain compatibility.
+
+
+\begin{DoxyParams}{Parameters}
+{\em info} & Input data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Graph$<$int\+\_\+node$>$ Constructed graph.
+\end{DoxyReturn}
+complexity O(\+S\texorpdfstring{$\ast$}{*}\+R) 

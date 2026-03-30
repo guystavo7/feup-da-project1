@@ -3,7 +3,7 @@ var searchData=
   ['readcontrol_0',['readControl',['../parser_8cpp.html#a4e9d636f1c8ffbe5955b4c818aa54657',1,'parser.cpp']]],
   ['readgraph_2ecpp_1',['readGraph.cpp',['../readGraph_8cpp.html',1,'']]],
   ['readgraph_2eh_2',['readGraph.h',['../readGraph_8h.html',1,'']]],
-  ['readgraphassignments_3',['readGraphAssignments',['../DataStructs_8h.html#ab5da89d1c3dc42a446c326dd43adf215',1,'DataStructs.h']]],
+  ['readgraphassignments_3',['readGraphAssignments',['../readGraph_8h.html#a5bdbd8eb0104075c57ae06fb8ca4e10d',1,'readGraph.h']]],
   ['readgraphtests_2ecpp_4',['readGraphTests.cpp',['../readGraphTests_8cpp.html',1,'']]],
   ['readlayout_5',['readLayout',['../parser_8cpp.html#a0a9a73763d3deb8c6392bb287e891f07',1,'parser.cpp']]],
   ['readme_2emd_6',['readme.md',['../Project1SampleDatasets_2Project1SampleDatasets_2README_8md.html',1,'(Global Namespace)'],['../README_8md.html',1,'(Global Namespace)']]],

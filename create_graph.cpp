@@ -1,4 +1,23 @@
+/**
+ * @file create_graph.cpp
+ * @brief Implementation of the graph builder functions
+ */
 #include "create_graph.h"
+
+/**
+ * @brief Builds the graph used to solve the assignment problem.
+ *
+ * This function creates a bipartite graph between submissions and reviewers, 
+ * connecting it to a source and sink to enable max-flow utilization.
+ *
+ * The matching between submissions and reviewers is determined according to
+ * the GenerateAssignments parameter and domain compatibility.
+ *
+ * @param info Input data.
+ * @return Graph<int_node> Constructed graph.
+ *
+ * complexity O(S*R)
+ */
 
 Graph<int_node> create(params info){
     Graph<int_node> newGraph;

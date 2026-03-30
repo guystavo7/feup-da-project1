@@ -74,7 +74,12 @@ $(function() {
   <div class="headertitle"><div class="title">parser.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implementation of CSV parsing utilities.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="parser_8h_source.html">parser.h</a>&quot;</code><br />
+<code>#include &lt;cstring&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for parser.cpp:</div>
 <div class="dyncontent">
@@ -84,23 +89,66 @@ Include dependency graph for parser.cpp:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a1411c2f7763ae5c3885fa42316a6c931" id="r_a1411c2f7763ae5c3885fa42316a6c931"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8cpp.html#a1411c2f7763ae5c3885fa42316a6c931">trimer</a> (<a class="el" href="classEdge.html">string</a> &amp;<a class="el" href="classEdge.html">word</a>)</td></tr>
+<tr class="memdesc:a1411c2f7763ae5c3885fa42316a6c931"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes leading spaces from a string.  <br /></td></tr>
 <tr class="separator:a1411c2f7763ae5c3885fa42316a6c931"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a9a73763d3deb8c6392bb287e891f07" id="r_a0a9a73763d3deb8c6392bb287e891f07"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">map</a>&lt; <a class="el" href="classEdge.html">string</a>, <a class="el" href="classEdge.html">int</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8cpp.html#a0a9a73763d3deb8c6392bb287e891f07">readLayout</a> (<a class="el" href="classEdge.html">string</a> <a class="el" href="classEdge.html">line</a>)</td></tr>
+<tr class="memdesc:a0a9a73763d3deb8c6392bb287e891f07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a header line and maps column names to indices.  <br /></td></tr>
 <tr class="separator:a0a9a73763d3deb8c6392bb287e891f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addbc45ed5d630a40b09de35162a814f9" id="r_addbc45ed5d630a40b09de35162a814f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsubmission.html">submission</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8cpp.html#addbc45ed5d630a40b09de35162a814f9">readSubmission</a> (<a class="el" href="classEdge.html">string</a> <a class="el" href="classEdge.html">line</a>, <a class="el" href="classEdge.html">map</a>&lt; <a class="el" href="classEdge.html">string</a>, <a class="el" href="classEdge.html">int</a> &gt; <a class="el" href="classEdge.html">order</a>)</td></tr>
+<tr class="memdesc:addbc45ed5d630a40b09de35162a814f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a submission from a CSV line.  <br /></td></tr>
 <tr class="separator:addbc45ed5d630a40b09de35162a814f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b124ade46e4424043e7f15ca563f0e3" id="r_a5b124ade46e4424043e7f15ca563f0e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structreviewer.html">reviewer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8cpp.html#a5b124ade46e4424043e7f15ca563f0e3">readReviewer</a> (<a class="el" href="classEdge.html">string</a> <a class="el" href="classEdge.html">line</a>, <a class="el" href="classEdge.html">map</a>&lt; <a class="el" href="classEdge.html">string</a>, <a class="el" href="classEdge.html">int</a> &gt; <a class="el" href="classEdge.html">order</a>)</td></tr>
+<tr class="memdesc:a5b124ade46e4424043e7f15ca563f0e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a reviewer from a CSV line.  <br /></td></tr>
 <tr class="separator:a5b124ade46e4424043e7f15ca563f0e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16a5b88e9b8213004dc6696d0a6edc0f" id="r_a16a5b88e9b8213004dc6696d0a6edc0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8cpp.html#a16a5b88e9b8213004dc6696d0a6edc0f">readParameter</a> (<a class="el" href="structparams.html">params</a> &amp;<a class="el" href="structparams.html">params</a>, <a class="el" href="classEdge.html">string</a> <a class="el" href="classEdge.html">line</a>)</td></tr>
+<tr class="memdesc:a16a5b88e9b8213004dc6696d0a6edc0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a parameter line and updates the params struct.  <br /></td></tr>
 <tr class="separator:a16a5b88e9b8213004dc6696d0a6edc0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e9d636f1c8ffbe5955b4c818aa54657" id="r_a4e9d636f1c8ffbe5955b4c818aa54657"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8cpp.html#a4e9d636f1c8ffbe5955b4c818aa54657">readControl</a> (<a class="el" href="structparams.html">params</a> &amp;<a class="el" href="structparams.html">params</a>, <a class="el" href="classEdge.html">string</a> <a class="el" href="classEdge.html">line</a>)</td></tr>
+<tr class="memdesc:a4e9d636f1c8ffbe5955b4c818aa54657"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses control parameters from a CSV line.  <br /></td></tr>
 <tr class="separator:a4e9d636f1c8ffbe5955b4c818aa54657"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90768359d3e6be42acd6866e7e8d58ac" id="r_a90768359d3e6be42acd6866e7e8d58ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structparams.html">params</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8cpp.html#a90768359d3e6be42acd6866e7e8d58ac">parse</a> (<a class="el" href="classEdge.html">string</a> <a class="el" href="classEdge.html">file</a>)</td></tr>
-<tr class="separator:a90768359d3e6be42acd6866e7e8d58ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad493261bda25e93a6ce750e6e8e09152" id="r_ad493261bda25e93a6ce750e6e8e09152"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structparams.html">params</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8cpp.html#ad493261bda25e93a6ce750e6e8e09152">parse</a> (<a class="el" href="classEdge.html">string</a> path)</td></tr>
+<tr class="memdesc:ad493261bda25e93a6ce750e6e8e09152"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the input CSV file and builds the params structure.  <br /></td></tr>
+<tr class="separator:ad493261bda25e93a6ce750e6e8e09152"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33f12f1a581a6f8137b061891e573ea0" id="r_a33f12f1a581a6f8137b061891e573ea0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8cpp.html#a33f12f1a581a6f8137b061891e573ea0">get_project_cwd</a> (<a class="el" href="classEdge.html">const</a> <a class="el" href="classEdge.html">string</a> &amp;<a class="el" href="classEdge.html">project_name</a>)</td></tr>
+<tr class="memdesc:a33f12f1a581a6f8137b061891e573ea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the project root directory from the current working directory.  <br /></td></tr>
+<tr class="separator:a33f12f1a581a6f8137b061891e573ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a90768359d3e6be42acd6866e7e8d58ac" name="a90768359d3e6be42acd6866e7e8d58ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90768359d3e6be42acd6866e7e8d58ac">&#9670;&#160;</a></span>parse()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation of CSV parsing utilities. </p>
+<p>Contains helper functions to parse submissions, reviewers, parameters, and control sections from input files. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a33f12f1a581a6f8137b061891e573ea0" name="a33f12f1a581a6f8137b061891e573ea0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33f12f1a581a6f8137b061891e573ea0">&#9670;&#160;</a></span>get_project_cwd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEdge.html">string</a> get_project_cwd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classEdge.html">const</a> <a class="el" href="classEdge.html">string</a> &amp;&#160;</td>
+          <td class="paramname"><em>project_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves the project root directory from the current working directory. </p>
+<p>Gets the root directory of the project.</p>
+<p>Searches for the project name in the current path and trims the path accordingly.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">project_name</td><td>Name of the project folder </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string Path to project root</dd></dl>
+<p>complexity O(n), where n is the length of the path </p>
+
+</div>
+</div>
+<a id="ad493261bda25e93a6ce750e6e8e09152" name="ad493261bda25e93a6ce750e6e8e09152"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad493261bda25e93a6ce750e6e8e09152">&#9670;&#160;</a></span>parse()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -109,11 +157,30 @@ Functions</h2></td></tr>
           <td class="memname"><a class="el" href="structparams.html">params</a> parse </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classEdge.html">string</a>&#160;</td>
-          <td class="paramname"><em>file</em></td><td>)</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Parses the input CSV file and builds the params structure. </p>
+<p>Parses a CSV input file.</p>
+<p>The file is processed line by line and divided into sections:</p><ul>
+<li>#Submissions</li>
+<li>#Reviewers</li>
+<li>#Parameters</li>
+<li>#Control</li>
+</ul>
+<p>Depending on the current section, the appropriate parsing function is used.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>Path to the input file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>params Struct containing all parsed data</dd></dl>
+<p>complexity O(n), where n is the number of lines in the file</p>
+<dl class="section note"><dt>Note</dt><dd>Assumes the input file follows the expected format. </dd></dl>
 
 </div>
 </div>
@@ -143,6 +210,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Parses control parameters from a CSV line. </p>
+<p>Handles assignment generation, risk analysis, and output file name.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">params</td><td>Reference to params structure </td></tr>
+    <tr><td class="paramname">line</td><td>CSV line containing control data</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>complexity O(1) </p>
+
 </div>
 </div>
 <a id="a0a9a73763d3deb8c6392bb287e891f07" name="a0a9a73763d3deb8c6392bb287e891f07"></a>
@@ -160,6 +238,17 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Reads a header line and maps column names to indices. </p>
+<p>Removes the leading '#' and splits the line by ',' to create a mapping between column names and their positions.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">line</td><td>Header line </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>map&lt;string,int&gt; Mapping of field names to column indices</dd></dl>
+<p>complexity O(k), where k is the number of columns </p>
 
 </div>
 </div>
@@ -189,6 +278,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Parses a parameter line and updates the params struct. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">params</td><td>Reference to params structure </td></tr>
+    <tr><td class="paramname">line</td><td>CSV line containing parameter name and value</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>complexity O(1) </p>
+
 </div>
 </div>
 <a id="a5b124ade46e4424043e7f15ca563f0e3" name="a5b124ade46e4424043e7f15ca563f0e3"></a>
@@ -216,6 +315,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Parses a reviewer from a CSV line. </p>
+<p>Extracts reviewer fields based on the column mapping.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">line</td><td>CSV line representing a reviewer </td></tr>
+    <tr><td class="paramname">order</td><td>Mapping of column names to indices </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>reviewer Parsed reviewer structure</dd></dl>
+<p>complexity O(k) </p>
 
 </div>
 </div>
@@ -245,6 +356,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Parses a submission from a CSV line. </p>
+<p>Extracts submission fields based on the column mapping.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">line</td><td>CSV line representing a submission </td></tr>
+    <tr><td class="paramname">order</td><td>Mapping of column names to indices </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>submission Parsed submission structure</dd></dl>
+<p>complexity O(k), where k is the number of fields </p>
+
 </div>
 </div>
 <a id="a1411c2f7763ae5c3885fa42316a6c931" name="a1411c2f7763ae5c3885fa42316a6c931"></a>
@@ -262,6 +385,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes leading spaces from a string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">word</td><td>String to trim</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>complexity O(n), where n is the length of the string </p>
 
 </div>
 </div>

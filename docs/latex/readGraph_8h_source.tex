@@ -4,18 +4,52 @@
 \DoxyCodeLine{00001\ \textcolor{comment}{//}}
 \DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ gustavobastos\ on\ 13/03/26.}}
 \DoxyCodeLine{00003\ \textcolor{comment}{//}}
-\DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ DA\_PROJECT\_1\_READGRAPH\_H}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ DA\_PROJECT\_1\_READGRAPH\_H}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{DataStructs_8h}{DataStructs.h}}"{}}}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{readGraph_8h_a85872e9a41dd96811613f312b343305a}{writeAssignments}}(\textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classEdge}{outputFilepath}},\textcolor{keyword}{const}\ std::vector<assignment>\&\ \mbox{\hyperlink{classEdge}{assignments}});}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{readGraph_8h_a1b69dc8665d95dab71fb386621a27ac9}{writeFailedAssignments}}(\textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classEdge}{outputFilepath}},\textcolor{keyword}{const}\ std::vector<failedAssignment>\&\ \mbox{\hyperlink{classEdge}{failedAssignments}});}
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//DA\_PROJECT\_1\_READGRAPH\_H}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ DA\_PROJECT\_1\_READGRAPH\_H}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ DA\_PROJECT\_1\_READGRAPH\_H}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{DataStructs_8h}{DataStructs.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}algorithm"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{graph_8h}{graph.h}}"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}map"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{readGraph_8h_a9bcce566b5bc23db18b48f6c4641bcfe}{writeAssignments}}(\textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classEdge}{outputFilepath}},\ std::vector<assignment>\&\ \mbox{\hyperlink{classEdge}{assignments}});}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{readGraph_8h_a39c38f27523a887fdf4bcfe2c889760d}{writeFailedAssignments}}(\textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classEdge}{outputFilepath}},\ std::vector<failedAssignment>\&\ \mbox{\hyperlink{classEdge}{failedAssignments}});}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{readGraph_8h_a5bdbd8eb0104075c57ae06fb8ca4e10d}{readGraphAssignments}}(\mbox{\hyperlink{classEdge}{Graph<T>}}\ *\mbox{\hyperlink{classEdge}{g}},\ \mbox{\hyperlink{classEdge}{Vertex<T>}}\ *\mbox{\hyperlink{classEdge}{s}},\ \mbox{\hyperlink{classEdge}{Vertex<T>}}\ *\mbox{\hyperlink{classEdge}{t}},\textcolor{keyword}{const}\ std::map<int\_node,\ submission>\&\ \mbox{\hyperlink{classEdge}{submissionData}},\textcolor{keyword}{const}\ std::map<int\_node,reviewer>\&\ \mbox{\hyperlink{classEdge}{reviewerData}},\ std::vector<assignment>\&\ \mbox{\hyperlink{classEdge}{assignments}},std::vector<failedAssignment>\&\ \mbox{\hyperlink{classEdge}{failedAssignments}},\ \textcolor{keywordtype}{bool}\ \&\ \mbox{\hyperlink{classEdge}{allAssigned}})\ \{}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{classEdge}{allAssigned}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ \mbox{\hyperlink{classEdge}{articleEdge}}:\mbox{\hyperlink{classEdge}{s}}-\/>getAdj())\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classEdge}{articleEdge}}-\/>\mbox{\hyperlink{classEdge_a3df378e283d6c8be5be4170ac8d7f4e8}{getWeight}}()!=\mbox{\hyperlink{classEdge}{articleEdge}}-\/>\mbox{\hyperlink{classEdge_a75458cfc838ca5aee5c34cb9f03b5647}{getFlow}}())\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classEdge}{allAssigned}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classEdge}{allAssigned}}\ ||\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ \mbox{\hyperlink{classEdge}{articleEdge}}:\mbox{\hyperlink{classEdge}{s}}-\/>getAdj())\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classEdge}{Vertex<T>}}*\ \mbox{\hyperlink{classEdge}{articleNode}}=\mbox{\hyperlink{classEdge}{articleEdge}}-\/>\mbox{\hyperlink{classEdge_a9a2de066dff8513dd788d553fc1d0c81}{getDest}}();}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ \mbox{\hyperlink{classEdge}{reviewerEdge}}:\mbox{\hyperlink{classEdge}{articleNode}}-\/>getAdj())\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classEdge}{Vertex<T>}}*\ \mbox{\hyperlink{classEdge}{reviewerNode}}=\mbox{\hyperlink{classEdge}{reviewerEdge}}-\/>\mbox{\hyperlink{classEdge_a9a2de066dff8513dd788d553fc1d0c81}{getDest}}();}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classEdge}{reviewerEdge}}-\/>\mbox{\hyperlink{classEdge_a75458cfc838ca5aee5c34cb9f03b5647}{getFlow}}()==1)\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classEdge}{assignments}}.push\_back(\{\&\mbox{\hyperlink{classEdge}{submissionData}}.at(\mbox{\hyperlink{classEdge}{articleNode}}-\/>getInfo()),\&\mbox{\hyperlink{classEdge}{reviewerData}}.at(\mbox{\hyperlink{classEdge}{reviewerNode}}-\/>getInfo())\});}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{true})\{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ \mbox{\hyperlink{classEdge}{articleEdge}}:\mbox{\hyperlink{classEdge}{s}}-\/>getAdj())\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classEdge}{Vertex<T>}}*\ \mbox{\hyperlink{classEdge}{articleNode}}=\mbox{\hyperlink{classEdge}{articleEdge}}-\/>\mbox{\hyperlink{classEdge_a9a2de066dff8513dd788d553fc1d0c81}{getDest}}();}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classEdge}{articleEdge}}-\/>\mbox{\hyperlink{classEdge_a3df378e283d6c8be5be4170ac8d7f4e8}{getWeight}}()!=\mbox{\hyperlink{classEdge}{articleEdge}}-\/>\mbox{\hyperlink{classEdge_a75458cfc838ca5aee5c34cb9f03b5647}{getFlow}}())\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classEdge}{failedAssignments}}.push\_back(\{\&\mbox{\hyperlink{classEdge}{submissionData}}.at(\mbox{\hyperlink{classEdge}{articleNode}}-\/>getInfo()),(\textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{classEdge}{int}})(\mbox{\hyperlink{classEdge}{articleEdge}}-\/>\mbox{\hyperlink{classEdge_a3df378e283d6c8be5be4170ac8d7f4e8}{getWeight}}()-\/\mbox{\hyperlink{classEdge}{articleEdge}}-\/>\mbox{\hyperlink{classEdge_a75458cfc838ca5aee5c34cb9f03b5647}{getFlow}}())\});}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//DA\_PROJECT\_1\_READGRAPH\_H}}
 
 \end{DoxyCode}

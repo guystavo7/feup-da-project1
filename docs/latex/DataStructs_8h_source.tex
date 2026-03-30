@@ -5,89 +5,68 @@
 \DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ gustavobastos\ on\ 13/03/26.}}
 \DoxyCodeLine{00003\ \textcolor{comment}{//}}
 \DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ DA\_PROJECT\_1\_DATASTRUCTS\_H}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ DA\_PROJECT\_1\_DATASTRUCTS\_H}}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsubmission}{submission}}\{}
-\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structsubmission_a16dd0fa09d7b2b04bba9c9f3082e7b7f}{id}};}
-\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structsubmission_a72f1c50ffbf26d0c33f0bd734bb9112f}{primary}};}
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structsubmission_a3c9ebaf6bc00b4f48da36b396a6969db}{secondary}}\ =\ -\/1;}
-\DoxyCodeLine{00013\ \ \ \ \ std::string\ \mbox{\hyperlink{structsubmission_a020920ab824a91e8b777c09e3d2b0c74}{title}}=\textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{00014\ \ \ \ \ std::string\ \mbox{\hyperlink{structsubmission_ab36edc8fe31940539f0a86d338904985}{name}}=\textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{00015\ \ \ \ \ std::string\ \mbox{\hyperlink{structsubmission_a359fa9a7a90df3740f9321bcba9b4eb1}{email}}=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ DA\_PROJECT\_1\_DATASTRUCTS\_H}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ DA\_PROJECT\_1\_DATASTRUCTS\_H}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \};}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structreviewer}{reviewer}}\{}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structreviewer_aed7f3cc96f82dc80dd511af31bf7ff65}{id}};}
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structreviewer_a5b8f777cf4d69dd454295966356c46b1}{primary}};}
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structreviewer_a789f3d44c297f7fd9a8e0ab8ef0305a3}{secondary}}\ =\ -\/2;}
-\DoxyCodeLine{00023\ \ \ \ \ std::string\ \mbox{\hyperlink{structreviewer_abef4ea152fa1de4623d2695711929007}{name}}=\textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{00024\ \ \ \ \ std::string\ \mbox{\hyperlink{structreviewer_a86f3abcab6c1575114af1e57b2179988}{email}}=\textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \};}
-\DoxyCodeLine{00027\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00028\ \textcolor{comment}{struct\ article\ \{}}
-\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ int\ id;}}
-\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ int\ primaryDomain;}}
-\DoxyCodeLine{00031\ \textcolor{comment}{\ \ \ \ int\ secondaryDomain=-\/1;}}
-\DoxyCodeLine{00032\ \textcolor{comment}{\ \ \ \ //\ \ std::string\ title="{}"{};}}
-\DoxyCodeLine{00033\ \textcolor{comment}{\};}}
-\DoxyCodeLine{00034\ \textcolor{comment}{}}
-\DoxyCodeLine{00035\ \textcolor{comment}{struct\ reviewer\ \{}}
-\DoxyCodeLine{00036\ \textcolor{comment}{\ \ \ \ int\ id;}}
-\DoxyCodeLine{00037\ \textcolor{comment}{\ \ \ \ int\ primaryDomain;}}
-\DoxyCodeLine{00038\ \textcolor{comment}{\ \ \ \ int\ secondaryDomain=-\/1;}}
-\DoxyCodeLine{00039\ \textcolor{comment}{\ \ \ \ //\ \ std::string\ name="{}"{};}}
-\DoxyCodeLine{00040\ \textcolor{comment}{}}
-\DoxyCodeLine{00041\ \textcolor{comment}{\};*/}}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structassignment}{assignment}}\ \{}
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsubmission}{submission}}*\ \mbox{\hyperlink{structassignment_afa12d61a51c3ea7928b99938b0a3e981}{a}};}
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structreviewer}{reviewer}}*\ \mbox{\hyperlink{structassignment_ae451fc789010465c53ea63ae1165099e}{rw}};}
-\DoxyCodeLine{00046\ \};}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structfailedAssignment}{failedAssignment}}\ \{}
-\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsubmission}{submission}}*\ \mbox{\hyperlink{structfailedAssignment_a2cfd3c0f556c38b36862069545e91828}{a}};}
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structfailedAssignment_af68f32a556ed2c3e8a842f2d772ae809}{missingSubmissions}};}
-\DoxyCodeLine{00051\ \};}
-\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsubmission}{submission}}\{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structsubmission_a16dd0fa09d7b2b04bba9c9f3082e7b7f}{id}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structsubmission_a72f1c50ffbf26d0c33f0bd734bb9112f}{primary}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structsubmission_a3c9ebaf6bc00b4f48da36b396a6969db}{secondary}}\ =\ -\/1;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ std::string\ \mbox{\hyperlink{structsubmission_a020920ab824a91e8b777c09e3d2b0c74}{title}}=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00025\ \ \ \ \ std::string\ \mbox{\hyperlink{structsubmission_ab36edc8fe31940539f0a86d338904985}{name}}=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00026\ \ \ \ \ std::string\ \mbox{\hyperlink{structsubmission_a359fa9a7a90df3740f9321bcba9b4eb1}{email}}=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structreviewer}{reviewer}}\{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structreviewer_aed7f3cc96f82dc80dd511af31bf7ff65}{id}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structreviewer_a5b8f777cf4d69dd454295966356c46b1}{primary}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structreviewer_a789f3d44c297f7fd9a8e0ab8ef0305a3}{secondary}}\ =\ -\/2;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ std::string\ \mbox{\hyperlink{structreviewer_abef4ea152fa1de4623d2695711929007}{name}}=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00038\ \ \ \ \ std::string\ \mbox{\hyperlink{structreviewer_a86f3abcab6c1575114af1e57b2179988}{email}}=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structint__node}{int\_node}}\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structint__node_a6f2a289a4a1dddaa4a1729888a92cae4}{integer}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structint__node_a6c31ade9c1d4022e7e8139e8dbcbd5da}{is\_sub}}=\textcolor{keyword}{false};\ \ \ \ \ \ }
+\DoxyCodeLine{00052\ \};}
 \DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
-\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{DataStructs_8h_ab5da89d1c3dc42a446c326dd43adf215}{readGraphAssignments}}(\mbox{\hyperlink{classGraph}{Graph<T>}}\ *g,\ \mbox{\hyperlink{classVertex}{Vertex<T>}}\ *s,\ \mbox{\hyperlink{classVertex}{Vertex<T>}}\ *t,\textcolor{keyword}{const}\ std::map<int,\ submission>\&\ submissionData,\textcolor{keyword}{const}\ std::map<int,reviewer>\&\ reviewerData,\ std::vector<assignment>\&\ assignments,std::vector<failedAssignment>\&\ failedAssignments,\ \textcolor{keywordtype}{bool}\ \&\ allAssigned)\ \{}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \ \ allAssigned\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ articleEdge:s-\/>\mbox{\hyperlink{classVertex_a0010a7d0b7db1bb81dd2ebb1ffae650a}{getAdj}}())\ \{}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (articleEdge-\/>getWeight()!=articleEdge-\/>getFlow())\ \{}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ allAssigned\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00064\ \ \ \ \ \}}
-\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{if}\ (allAssigned)\ \{}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ articleEdge:s-\/>\mbox{\hyperlink{classVertex_a0010a7d0b7db1bb81dd2ebb1ffae650a}{getAdj}}())\ \{}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classVertex}{Vertex<T>}}*\ articleNode=articleEdge-\/>getDest();}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ reviewerEdge:articleNode-\/>\mbox{\hyperlink{classVertex_a0010a7d0b7db1bb81dd2ebb1ffae650a}{getAdj}}())\ \{}
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classVertex}{Vertex<T>}}*\ reviewerNode=reviewerEdge-\/>getDest();}
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (reviewerEdge-\/>getFlow()==1)\ \{}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ assignments.push\_back(\{\&submissionData.at(articleNode-\/>\mbox{\hyperlink{classVertex_a48eae2f7af2362634adab02b7b2dbec6}{getInfo}}()),\&reviewerData.at(reviewerNode-\/>\mbox{\hyperlink{classVertex_a48eae2f7af2362634adab02b7b2dbec6}{getInfo}}())\});}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00075\ \ \ \ \ \}}
-\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ articleEdge:s-\/>\mbox{\hyperlink{classVertex_a0010a7d0b7db1bb81dd2ebb1ffae650a}{getAdj}}())\ \{}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classVertex}{Vertex<T>}}*\ articleNode=articleEdge-\/>getDest();}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (articleEdge-\/>getWeight()!=articleEdge-\/>getFlow())\ \{}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ failedAssignments.push\_back(\{\&submissionData.at(articleNode-\/>\mbox{\hyperlink{classVertex_a48eae2f7af2362634adab02b7b2dbec6}{getInfo}}()),(\textcolor{keywordtype}{unsigned}\ int)(articleEdge-\/>getWeight()-\/articleEdge-\/>getFlow())\});}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00083\ }
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{DataStructs_8h_a204de6dd7f7e6dbe62276c1d0cfe9ed7}{operator<\ }}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structint__node}{int\_node}}\&\ i1,\textcolor{keyword}{const}\ \mbox{\hyperlink{structint__node}{int\_node}}\&\ i2)\ ;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{DataStructs_8h_ad1e40e98c966b3146b884f85ee30b10a}{operator==\ }}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structint__node}{int\_node}}\&\ i1,\textcolor{keyword}{const}\ \mbox{\hyperlink{structint__node}{int\_node}}\&\ i2);}
+\DoxyCodeLine{00063\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00064\ \textcolor{comment}{struct\ article\ \{}}
+\DoxyCodeLine{00065\ \textcolor{comment}{\ \ \ \ int\ id;}}
+\DoxyCodeLine{00066\ \textcolor{comment}{\ \ \ \ int\ primaryDomain;}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ \ \ \ int\ secondaryDomain=-\/1;}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ \ \ \ //\ \ std::string\ title="{}"{};}}
+\DoxyCodeLine{00069\ \textcolor{comment}{\};}}
+\DoxyCodeLine{00070\ \textcolor{comment}{}}
+\DoxyCodeLine{00071\ \textcolor{comment}{struct\ reviewer\ \{}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ \ \ \ int\ id;}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ \ \ \ int\ primaryDomain;}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ \ \ \ int\ secondaryDomain=-\/1;}}
+\DoxyCodeLine{00075\ \textcolor{comment}{\ \ \ \ //\ \ std::string\ name="{}"{};}}
+\DoxyCodeLine{00076\ \textcolor{comment}{}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\};*/}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structassignment}{assignment}}\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsubmission}{submission}}*\ \mbox{\hyperlink{structassignment_afa12d61a51c3ea7928b99938b0a3e981}{a}};}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structreviewer}{reviewer}}*\ \mbox{\hyperlink{structassignment_ae451fc789010465c53ea63ae1165099e}{rw}};}
+\DoxyCodeLine{00085\ \};}
 \DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \}}
-\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//DA\_PROJECT\_1\_DATASTRUCTS\_H}}
+\DoxyCodeLine{00090\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structfailedAssignment}{failedAssignment}}\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsubmission}{submission}}*\ \mbox{\hyperlink{structfailedAssignment_a2cfd3c0f556c38b36862069545e91828}{a}};}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structfailedAssignment_af68f32a556ed2c3e8a842f2d772ae809}{missingSubmissions}};}
+\DoxyCodeLine{00093\ \};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//DA\_PROJECT\_1\_DATASTRUCTS\_H}}
 
 \end{DoxyCode}

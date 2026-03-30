@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mutablepriorityqueue_0',['MutablePriorityQueue',['../classMutablePriorityQueue.html',1,'']]]
+  ['int_5fnode_0',['int_node',['../structint__node.html',1,'']]]
 ];
