@@ -1,7 +1,10 @@
 //
 // Created by gustavobastos on 28/03/26.
 //
-
+/**
+ * @file Menu.cpp
+ * @brief Implementation of the console menu interface.
+ */
 #include "Menu.h"
 
 #include <cstdlib>
@@ -50,7 +53,9 @@ void Menu::print_c(const string &str) {
     printf_center(str, screen_width,"");
 
 }
-
+/**
+ * @brief Main menu loop implementation.
+ */
 void Menu::run() {
 
     string line;
@@ -130,7 +135,9 @@ void Menu::run() {
 
 }
 
-
+/**
+ * @brief Handles user input for loading data.
+ */
 void Menu::load_data() {
 
     string input;

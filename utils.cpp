@@ -1,13 +1,19 @@
 //
 // Created by gustavobastos on 22/03/26.
 //
-
+/**
+ * @file utils.cpp
+ * @brief Implementation of utility file handling functions.
+ */
 #include "utils.h"
 
 #include <iostream>
 #include <fstream>
 #include <string>
 
+/**
+ * @brief Implementation of file comparison function.
+ */
 // Função que compara até 'limiteLinhas' de dois ficheiros
 bool file_comparator(const std::string& caminho1, const std::string& caminho2, int limiteLinhas) {
     // Abre os ficheiros em modo de texto (padrão)
@@ -51,6 +57,9 @@ bool file_comparator(const std::string& caminho1, const std::string& caminho2, i
     return true; // Se o loop terminou sem retornar false, as linhas comparadas são iguais
 }
 
+/**
+ * @brief Implementation of file length calculation.
+ */
 int file_len(const std::string& filePath) {
     std::ifstream file(filePath);
 

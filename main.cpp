@@ -1,3 +1,11 @@
+/**
+ * @file main.cpp
+ * @brief Entry point of the assignment system.
+ *
+ * Supports two modes:
+ * - Interactive mode (menu-based)
+ * - Batch mode via command line
+ */
 #include "readGraph.h"
 #include "create_graph.h"
 #include "max_flow.h"
@@ -11,7 +19,12 @@
 // Created by gustavobastos on 19/03/26.
 //
 
-
+/**
+ * @brief Runs automated tests comparing outputs with expected results.
+ *
+ * Executes assignment generation on multiple datasets and validates
+ * results using file comparison utilities.
+ */
 void test() {
     string proj_path=get_project_cwd("DA_Project_1");
     string output_path=proj_path+"/output/";
@@ -43,6 +56,18 @@ void test() {
 
 }
 
+/**
+ * @brief Program entry point.
+ *
+ * @param argc Argument count
+ * @param argv Argument vector
+ * @return Exit status
+ *
+ * @details
+ * If called with:
+ * - `-b input.csv output.csv` → runs batch mode
+ * - no arguments → launches interactive menu
+ */
 int main(int argc, char *argv[]) {
     if (argc>1) {
 
