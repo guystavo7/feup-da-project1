@@ -86,27 +86,48 @@ submission readSubmission(params &params, string line, map<string, int> order){
         if (!word.empty()) fields.push_back(word);
     }
 
-    try{
-        res.id = stoi(fields[order["Id"]]);
-    } catch (...){
+    if (order.find("Id") != order.end()){
+        try{
+            res.id = stoi(fields[order["Id"]]);
+        } catch (...){
+            params.valid = false;
+        }
+    } else{
         params.valid = false;
     }
-
-    res.title = fields[order["Title"]];
-    res.name = fields[order["Authors"]];
-    res.email = fields[order["E-mail"]];
-    try{
-        res.primary = stoi(fields[order["Primary"]]);
-    } catch (...){
+    if (order.find("Title") != order.end()) {
+        res.title = fields[order["Title"]];
+    } else{
         params.valid = false;
     }
-    try{
-        res.secondary = order["Secondary"] < fields.size() ? stoi(fields[order["Secondary"]]) : -1;
-    } catch (...){
+    if (order.find("Authors") != order.end()) {
+        res.name = fields[order["Authors"]];
+    } else{
         params.valid = false;
     }
-    
-    
+    if (order.find("E-mail") != order.end()) {
+        res.email = fields[order["E-mail"]];
+    } else{
+        params.valid = false;
+    }
+    if (order.find("Primary") != order.end()) {
+        try{
+            res.primary = stoi(fields[order["Primary"]]);
+        } catch (...){
+            params.valid = false;
+        }
+    } else{
+        params.valid = false;
+    }
+    if (order.find("Secondary") != order.end()) {
+        try{
+            res.secondary = order["Secondary"] < fields.size() ? stoi(fields[order["Secondary"]]) : -1;
+        } catch (...){
+            params.valid = false;
+        }
+    } else{
+        params.valid = false;
+    }
 
     return res;
 }
@@ -136,24 +157,45 @@ reviewer readReviewer(params &params, string line, map<string, int> order){
         if (!word.empty()) fields.push_back(word);
     }
 
-    try{
-        res.id = stoi(fields[order["Id"]]);
-    } catch (...){
+    if (order.find("Id") != order.end()){
+        try{
+            res.id = stoi(fields[order["Id"]]);
+        } catch (...){
+            params.valid = false;
+        }
+    } else{
         params.valid = false;
     }
-
-    res.name = fields[order["Name"]];
-    res.email = fields[order["E-mail"]];
-    try{
-        res.primary = stoi(fields[order["Primary"]]);
-    } catch (...){
+    if (order.find("Name") != order.end()) {
+        res.name = fields[order["Name"]];
+    } else{
         params.valid = false;
     }
-    try{
-        res.secondary = order["Secondary"] < fields.size() ? stoi(fields[order["Secondary"]]) : -2;
-    } catch (...){
+    if (order.find("E-mail") != order.end()) {
+        res.email = fields[order["E-mail"]];
+    } else{
         params.valid = false;
     }
+    if (order.find("Primary") != order.end()) {
+        try{
+            res.primary = stoi(fields[order["Primary"]]);
+        } catch (...){
+            params.valid = false;
+        }
+    } else{
+        params.valid = false;
+    }
+    if (order.find("Secondary") != order.end()) {
+        try{
+            res.secondary = order["Secondary"] < fields.size() ? stoi(fields[order["Secondary"]]) : -2;
+        } catch (...){
+            params.valid = false;
+        }
+    } else{
+        params.valid = false;
+    }
+    
+    
 
     return res;
 }
@@ -166,8 +208,7 @@ reviewer readReviewer(params &params, string line, map<string, int> order){
  *
  * complexity O(1)
  */
-void readParameter(params &params, string line){
-    vector<int> steps = {0, 0, 0, 0, 0, 0};
+void readParameter(params &params, vector<int> &steps, string line){
 
     stringstream ss(line);
 
@@ -192,12 +233,6 @@ void readParameter(params &params, string line){
     else if (name == "PrimarySubmissionDomain"){params.PrimarySubmissionDomain = valueint; steps[4] += 1;}
     else if (name == "SecondarySubmissionDomain"){params.SecondarySubmissionDomain = valueint; steps[5] += 1;}
 
-    for (int i = 0; i<steps.size(); i++){
-        if (steps[i] != 1){
-            params.valid = false;
-        }
-    }
-
 }
 
 /**
@@ -210,8 +245,8 @@ void readParameter(params &params, string line){
  *
  * complexity O(1)
  */
-void readControl(params &params, string line){
-    vector<int> steps = {0, 0, 0};
+void readControl(params &params, vector<int> &steps, string line){
+    
     
     stringstream ss(line);
 
@@ -245,11 +280,6 @@ void readControl(params &params, string line){
     if (name == "OutputFileName"){
         params.OutputFileName = value;
         steps[2] += 1;
-    }
-    for (int i = 0; i<steps.size(); i++){
-        if (steps[i] != 1){
-            params.valid = false;
-        }
     }
 
     
@@ -286,6 +316,9 @@ params parse(string path){
     string line;
 
     vector<int> steps = {0, 0, 0, 0};
+    vector<int> parameterSteps = {0, 0, 0, 0, 0, 0};
+    vector<int> controlSteps = {0, 0, 0};
+
     int reading = -1; //1: reading submissions; 2: reading reviewers; 3: reading parameters; 4:  reading control
     map<string, int> m;
     if (!filestream.is_open()) {
@@ -323,10 +356,10 @@ params parse(string path){
                     reviewers.push_back(readReviewer(params, line, m));
                     break;
                 case 3:
-                    readParameter(params, line);
+                    readParameter(params, parameterSteps, line);
                     break;
                 case 4:
-                    readControl(params, line);
+                    readControl(params, controlSteps, line);
                     break;
                 default:
                     break;
@@ -340,6 +373,16 @@ params parse(string path){
     
     for (int i = 0; i<steps.size(); i++){
         if (steps[i] != 1){
+            params.valid = false;
+        }
+    }
+    for (int i = 0; i<parameterSteps.size(); i++){
+        if (parameterSteps[i] != 1){
+            params.valid = false;
+        }
+    }
+    for (int i = 0; i<controlSteps.size(); i++){
+        if (controlSteps[i] != 1){
             params.valid = false;
         }
     }
