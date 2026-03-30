@@ -44,7 +44,6 @@ void test() {
 }
 
 int main(int argc, char *argv[]) {
-
     if (argc>1) {
 
         if ((string(argv[1])!="-b") or argc!=4) {

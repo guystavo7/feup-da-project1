@@ -24,8 +24,8 @@ int assignment_command(const params & info, string output_file) {
     edmondsKarp(&graph,{-1,false},{-2,false});
 
 
-    std::map<int_node,const submission*>submissionData;
-    std::map<int_node,const reviewer*>reviewerData;
+    std::unordered_map<int_node,const submission*,int_node_hash>submissionData;
+    std::unordered_map<int_node,const reviewer*,int_node_hash>reviewerData;
 
     for (auto &s:info.submissions) {
         submissionData.insert({{s.id,true},&s});
