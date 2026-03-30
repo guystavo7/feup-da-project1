@@ -76,26 +76,23 @@ void readGraphAssignments(Graph<T> *g, Vertex<T> *s, Vertex<T> *t,const std::uno
             allAssigned = false;
         }
     }
-    if (allAssigned || true) {
-        for (auto& articleEdge:s->getAdj()) {
-            Vertex<T>* articleNode=articleEdge->getDest();
-            for (auto& reviewerEdge:articleNode->getAdj()) {
-                Vertex<T>* reviewerNode=reviewerEdge->getDest();
-                if (reviewerEdge->getFlow()==1) {
-                    assignments.push_back({submissionData.at(articleNode->getInfo()),reviewerData.at(reviewerNode->getInfo())});
-                }
+    for (auto& articleEdge:s->getAdj()) {
+        Vertex<T>* articleNode=articleEdge->getDest();
+        for (auto& reviewerEdge:articleNode->getAdj()) {
+            Vertex<T>* reviewerNode=reviewerEdge->getDest();
+            if (reviewerEdge->getFlow()==1) {
+                assignments.push_back({submissionData.at(articleNode->getInfo()),reviewerData.at(reviewerNode->getInfo())});
             }
         }
     }
-    if (true){
-        for (auto& articleEdge:s->getAdj()) {
-            Vertex<T>* articleNode=articleEdge->getDest();
+    for (auto& articleEdge:s->getAdj()) {
+        Vertex<T>* articleNode=articleEdge->getDest();
 
-            if (articleEdge->getWeight()!=articleEdge->getFlow()) {
-                failedAssignments.push_back({submissionData.at(articleNode->getInfo()),(unsigned int)(articleEdge->getWeight()-articleEdge->getFlow())});
-            }
-
+        if (articleEdge->getWeight()!=articleEdge->getFlow()) {
+            failedAssignments.push_back({submissionData.at(articleNode->getInfo()),
+                (unsigned int)(articleEdge->getWeight()-articleEdge->getFlow())});
         }
+
     }
 
 }

@@ -109,8 +109,8 @@ void testAndVisit(std::queue< Vertex<T>*> &q, Edge<T> *e, Vertex<T> *w, double r
         w->setVisited(true);
         w->setPath(e);
         q.push(w);
-        w->setDist(w->getDist()+1);
-       // q.decreaseKey(w);
+        //w->setDist(w->getDist()+1);
+        // q.decreaseKey(w);
     }
 }
 
