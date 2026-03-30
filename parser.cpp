@@ -301,7 +301,7 @@ void readControl(params &params, vector<int> &steps, string line){
  *
  * complexity O(n), where n is the number of lines in the file
  *
- * @note Assumes the input file follows the expected format.
+ * @note Detects if the file is in an acceptable format or is invalid
  */
 params parse(string path){
 
