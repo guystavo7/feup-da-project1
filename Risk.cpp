@@ -6,7 +6,7 @@
 
 #include <set>
 
-void set_tranfer_capacity( Graph<int_node>* g,int source_domain,const unordered_map<int,domain_flow_analisys>& domain_flow,const std::unordered_map<int_node,const reviewer*,int_node_hash>& reviewerData  ,  unordered_map<int_node,int,int_node_hash>&transfer_capacity) {
+void set_tranfer_capacity( Graph<int_node>* g,int source_domain,const unordered_map<int,domain_flow_analysis>& domain_flow,const std::unordered_map<int_node,const reviewer*,int_node_hash>& reviewerData  ,  unordered_map<int_node,int,int_node_hash>&transfer_capacity) {
 
 
     unordered_map<Vertex<int_node>*,Vertex<int_node>*>pred;
@@ -63,13 +63,13 @@ void set_tranfer_capacity( Graph<int_node>* g,int source_domain,const unordered_
     }
 }
 
-void set_drainage_flow(Graph<int_node>* g,int source_domain,unordered_map<int,domain_flow_analisys>& domain_flow,const std::unordered_map<int_node,const reviewer*,int_node_hash>& reviewerData) {
+void set_drainage_flow(Graph<int_node>* g,int source_domain,unordered_map<int,domain_flow_analysis>& domain_flow,const std::unordered_map<int_node,const reviewer*,int_node_hash>& reviewerData) {
 
     unordered_map<int_node,int,int_node_hash>transfer_capacity;
 
     set_tranfer_capacity(g,source_domain,domain_flow,reviewerData,transfer_capacity);
 
-    unordered_map<int,domain_flow_analisys> comp_domain_flow;
+    unordered_map<int,domain_flow_analysis> comp_domain_flow;
 
     for (auto p:domain_flow) {
         comp_domain_flow.insert(p);
@@ -127,14 +127,14 @@ void set_drainage_flow(Graph<int_node>* g,int source_domain,unordered_map<int,do
 
 }
 
-std::vector<int> risk_analisys(Graph<int_node>* g,const std::unordered_map<int_node,const reviewer*,int_node_hash>& reviewerData) {
+std::vector<int> risk_analysis(Graph<int_node>* g,const std::unordered_map<int_node,const reviewer*,int_node_hash>& reviewerData) {
     std::vector<int> ans;
 
     unordered_map<int,bool>domain_added;
 
     std::vector <const Vertex<int_node>*>  rev_nodes;
 
-    unordered_map<int,domain_flow_analisys> domain_flow;
+    unordered_map<int,domain_flow_analysis> domain_flow;
     for ( Vertex<int_node> *node:g->getVertexSet()) {
         if (node->getInfo().integer>=0 and node->getInfo().is_sub==false) {
             rev_nodes.push_back(node);
@@ -199,7 +199,7 @@ std::vector<int> risk_analisys(Graph<int_node>* g,const std::unordered_map<int_n
 }
 
 
-void risk_analisys(const string & output_filepath,Graph<int_node> *g,const std::unordered_map<int_node,const reviewer*,int_node_hash>& reviewerData,bool allAssigned) {
+void risk_analysis(const string & output_filepath,Graph<int_node> *g,const std::unordered_map<int_node,const reviewer*,int_node_hash>& reviewerData,bool allAssigned) {
 
     if (!allAssigned) {
         FILE* file=fopen(output_filepath.c_str(),"a");
@@ -208,7 +208,7 @@ void risk_analisys(const string & output_filepath,Graph<int_node> *g,const std::
         fclose(file);
         return;
     }
-    vector<int> risk_rv=risk_analisys(g,reviewerData);
+    vector<int> risk_rv=risk_analysis(g,reviewerData);
     sort(risk_rv.begin(),risk_rv.end());
     FILE* file=fopen(output_filepath.c_str(),"a");
     fprintf(file,"#Risk Analysis: 1\n");

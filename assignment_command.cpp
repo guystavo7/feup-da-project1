@@ -18,12 +18,8 @@
 
 
 int assignment_command(const params & info, string output_file) {
-
     Graph<int_node> graph=create(info);
-
     edmondsKarp(&graph,{-1,false},{-2,false});
-
-
     std::unordered_map<int_node,const submission*,int_node_hash>submissionData;
     std::unordered_map<int_node,const reviewer*,int_node_hash>reviewerData;
 
@@ -34,7 +30,6 @@ int assignment_command(const params & info, string output_file) {
     for (auto &r:info.reviewers) {
         reviewerData.insert({{r.id,false},&r});
     }
-
     Vertex<int_node>*source=graph.findVertex({-1,false});
     Vertex<int_node>*sink=graph.findVertex({-2,false});
 
@@ -51,7 +46,7 @@ int assignment_command(const params & info, string output_file) {
         writeFailedAssignments(output_file,failedAssignments);
     }
     if (info.RiskAnalysis==1) {
-        risk_analisys(output_file,&graph,reviewerData,allAssigned);
+        risk_analysis(output_file,&graph,reviewerData,allAssigned);
     }
 
 
