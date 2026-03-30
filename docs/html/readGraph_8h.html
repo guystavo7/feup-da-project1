@@ -74,7 +74,13 @@ $(function() {
   <div class="headertitle"><div class="title">readGraph.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Extracts assignments from the flow graph and writes results to files.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="DataStructs_8h_source.html">DataStructs.h</a>&quot;</code><br />
+<code>#include &quot;algorithm&quot;</code><br />
+<code>#include &quot;<a class="el" href="graph_8h_source.html">graph.h</a>&quot;</code><br />
+<code>#include &quot;map&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for readGraph.h:</div>
 <div class="dyncontent">
@@ -90,14 +96,115 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a85872e9a41dd96811613f312b343305a" id="r_a85872e9a41dd96811613f312b343305a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="readGraph_8h.html#a85872e9a41dd96811613f312b343305a">writeAssignments</a> (<a class="el" href="classEdge.html">const</a> std::string &amp;<a class="el" href="classEdge.html">outputFilepath</a>, <a class="el" href="classEdge.html">const</a> std::vector&lt; <a class="el" href="structassignment.html">assignment</a> &gt; &amp;<a class="el" href="classEdge.html">assignments</a>)</td></tr>
-<tr class="separator:a85872e9a41dd96811613f312b343305a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b69dc8665d95dab71fb386621a27ac9" id="r_a1b69dc8665d95dab71fb386621a27ac9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="readGraph_8h.html#a1b69dc8665d95dab71fb386621a27ac9">writeFailedAssignments</a> (<a class="el" href="classEdge.html">const</a> std::string &amp;<a class="el" href="classEdge.html">outputFilepath</a>, <a class="el" href="classEdge.html">const</a> std::vector&lt; <a class="el" href="structfailedAssignment.html">failedAssignment</a> &gt; &amp;<a class="el" href="classEdge.html">failedAssignments</a>)</td></tr>
-<tr class="separator:a1b69dc8665d95dab71fb386621a27ac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bcce566b5bc23db18b48f6c4641bcfe" id="r_a9bcce566b5bc23db18b48f6c4641bcfe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="readGraph_8h.html#a9bcce566b5bc23db18b48f6c4641bcfe">writeAssignments</a> (<a class="el" href="classEdge.html">const</a> std::string &amp;<a class="el" href="classEdge.html">outputFilepath</a>, std::vector&lt; <a class="el" href="structassignment.html">assignment</a> &gt; &amp;<a class="el" href="classEdge.html">assignments</a>)</td></tr>
+<tr class="memdesc:a9bcce566b5bc23db18b48f6c4641bcfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes successful assignments to an output file.  <br /></td></tr>
+<tr class="separator:a9bcce566b5bc23db18b48f6c4641bcfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39c38f27523a887fdf4bcfe2c889760d" id="r_a39c38f27523a887fdf4bcfe2c889760d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="readGraph_8h.html#a39c38f27523a887fdf4bcfe2c889760d">writeFailedAssignments</a> (<a class="el" href="classEdge.html">const</a> std::string &amp;<a class="el" href="classEdge.html">outputFilepath</a>, std::vector&lt; <a class="el" href="structfailedAssignment.html">failedAssignment</a> &gt; &amp;<a class="el" href="classEdge.html">failedAssignments</a>)</td></tr>
+<tr class="memdesc:a39c38f27523a887fdf4bcfe2c889760d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes failed assignments to an output file.  <br /></td></tr>
+<tr class="separator:a39c38f27523a887fdf4bcfe2c889760d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bdbd8eb0104075c57ae06fb8ca4e10d" id="r_a5bdbd8eb0104075c57ae06fb8ca4e10d"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="classEdge.html">class</a> <a class="el" href="classEdge.html">T</a> &gt; </td></tr>
+<tr class="memitem:a5bdbd8eb0104075c57ae06fb8ca4e10d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="readGraph_8h.html#a5bdbd8eb0104075c57ae06fb8ca4e10d">readGraphAssignments</a> (<a class="el" href="classGraph.html">Graph</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *<a class="el" href="classEdge.html">g</a>, <a class="el" href="classVertex.html">Vertex</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *<a class="el" href="classEdge.html">s</a>, <a class="el" href="classVertex.html">Vertex</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *<a class="el" href="classEdge.html">t</a>, <a class="el" href="classEdge.html">const</a> std::map&lt; <a class="el" href="structint__node.html">int_node</a>, <a class="el" href="structsubmission.html">submission</a> &gt; &amp;<a class="el" href="classEdge.html">submissionData</a>, <a class="el" href="classEdge.html">const</a> std::map&lt; <a class="el" href="structint__node.html">int_node</a>, <a class="el" href="structreviewer.html">reviewer</a> &gt; &amp;<a class="el" href="classEdge.html">reviewerData</a>, std::vector&lt; <a class="el" href="structassignment.html">assignment</a> &gt; &amp;<a class="el" href="classEdge.html">assignments</a>, std::vector&lt; <a class="el" href="structfailedAssignment.html">failedAssignment</a> &gt; &amp;<a class="el" href="classEdge.html">failedAssignments</a>, <a class="el" href="classEdge.html">bool</a> &amp;<a class="el" href="classEdge.html">allAssigned</a>)</td></tr>
+<tr class="memdesc:a5bdbd8eb0104075c57ae06fb8ca4e10d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts assignments from the flow graph.  <br /></td></tr>
+<tr class="separator:a5bdbd8eb0104075c57ae06fb8ca4e10d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a85872e9a41dd96811613f312b343305a" name="a85872e9a41dd96811613f312b343305a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85872e9a41dd96811613f312b343305a">&#9670;&#160;</a></span>writeAssignments()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Extracts assignments from the flow graph and writes results to files. </p>
+<p>This module is responsible for:</p><ul>
+<li>Interpreting the flow graph after running the max-flow algorithm</li>
+<li>Extracting valid assignments between submissions and reviewers</li>
+<li>Identifying failed assignments (insufficient reviewers)</li>
+<li>Writing results to output files </li>
+</ul>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a5bdbd8eb0104075c57ae06fb8ca4e10d" name="a5bdbd8eb0104075c57ae06fb8ca4e10d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bdbd8eb0104075c57ae06fb8ca4e10d">&#9670;&#160;</a></span>readGraphAssignments()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="classEdge.html">class</a> <a class="el" href="classEdge.html">T</a> &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEdge.html">void</a> readGraphAssignments </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGraph.html">Graph</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classVertex.html">Vertex</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classVertex.html">Vertex</a>&lt; <a class="el" href="classEdge.html">T</a> &gt; *&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classEdge.html">const</a> std::map&lt; <a class="el" href="structint__node.html">int_node</a>, <a class="el" href="structsubmission.html">submission</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>submissionData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classEdge.html">const</a> std::map&lt; <a class="el" href="structint__node.html">int_node</a>, <a class="el" href="structreviewer.html">reviewer</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>reviewerData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="structassignment.html">assignment</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>assignments</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="structfailedAssignment.html">failedAssignment</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>failedAssignments</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classEdge.html">bool</a> &amp;&#160;</td>
+          <td class="paramname"><em>allAssigned</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Extracts assignments from the flow graph. </p>
+<p>Interprets the result of the max-flow algorithm by:</p><ul>
+<li>Identifying edges with flow = 1 between submissions and reviewers</li>
+<li>Creating assignment objects</li>
+<li>Detecting submissions that did not receive enough reviewers</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>Pointer to the graph </td></tr>
+    <tr><td class="paramname">s</td><td>Source vertex </td></tr>
+    <tr><td class="paramname">t</td><td>Target vertex </td></tr>
+    <tr><td class="paramname">submissionData</td><td>Map from graph nodes to submission data </td></tr>
+    <tr><td class="paramname">reviewerData</td><td>Map from graph nodes to reviewer data </td></tr>
+    <tr><td class="paramname">assignments</td><td>Output vector of successful assignments </td></tr>
+    <tr><td class="paramname">failedAssignments</td><td>Output vector of failed assignments </td></tr>
+    <tr><td class="paramname">allAssigned</td><td>Boolean flag indicating if all submissions were fully assigned</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>complexity O(V+E) </p>
+
+</div>
+</div>
+<a id="a9bcce566b5bc23db18b48f6c4641bcfe" name="a9bcce566b5bc23db18b48f6c4641bcfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bcce566b5bc23db18b48f6c4641bcfe">&#9670;&#160;</a></span>writeAssignments()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -111,7 +218,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classEdge.html">const</a> std::vector&lt; <a class="el" href="structassignment.html">assignment</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="structassignment.html">assignment</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>assignments</em>&#160;</td>
         </tr>
         <tr>
@@ -122,10 +229,26 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Writes successful assignments to an output file. </p>
+<p>The outputs are of types:</p><ul>
+<li>Submission, Reviewer , Matching Domain</li>
+<li>Reviewer, Submission, Matching Domain</li>
+<li>Total number of assignments</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">outputFilepath</td><td>Path to output file </td></tr>
+    <tr><td class="paramname">assignments</td><td>Vector of successful assignments</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>complexity O(n*log(n)), due to sorting</p>
+<p>Writes successful assignments to an output file. </p>
+
 </div>
 </div>
-<a id="a1b69dc8665d95dab71fb386621a27ac9" name="a1b69dc8665d95dab71fb386621a27ac9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b69dc8665d95dab71fb386621a27ac9">&#9670;&#160;</a></span>writeFailedAssignments()</h2>
+<a id="a39c38f27523a887fdf4bcfe2c889760d" name="a39c38f27523a887fdf4bcfe2c889760d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39c38f27523a887fdf4bcfe2c889760d">&#9670;&#160;</a></span>writeFailedAssignments()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -139,7 +262,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classEdge.html">const</a> std::vector&lt; <a class="el" href="structfailedAssignment.html">failedAssignment</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="structfailedAssignment.html">failedAssignment</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>failedAssignments</em>&#160;</td>
         </tr>
         <tr>
@@ -149,6 +272,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Writes failed assignments to an output file. </p>
+<p>Lists submissions that did not receive enough reviewers and the number of missing assignments.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">outputFilepath</td><td>Path to output file </td></tr>
+    <tr><td class="paramname">failedAssignments</td><td>Vector of failed assignments</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>complexity O(n)</p>
+<p>Writes failed assignments to an output file. </p>
 
 </div>
 </div>

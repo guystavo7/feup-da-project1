@@ -75,12 +75,16 @@ $(function() {
   <div class="headertitle"><div class="title">parser.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Handles parsing of input files into local data structures.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;sstream&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
+<code>#include &quot;<a class="el" href="DataStructs_8h_source.html">DataStructs.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for parser.h:</div>
 <div class="dyncontent">
@@ -96,19 +100,62 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsubmission.html">submission</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structreviewer.html">reviewer</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparams.html">params</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores all parsed input data.  <a href="structparams.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a90768359d3e6be42acd6866e7e8d58ac" id="r_a90768359d3e6be42acd6866e7e8d58ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structparams.html">params</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8h.html#a90768359d3e6be42acd6866e7e8d58ac">parse</a> (<a class="el" href="classEdge.html">string</a> <a class="el" href="classEdge.html">file</a>)</td></tr>
+<tr class="memdesc:a90768359d3e6be42acd6866e7e8d58ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a CSV input file.  <br /></td></tr>
 <tr class="separator:a90768359d3e6be42acd6866e7e8d58ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33f12f1a581a6f8137b061891e573ea0" id="r_a33f12f1a581a6f8137b061891e573ea0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8h.html#a33f12f1a581a6f8137b061891e573ea0">get_project_cwd</a> (<a class="el" href="classEdge.html">const</a> <a class="el" href="classEdge.html">string</a> &amp;<a class="el" href="classEdge.html">project_name</a>)</td></tr>
+<tr class="memdesc:a33f12f1a581a6f8137b061891e573ea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the root directory of the project.  <br /></td></tr>
+<tr class="separator:a33f12f1a581a6f8137b061891e573ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Handles parsing of input files into local data structures. </p>
+<p>This module reads structured input files describing submissions, reviewers, parameters, and control options, and converts them into our project's data structures. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a33f12f1a581a6f8137b061891e573ea0" name="a33f12f1a581a6f8137b061891e573ea0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33f12f1a581a6f8137b061891e573ea0">&#9670;&#160;</a></span>get_project_cwd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEdge.html">string</a> get_project_cwd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classEdge.html">const</a> <a class="el" href="classEdge.html">string</a> &amp;&#160;</td>
+          <td class="paramname"><em>project_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the root directory of the project. </p>
+<p>Uses the current working directory and extracts the path up to the specified project folder name.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">project_name</td><td>Name of the project folder </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string Absolute path to the project root directory</dd></dl>
+<p>complexity O(n), where n is the length of the current path string</p>
+<p>Gets the root directory of the project.</p>
+<p>Searches for the project name in the current path and trims the path accordingly.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">project_name</td><td>Name of the project folder </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string Path to project root</dd></dl>
+<p>complexity O(n), where n is the length of the path </p>
+
+</div>
+</div>
 <a id="a90768359d3e6be42acd6866e7e8d58ac" name="a90768359d3e6be42acd6866e7e8d58ac"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a90768359d3e6be42acd6866e7e8d58ac">&#9670;&#160;</a></span>parse()</h2>
 
@@ -119,11 +166,39 @@ Functions</h2></td></tr>
           <td class="memname"><a class="el" href="structparams.html">params</a> parse </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classEdge.html">string</a>&#160;</td>
-          <td class="paramname"><em>file</em></td><td>)</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Parses a CSV input file. </p>
+<p>Extracts submissions, reviewers, and parameters.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>Path to input file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>params Struct containing all parsed data</dd></dl>
+<p>complexity O(n), where n is number of lines in the file</p>
+<p>Parses a CSV input file.</p>
+<p>The file is processed line by line and divided into sections:</p><ul>
+<li>#Submissions</li>
+<li>#Reviewers</li>
+<li>#Parameters</li>
+<li>#Control</li>
+</ul>
+<p>Depending on the current section, the appropriate parsing function is used.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>Path to the input file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>params Struct containing all parsed data</dd></dl>
+<p>complexity O(n), where n is the number of lines in the file</p>
+<dl class="section note"><dt>Note</dt><dd>Assumes the input file follows the expected format. </dd></dl>
 
 </div>
 </div>

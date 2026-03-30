@@ -1,3 +1,10 @@
+/**
+ * @file parser.cpp
+ * @brief Implementation of CSV parsing utilities.
+ *
+ * Contains helper functions to parse submissions, reviewers,
+ * parameters, and control sections from input files.
+ */
 #include "parser.h"
 
 #include <cstring>
@@ -6,7 +13,13 @@
 using namespace std;
 
 
-
+/**
+ * @brief Removes leading spaces from a string.
+ *
+ * @param word String to trim
+ *
+ * complexity O(n), where n is the length of the string
+ */
 void trimer(string &word){
     while (!word.empty() && word[0] == ' '){
         word.erase(0,1);
@@ -14,7 +27,17 @@ void trimer(string &word){
 }
 
 
-
+/**
+ * @brief Reads a header line and maps column names to indices.
+ *
+ * Removes the leading '#' and splits the line by ',' to create
+ * a mapping between column names and their positions.
+ *
+ * @param line Header line
+ * @return map<string,int> Mapping of field names to column indices
+ *
+ * complexity O(k), where k is the number of columns
+ */
 map<string, int> readLayout(string line) {
     map<string, int> m;
     while (!line.empty() && line[0] == '#'){
@@ -38,6 +61,17 @@ map<string, int> readLayout(string line) {
     return m;
 }
 
+/**
+ * @brief Parses a submission from a CSV line.
+ *
+ * Extracts submission fields based on the column mapping.
+ *
+ * @param line CSV line representing a submission
+ * @param order Mapping of column names to indices
+ * @return submission Parsed submission structure
+ *
+ * complexity O(k), where k is the number of fields
+ */
 submission readSubmission(params &params, string line, map<string, int> order){
 
     submission res;
@@ -77,6 +111,17 @@ submission readSubmission(params &params, string line, map<string, int> order){
     return res;
 }
 
+/**
+ * @brief Parses a reviewer from a CSV line.
+ *
+ * Extracts reviewer fields based on the column mapping.
+ *
+ * @param line CSV line representing a reviewer
+ * @param order Mapping of column names to indices
+ * @return reviewer Parsed reviewer structure
+ *
+ * complexity O(k)
+ */
 reviewer readReviewer(params &params, string line, map<string, int> order){
 
     reviewer res;
@@ -113,6 +158,14 @@ reviewer readReviewer(params &params, string line, map<string, int> order){
     return res;
 }
 
+/**
+ * @brief Parses a parameter line and updates the params struct.
+ *
+ * @param params Reference to params structure
+ * @param line CSV line containing parameter name and value
+ *
+ * complexity O(1)
+ */
 void readParameter(params &params, string line){
     vector<int> steps = {0, 0, 0, 0, 0, 0};
 
@@ -147,6 +200,16 @@ void readParameter(params &params, string line){
 
 }
 
+/**
+ * @brief Parses control parameters from a CSV line.
+ *
+ * Handles assignment generation, risk analysis, and output file name.
+ *
+ * @param params Reference to params structure
+ * @param line CSV line containing control data
+ *
+ * complexity O(1)
+ */
 void readControl(params &params, string line){
     vector<int> steps = {0, 0, 0};
     
@@ -192,6 +255,24 @@ void readControl(params &params, string line){
     
 }
 
+/**
+ * @brief Parses the input CSV file and builds the params structure.
+ *
+ * The file is processed line by line and divided into sections:
+ * - #Submissions
+ * - #Reviewers
+ * - #Parameters
+ * - #Control
+ *
+ * Depending on the current section, the appropriate parsing function is used.
+ *
+ * @param path Path to the input file
+ * @return params Struct containing all parsed data
+ *
+ * complexity O(n), where n is the number of lines in the file
+ *
+ * @note Assumes the input file follows the expected format.
+ */
 params parse(string path){
 
 
@@ -266,6 +347,16 @@ params parse(string path){
     return params;
 }
 
+/**
+ * @brief Retrieves the project root directory from the current working directory.
+ *
+ * Searches for the project name in the current path and trims the path accordingly.
+ *
+ * @param project_name Name of the project folder
+ * @return string Path to project root
+ *
+ * complexity O(n), where n is the length of the path
+ */
 string get_project_cwd(const string &project_name) {
 
     string res;

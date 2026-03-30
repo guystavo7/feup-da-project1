@@ -28,8 +28,14 @@ digraph "Testing/readGraphTests.cpp"
   Node1 -> Node11 [id="edge12_Node000001_Node000011",color="steelblue1",style="solid",tooltip=" "];
   Node11 [id="Node000011",label="unistd.h",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
   Node1 -> Node12 [id="edge13_Node000001_Node000012",color="steelblue1",style="solid",tooltip=" "];
-  Node12 [id="Node000012",label="../DataStructs.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$DataStructs_8h.html",tooltip=" "];
-  Node1 -> Node13 [id="edge14_Node000001_Node000013",color="steelblue1",style="solid",tooltip=" "];
-  Node13 [id="Node000013",label="../readGraph.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$readGraph_8h.html",tooltip=" "];
-  Node13 -> Node12 [id="edge15_Node000013_Node000012",color="steelblue1",style="solid",tooltip=" "];
+  Node12 [id="Node000012",label="../DataStructs.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$DataStructs_8h.html",tooltip="Defines core data structures used in the project."];
+  Node12 -> Node13 [id="edge14_Node000012_Node000013",color="steelblue1",style="solid",tooltip=" "];
+  Node13 [id="Node000013",label="string",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node12 -> Node5 [id="edge15_Node000012_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node14 [id="edge16_Node000001_Node000014",color="steelblue1",style="solid",tooltip=" "];
+  Node14 [id="Node000014",label="../readGraph.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$readGraph_8h.html",tooltip="Extracts assignments from the flow graph and writes results to files."];
+  Node14 -> Node12 [id="edge17_Node000014_Node000012",color="steelblue1",style="solid",tooltip=" "];
+  Node14 -> Node8 [id="edge18_Node000014_Node000008",color="steelblue1",style="solid",tooltip=" "];
+  Node14 -> Node3 [id="edge19_Node000014_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node14 -> Node10 [id="edge20_Node000014_Node000010",color="steelblue1",style="solid",tooltip=" "];
 }

@@ -1,6 +1,14 @@
 \doxysection{read\+Graph.\+h File Reference}
 \hypertarget{readGraph_8h}{}\label{readGraph_8h}\index{readGraph.h@{readGraph.h}}
+
+
+Extracts assignments from the flow graph and writes results to files.  
+
+
 {\ttfamily \#include "{}Data\+Structs.\+h"{}}\newline
+{\ttfamily \#include "{}algorithm"{}}\newline
+{\ttfamily \#include "{}graph.\+h"{}}\newline
+{\ttfamily \#include "{}map"{}}\newline
 Include dependency graph for read\+Graph.\+h\+:
 % FIG 0
 This graph shows which files directly or indirectly include this file\+:
@@ -8,22 +16,108 @@ This graph shows which files directly or indirectly include this file\+:
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classEdge}{void}} \mbox{\hyperlink{readGraph_8h_a85872e9a41dd96811613f312b343305a}{write\+Assignments}} (\mbox{\hyperlink{classEdge}{const}} std\+::string \&\mbox{\hyperlink{classEdge}{output\+Filepath}}, \mbox{\hyperlink{classEdge}{const}} std\+::vector$<$ \mbox{\hyperlink{structassignment}{assignment}} $>$ \&\mbox{\hyperlink{classEdge}{assignments}})
-\item 
-\mbox{\hyperlink{classEdge}{void}} \mbox{\hyperlink{readGraph_8h_a1b69dc8665d95dab71fb386621a27ac9}{write\+Failed\+Assignments}} (\mbox{\hyperlink{classEdge}{const}} std\+::string \&\mbox{\hyperlink{classEdge}{output\+Filepath}}, \mbox{\hyperlink{classEdge}{const}} std\+::vector$<$ \mbox{\hyperlink{structfailedAssignment}{failed\+Assignment}} $>$ \&\mbox{\hyperlink{classEdge}{failed\+Assignments}})
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classEdge}{void}} \mbox{\hyperlink{readGraph_8h_a9bcce566b5bc23db18b48f6c4641bcfe}{write\+Assignments}} (\mbox{\hyperlink{classEdge}{const}} std\+::string \&\mbox{\hyperlink{classEdge}{output\+Filepath}}, std\+::vector$<$ \mbox{\hyperlink{structassignment}{assignment}} $>$ \&\mbox{\hyperlink{classEdge}{assignments}})
+\begin{DoxyCompactList}\small\item\em Writes successful assignments to an output file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEdge}{void}} \mbox{\hyperlink{readGraph_8h_a39c38f27523a887fdf4bcfe2c889760d}{write\+Failed\+Assignments}} (\mbox{\hyperlink{classEdge}{const}} std\+::string \&\mbox{\hyperlink{classEdge}{output\+Filepath}}, std\+::vector$<$ \mbox{\hyperlink{structfailedAssignment}{failed\+Assignment}} $>$ \&\mbox{\hyperlink{classEdge}{failed\+Assignments}})
+\begin{DoxyCompactList}\small\item\em Writes failed assignments to an output file. \end{DoxyCompactList}\item 
+{\footnotesize template$<$\mbox{\hyperlink{classEdge}{class}} \mbox{\hyperlink{classEdge}{T}} $>$ }\\\mbox{\hyperlink{classEdge}{void}} \mbox{\hyperlink{readGraph_8h_a5bdbd8eb0104075c57ae06fb8ca4e10d}{read\+Graph\+Assignments}} (\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classEdge}{g}}, \mbox{\hyperlink{classVertex}{Vertex}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classEdge}{s}}, \mbox{\hyperlink{classVertex}{Vertex}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classEdge}{t}}, \mbox{\hyperlink{classEdge}{const}} std\+::map$<$ \mbox{\hyperlink{structint__node}{int\+\_\+node}}, \mbox{\hyperlink{structsubmission}{submission}} $>$ \&\mbox{\hyperlink{classEdge}{submission\+Data}}, \mbox{\hyperlink{classEdge}{const}} std\+::map$<$ \mbox{\hyperlink{structint__node}{int\+\_\+node}}, \mbox{\hyperlink{structreviewer}{reviewer}} $>$ \&\mbox{\hyperlink{classEdge}{reviewer\+Data}}, std\+::vector$<$ \mbox{\hyperlink{structassignment}{assignment}} $>$ \&\mbox{\hyperlink{classEdge}{assignments}}, std\+::vector$<$ \mbox{\hyperlink{structfailedAssignment}{failed\+Assignment}} $>$ \&\mbox{\hyperlink{classEdge}{failed\+Assignments}}, \mbox{\hyperlink{classEdge}{bool}} \&\mbox{\hyperlink{classEdge}{all\+Assigned}})
+\begin{DoxyCompactList}\small\item\em Extracts assignments from the flow graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Extracts assignments from the flow graph and writes results to files. 
+
+This module is responsible for\+:
+\begin{DoxyItemize}
+\item Interpreting the flow graph after running the max-\/flow algorithm
+\item Extracting valid assignments between submissions and reviewers
+\item Identifying failed assignments (insufficient reviewers)
+\item Writing results to output files 
+\end{DoxyItemize}
 
 \doxysubsection{Function Documentation}
-\Hypertarget{readGraph_8h_a85872e9a41dd96811613f312b343305a}\label{readGraph_8h_a85872e9a41dd96811613f312b343305a} 
+\Hypertarget{readGraph_8h_a5bdbd8eb0104075c57ae06fb8ca4e10d}\label{readGraph_8h_a5bdbd8eb0104075c57ae06fb8ca4e10d} 
+\index{readGraph.h@{readGraph.h}!readGraphAssignments@{readGraphAssignments}}
+\index{readGraphAssignments@{readGraphAssignments}!readGraph.h@{readGraph.h}}
+\doxysubsubsection{\texorpdfstring{readGraphAssignments()}{readGraphAssignments()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classEdge}{class}} \mbox{\hyperlink{classEdge}{T}} $>$ \\
+\mbox{\hyperlink{classEdge}{void}} read\+Graph\+Assignments (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{g,  }\item[{\mbox{\hyperlink{classVertex}{Vertex}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{s,  }\item[{\mbox{\hyperlink{classVertex}{Vertex}}$<$ \mbox{\hyperlink{classEdge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{t,  }\item[{\mbox{\hyperlink{classEdge}{const}} std\+::map$<$ \mbox{\hyperlink{structint__node}{int\+\_\+node}}, \mbox{\hyperlink{structsubmission}{submission}} $>$ \&}]{submission\+Data,  }\item[{\mbox{\hyperlink{classEdge}{const}} std\+::map$<$ \mbox{\hyperlink{structint__node}{int\+\_\+node}}, \mbox{\hyperlink{structreviewer}{reviewer}} $>$ \&}]{reviewer\+Data,  }\item[{std\+::vector$<$ \mbox{\hyperlink{structassignment}{assignment}} $>$ \&}]{assignments,  }\item[{std\+::vector$<$ \mbox{\hyperlink{structfailedAssignment}{failed\+Assignment}} $>$ \&}]{failed\+Assignments,  }\item[{\mbox{\hyperlink{classEdge}{bool}} \&}]{all\+Assigned }\end{DoxyParamCaption})}
+
+
+
+Extracts assignments from the flow graph. 
+
+Interprets the result of the max-\/flow algorithm by\+:
+\begin{DoxyItemize}
+\item Identifying edges with flow = 1 between submissions and reviewers
+\item Creating assignment objects
+\item Detecting submissions that did not receive enough reviewers
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph \\
+\hline
+{\em s} & Source vertex \\
+\hline
+{\em t} & Target vertex \\
+\hline
+{\em submission\+Data} & Map from graph nodes to submission data \\
+\hline
+{\em reviewer\+Data} & Map from graph nodes to reviewer data \\
+\hline
+{\em assignments} & Output vector of successful assignments \\
+\hline
+{\em failed\+Assignments} & Output vector of failed assignments \\
+\hline
+{\em all\+Assigned} & Boolean flag indicating if all submissions were fully assigned\\
+\hline
+\end{DoxyParams}
+complexity O(V+E) \Hypertarget{readGraph_8h_a9bcce566b5bc23db18b48f6c4641bcfe}\label{readGraph_8h_a9bcce566b5bc23db18b48f6c4641bcfe} 
 \index{readGraph.h@{readGraph.h}!writeAssignments@{writeAssignments}}
 \index{writeAssignments@{writeAssignments}!readGraph.h@{readGraph.h}}
 \doxysubsubsection{\texorpdfstring{writeAssignments()}{writeAssignments()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{void}} write\+Assignments (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{const}} std\+::string \&}]{output\+Filepath,  }\item[{\mbox{\hyperlink{classEdge}{const}} std\+::vector$<$ \mbox{\hyperlink{structassignment}{assignment}} $>$ \&}]{assignments }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{void}} write\+Assignments (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{const}} std\+::string \&}]{output\+Filepath,  }\item[{std\+::vector$<$ \mbox{\hyperlink{structassignment}{assignment}} $>$ \&}]{assignments }\end{DoxyParamCaption})}
 
-\Hypertarget{readGraph_8h_a1b69dc8665d95dab71fb386621a27ac9}\label{readGraph_8h_a1b69dc8665d95dab71fb386621a27ac9} 
+
+
+Writes successful assignments to an output file. 
+
+The outputs are of types\+:
+\begin{DoxyItemize}
+\item Submission, Reviewer , Matching Domain
+\item Reviewer, Submission, Matching Domain
+\item Total number of assignments
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em output\+Filepath} & Path to output file \\
+\hline
+{\em assignments} & Vector of successful assignments\\
+\hline
+\end{DoxyParams}
+complexity O(n\texorpdfstring{$\ast$}{*}log(n)), due to sorting
+
+Writes successful assignments to an output file. \Hypertarget{readGraph_8h_a39c38f27523a887fdf4bcfe2c889760d}\label{readGraph_8h_a39c38f27523a887fdf4bcfe2c889760d} 
 \index{readGraph.h@{readGraph.h}!writeFailedAssignments@{writeFailedAssignments}}
 \index{writeFailedAssignments@{writeFailedAssignments}!readGraph.h@{readGraph.h}}
 \doxysubsubsection{\texorpdfstring{writeFailedAssignments()}{writeFailedAssignments()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{void}} write\+Failed\+Assignments (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{const}} std\+::string \&}]{output\+Filepath,  }\item[{\mbox{\hyperlink{classEdge}{const}} std\+::vector$<$ \mbox{\hyperlink{structfailedAssignment}{failed\+Assignment}} $>$ \&}]{failed\+Assignments }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{void}} write\+Failed\+Assignments (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{const}} std\+::string \&}]{output\+Filepath,  }\item[{std\+::vector$<$ \mbox{\hyperlink{structfailedAssignment}{failed\+Assignment}} $>$ \&}]{failed\+Assignments }\end{DoxyParamCaption})}
 
+
+
+Writes failed assignments to an output file. 
+
+Lists submissions that did not receive enough reviewers and the number of missing assignments.
+
+
+\begin{DoxyParams}{Parameters}
+{\em output\+Filepath} & Path to output file \\
+\hline
+{\em failed\+Assignments} & Vector of failed assignments\\
+\hline
+\end{DoxyParams}
+complexity O(n)
+
+Writes failed assignments to an output file. 

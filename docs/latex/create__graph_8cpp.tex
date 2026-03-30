@@ -1,19 +1,48 @@
 \doxysection{create\+\_\+graph.\+cpp File Reference}
 \hypertarget{create__graph_8cpp}{}\label{create__graph_8cpp}\index{create\_graph.cpp@{create\_graph.cpp}}
+
+
+Implementation of the graph builder functions.  
+
+
 {\ttfamily \#include "{}create\+\_\+graph.\+h"{}}\newline
 Include dependency graph for create\+\_\+graph.\+cpp\+:
 % FIG 0
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{classEdge}{int}} $>$ \mbox{\hyperlink{create__graph_8cpp_a8a1cd60efde4b2cfc827ca1ba39e7498}{create}} (\mbox{\hyperlink{structparams}{params}} info)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structint__node}{int\+\_\+node}} $>$ \mbox{\hyperlink{create__graph_8cpp_abe93ef2dae0a031a8c101f4a27ce4760}{create}} (\mbox{\hyperlink{structparams}{params}} info)
+\begin{DoxyCompactList}\small\item\em Builds the graph used to solve the assignment problem. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the graph builder functions. 
+
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{create__graph_8cpp_a8a1cd60efde4b2cfc827ca1ba39e7498}\label{create__graph_8cpp_a8a1cd60efde4b2cfc827ca1ba39e7498} 
+\Hypertarget{create__graph_8cpp_abe93ef2dae0a031a8c101f4a27ce4760}\label{create__graph_8cpp_abe93ef2dae0a031a8c101f4a27ce4760} 
 \index{create\_graph.cpp@{create\_graph.cpp}!create@{create}}
 \index{create@{create}!create\_graph.cpp@{create\_graph.cpp}}
 \doxysubsubsection{\texorpdfstring{create()}{create()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{classEdge}{int}} $>$ create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structparams}{params}}}]{info }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structint__node}{int\+\_\+node}} $>$ create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structparams}{params}}}]{info }\end{DoxyParamCaption})}
 
+
+
+Builds the graph used to solve the assignment problem. 
+
+Constructs a graph for the assignment problem.
+
+This function creates a bipartite graph between submissions and reviewers, connecting it to a source and sink to enable max-\/flow utilization.
+
+The matching between submissions and reviewers is determined according to the Generate\+Assignments parameter and domain compatibility.
+
+
+\begin{DoxyParams}{Parameters}
+{\em info} & Input data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Graph$<$int\+\_\+node$>$ Constructed graph.
+\end{DoxyReturn}
+complexity O(\+S\texorpdfstring{$\ast$}{*}\+R) 
