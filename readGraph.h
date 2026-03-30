@@ -17,7 +17,7 @@ void writeFailedAssignments(const std::string& outputFilepath, std::vector<faile
 
 
 template<class T>
-void readGraphAssignments(Graph<T> *g, Vertex<T> *s, Vertex<T> *t,const std::map<int_node, const submission*>& submissionData,const std::map<int_node,const reviewer*>& reviewerData, std::vector<assignment>& assignments,std::vector<failedAssignment>& failedAssignments, bool & allAssigned) {
+void readGraphAssignments(Graph<T> *g, Vertex<T> *s, Vertex<T> *t,const std::unordered_map<int_node, const submission*,int_node_hash>& submissionData,const std::unordered_map<int_node,const reviewer*,int_node_hash>& reviewerData, std::vector<assignment>& assignments,std::vector<failedAssignment>& failedAssignments, bool & allAssigned) {
 
     allAssigned = true;
 

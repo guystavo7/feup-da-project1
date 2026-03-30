@@ -17,3 +17,8 @@ bool operator< (const int_node& i1,const int_node& i2)  {
     }
     return i1.integer<i2.integer;
 }
+
+int int_node_hash::operator () (const int_node  &in) const
+{
+    return std::hash<int>()(in.integer);
+}

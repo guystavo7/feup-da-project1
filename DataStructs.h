@@ -7,8 +7,11 @@
 
 #include <string>
 #include "map"
+#include "unordered_map"
 #include <vector>
+#include <bits/std_thread.h>
 
+using namespace std;
 
 struct submission{
     int id;
@@ -37,6 +40,13 @@ struct int_node {
 
 bool operator< (const int_node& i1,const int_node& i2) ;
 bool operator== (const int_node& i1,const int_node& i2);
+
+struct int_node_hash
+{
+
+    int operator () (const int_node  &in) const;
+};
+
 /*
 struct article {
     int id;

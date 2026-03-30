@@ -7,6 +7,8 @@
 #include <vector>
 #include "DataStructs.h"
 #include "graph.h"
+#include "map"
+#include "unordered_map"
 
 using namespace std;
 struct domain_flow_analisys {
@@ -15,9 +17,9 @@ struct domain_flow_analisys {
     int drainage_capacity;
 };
 
-std::vector<int> risk_analisys(Graph<int_node>* g,const std::map<int_node,const reviewer*>& reviewerData);
+std::vector<int> risk_analisys(Graph<int_node>* g,const std::unordered_map<int_node,const reviewer*,int_node_hash>& reviewerData);
 
-void risk_analisys(const string & output_filepath,Graph<int_node> *g,const std::map<int_node,const reviewer*>& reviewerData,bool allAssigned) ;
+void risk_analisys(const string & output_filepath,Graph<int_node> *g,const std::unordered_map<int_node,const reviewer*,int_node_hash>& reviewerData,bool allAssigned) ;
 
 
 #endif //DA_PROJECT_1_RISK_H
